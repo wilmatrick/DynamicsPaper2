@@ -1,0 +1,57 @@
+\section{The Simulation}
+
+\subsection{General information}
+
+\begin{itemize}
+\item \emph{Snapshot name:} snap\_
+\item \emph{Snapshot time:} \Wilma{[TO DO]}
+\item \emph{Reference:} \citet{2013ApJ...766...34D} \Wilma{[TO DO: I'm not sure...]}
+\end{itemize}
+
+
+\subsection{Particle Types}
+
+\begin{itemize}
+\item \emph{Particle Type 2: Stars.} 100 Million particles. Mean mass: $\sim 370 M_\odot$. Distributed in thick disk and shells.
+\item \emph{Particle Type 3: \Wilma{[TO DO]}.} 10 Million particles. Mean mass: $\sim 950 M_\odot$. Distributed everywhere.
+\item \emph{Particle Type 4: Giant Molecular clouds.} 1000 particles. Mean mass: $9.5 \cdot 10^5 M_\odot$. Distributed in thin disk. \citep{2013ApJ...766...34D}
+\item \emph{Particle Types 0 and 1:} Do not exist in this simulation snapshot.
+\end{itemize}
+
+
+\subsection{Coordinate System}
+
+Calculate moment of intertia (in \% units of largest entry):
+\begin{itemize}
+\item Star particles type 2, origin $= (0,0,0)$ (used in analysis for simplificity):
+\begin{equation*}
+\bar{\bar{I}} = \begin{pmatrix}
+50.1027 &   0.1950 & -0.0074 \\
+0.1950  &   50.2274 &  -0.0044 \\
+-0.0074 &  -0.0044 &   100
+\end{pmatrix}
+\end{equation*}
+\item Star particles type 2, origin $= (-0.007,0.002,-0.001)$ (particle position with deepest potential):
+\begin{equation*}
+\bar{\bar{I}} = \begin{pmatrix}
+50.1027 &  0.1950 & -0.0074\\
+ 0.195 & 50.2273 & -0.0044\\
+-0.0074 & -0.0044 & 100
+\end{pmatrix}
+\end{equation*}
+\item Particles type 2, 3 and 4, origin $= (-0.008, 0.004, -0.003)$ (particle position with deepest potential):
+\begin{equation*}
+\bar{\bar{I}} = \begin{pmatrix}
+88.598 &  0.090 & 0.015\\
+ 0.090 & 89.225 & 0.467\\
+ 0.015 &  0.467 & 100
+\end{pmatrix}
+\end{equation*}
+\item \Wilma{[TO DO: find out, where the origin is of the static Hernquist halo.]}
+\end{itemize}
+
+\subsection{Disk Scale Length}
+
+I fitted an radially exponential profile to the azimuthally averaged surface density of the star particles (2). I found 
+$$R_s = 2.4993$$
+As the Milky Way's disk scale length is also approximately 2.5 kpc, I can use the galaxy as it is. Lengths are in units of kpc, velocities in km/s, masses in $10^{10} M_\odot$.
