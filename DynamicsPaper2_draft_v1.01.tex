@@ -1,0 +1,218 @@
+%% Document class
+\documentclass[iop,revtex4,numberedappendix,appendixfloats]{emulateapj}
+
+%% General packages
+\usepackage{amsmath}
+\usepackage{mathrsfs }
+\usepackage{lscape}
+
+%% Figure packages
+\usepackage{grffile}
+\usepackage{subfigure}
+
+%% Referencing
+\usepackage{hyperref}
+
+%% Custom macros
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\newcommand{\pdf}{\ensuremath{pdf}}
+\newcommand{\pmodel}{\ensuremath{p_M}}
+\newcommand{\MAP}{MAP}
+\newcommand{\MAPs}{MAPs}
+\newcommand{\RM}{{\sl RoadMapping}}
+\makeatletter
+\newcommand{\testlabel}[2]{%
+ \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+ \hypertarget{#1}{#2}
+}
+\makeatother
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\newcommand{\Wilma}[1]{\textcolor{Magenta}{#1}}
+\newcommand{\HW}[1]{\textcolor{Green}{#1}}
+\newcommand{\Jo}[1]{\textcolor{Blue}{#1}}
+
+%% Abbreviations
+\shorttitle{The Influence of Spiral Arms on Action-based Dynamical Modelling of the Milky Way Disk}
+\shortauthors{Trick et al.}
+
+\begin{document}
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%TITLE
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\title{The Influence of Spiral Arms on Action-based Dynamical Milky Way Disk Modelling\\}
+
+%% Authors
+\author{Wilma H. Trick\altaffilmark{1,2}, Jo Bovy\altaffilmark{3}, Elena D'Onghia\HW{???}, and Hans-Walter Rix\altaffilmark{1}}
+
+%% Affiliations
+\altaffiltext{1}{Max-Planck-Institut f\"ur Astronomie, K\"onigstuhl 17, D-69117 Heidelberg, Germany}
+\altaffiltext{2}{Correspondence should be addressed to trick@mpia.de.}
+\altaffiltext{3}{Department of Astronomy and Astrophysics, University of Toronto, 50 St. George Street, Toronto, ON, M5S 3H4, Canada}
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%ABSTRACT
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\begin{abstract}
+\begin{itemize}
+\item One sentence on what RoadMapping is.
+\item Overall axisymmetric RoadMapping modelling works in the presence of non-axisymmetric spiral arms, as long as the volume is big enough.
+\end{itemize}
+\end{abstract}
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%KEYWORDS
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\keywords{Galaxy: disk --- Galaxy: fundamental parameters --- Galaxy: kinematics and dynamics --- Galaxy: structure --- \Wilma{[TO DO]}}
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%INTRODUCTION
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Introduction}
+
+\begin{itemize}
+\item Explain what RoadMapping is, also Acronym
+\item Summarize BR13
+\item Summarize results of Paper 1, mention that non-axisymmetries were not considered there
+\item Main question: Does axisymmetric RoadMapping modelling work in the presence of non-axiysmmetric spiral arms?
+\item Consequences: Both potential and orbit DF are not axisymmetric, i.e., the fitted axisymmetric potential model and DF do per se not contain the truth.
+\item How to approach this: Use simulation by D'Onghia et al. 2013 and apply RM to it
+\item The potential model we use is chosen mostly for practical reasons and is not necessarily the optimal one for the simulation. Also, we use a single qDF as DF - because it is the simplest thing to do. Also independently of the non-axisymmetries the chosen models might deviate from the truth. Where we investigated deviations between model and truth in isolated test cases, here several assumptions break down simultaneously.
+\end{itemize}
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%SIMULATION
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Data from a galaxy simulation}
+
+\begin{itemize}
+\item Figure: (x,y) and (R,z) distribution of particles, centroids of survey volumes marked, the main survey volume (4kpc on spiral arm) marked as circle
+\end{itemize}
+
+\subsection{Description of the galaxy simulation}
+
+\subsection{Survey volume and data}
+
+\begin{itemize}
+\item Mention that we do not consider any measurement errors
+\end{itemize}
+
+\subsection{Symmetrized potential model}
+
+\subsection{Quantifying influence of spiral arm}
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%MODELLING
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{\RM{} modelling}
+
+\subsection{Potential and DF model}
+
+\begin{itemize}
+\item Very short intro for actions
+\item Introduce potential model, explain that form of disk was mostly chosen to the closed form expression of $Phi$ which allows for fast calculation. Both MNHH, DEHH and KKS pot.
+\item Mention action calculation and that we tested explicitely that fixing Delta=0.45 and using staeckel interpolation grid does not degrade the analysis
+\item Write down DF formula, simplest DF possible. Others use much more complicated ones.
+\end{itemize}
+
+\subsection{Likelihood}
+
+\begin{itemize}
+\item Write down likelihood formula
+\item Introduce outlier model as new aspect
+\item Refer to Paper 1 for details how to evaluate it, but mention shortly that it is a combination of nested-grid and MCMC
+\end{itemize}
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%RESULTS
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Results}
+
+\subsection{A single application of \RM{}}
+
+\subsubsection{Fiducial test}
+
+\begin{itemize}
+\item $r_{max}=4kpc$
+\item $N_*=20,000$
+\item MNHH potential
+\end{itemize}
+
+\subsubsection{Recovering the stellar distribution}
+
+\begin{itemize}
+\item Figure: (x,y) and (R,z) distribution of residuals of true and best fit stellar distribution. Mark spiral arms as circles with radius Rg.
+\item Figure: 1D histograms in R,z,phi, comparison of  true, best fit and best fit in symmetrized potential
+\item Figure: 1D histograms in velocity and different (R,z,phi) bins comparison of  true, best fit and best fit in symmetrized potential
+\end{itemize}
+
+\subsubsection{Recovering the potential}
+
+%====================
+\begin{figure*}[!htbp]
+\plotone{fig/MNdHHdiffSph_4kpc8Spiral_b_test1_density_overview.pdf}
+\caption{Comparison of the true density distribution $\rho_{\Phi,\text{T}}$ in the snapshot (black) with the $\rho_{\Phi,\text{R}}$ recovered with \RM{} (blue) from $N_*=20,000$ stars in the survey volume with $r_\text{max}=4~\text{kpc}$ (yellow). }
+\label{fig:???}
+\end{figure*}
+%====================
+
+%====================
+\begin{figure*}[!htbp]
+\plotone{fig/MNdHHdiffSph_4kpc8Spiral_b_test1_vcirc_surfdens_overview.pdf}
+\caption{???}
+\label{fig:???}
+\end{figure*}
+%====================
+
+
+
+\begin{itemize}
+\item Figure: density overview plot
+\item Figure: vcirc, surfdens overview plot
+\item Figure: local potential overview plot, scatter plot of stars color coded according to deviation of true and best fit (maybe also symmetrized) potential. normalize potential such that at solar circle pot=0. Both in \% of true potential and number of sigma away.
+\item Figure: forces overview plot, incl. local forces scatter plot
+\item Discuss somehow that the model parameters are actually themselves not very good recovered. Maybe violin plot?
+\end{itemize}
+
+\subsubsection{Recovering the action distribution}
+
+\begin{itemize}
+\item Figure: residuals in action space, comparison of true/symmetrized vs. best fit actions (maybe also true vs. best fit in symmetrized potential), overplot Lz=vcirc*Rg of spiral arms
+\end{itemize}
+
+\subsection{Investigation of different aspects}
+
+\subsubsection{Test suite}
+
+\begin{itemize}
+\item $r_{max}=1,2,3,4,5kpc$
+\item $N_*=20,000$
+\item MNHH potential + KKS potential
+\item $R_{obs} =5 and 8 kpc$
+\end{itemize}
+
+\subsubsection{Survey volume and choice of potential model}
+
+\begin{itemize}
+\item Figure: x-axis: $r_{max}$, y-axis: one panel with mean stellar rms deviation in FR and one with Fz. With different potentials and $r_{max}$.
+\end{itemize}
+
+\subsubsection{Influence of spiral arms}
+
+\begin{itemize}
+\item Figure: x-axis: $\langle \kappa \rangle$, y-axis: one panel with mean stellar rms deviation in FR and one with Fz. Analyses with same potential but at different positions and sizes within the galaxy.
+\item Figure: x-axis: $sigma_\kappa$, y-axis: same as above figure.
+\end{itemize}
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%SUMMARY AND CONCLUSION
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Summary and conclusion}
+
+
+
+\end{document}
