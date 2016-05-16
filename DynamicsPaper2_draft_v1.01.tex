@@ -82,6 +82,8 @@
 \item Consequences: Both potential and orbit DF are not axisymmetric, i.e., the fitted axisymmetric potential model and DF do per se not contain the truth.
 \item How to approach this: Use simulation by D'Onghia et al. 2013 and apply RM to it
 \item The potential model we use is chosen mostly for practical reasons and is not necessarily the optimal one for the simulation. Also, we use a single qDF as DF - because it is the simplest thing to do. Also independently of the non-axisymmetries the chosen models might deviate from the truth. Where we investigated deviations between model and truth in isolated test cases, here several assumptions break down simultaneously.
+\item Explain actions very shortly. $\vect{J}=(J_R,J_\phi=L_z,J_z)$ quantify oscillation in the coordinate directions $(R,\phi,z)$. Are calculated from current phase-space position in a given potential $\Phi$.
+\item Say that actions are conserved in an axisymmetric potential, but not in non-axisymmetric potentials. (Maybe the mean vertical action is conserved \Wilma{[TO DO: Reference]}.) It is therefore important to check, if our modelling works in a system where actions are not conserved.
 \end{itemize}
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -89,22 +91,38 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{\RM{} modelling}
 
+\subsection{Likelihood}
+
+The data that goes into the modelling are the 6D position and velocity coordinates $(\vect{x}_i,\vect{v}_i)$ of $N_*$ stars within the survey volume. For simplicity we use a purely spatial selection function $\text{sf}(\vect{x})$ of spherical shape,
+\begin{equation*}
+\text{sf}(\vect{x}) \equiv \begin{cases} 1 &\mbox{if } \left| \vect{x}-\vect{x}_0 \right| \leq r_\text{max} \\
+0 & \mbox{otherwise} \end{cases},
+\end{equation*}
+whose maximum radius $r_\text{max}$ defines the boundary of the survey volume and which is centred on $\vect{x}_0 \equiv (R_0,\phi_0,z_0=0)$. Given a parametrized potential model $\Phi(R,z)$ with parameters $p_\Phi$, the $i$-th star is on an orbit characterized by the orbital actions 
+\begin{equation*}
+\vect{J}_i \equiv \vect{J}(\vect{x}_i,\vect{v}_i \mid p_\Phi).
+\end{equation*}
+The total number of stars being on orbit $\vect{J}_i$ is given by an orbit distribution function $\text{df}(\vect{J})$ with parameters $p_\text{df}$,
+\begin{equation*}
+\text{df}(\vect{J}_i \mid p_\text{df}) \equiv \text{df}(\vect{J}(\vect{x}_i,\vect{v}_i \mid p_\Phi) \mid p_\text{df}) \equiv \text{df}(\vect{x}_i,\vect{v}_i \mid p_\Phi,p_\text{df}),
+\end{equation*} 
+where the latter equivalence arises from the Jacobian determinant between the angle-action coordinates $(\vect{\theta},\vect{J})$ and cartesian phase-space coordinates $(\vect{x},\vect{v})$, which is $\left| \partial (\vect{x},\vect{v}) / \partial(\vect{\theta},\vect{J})\right|=1$ and therefore allows us to treat the $\text{df}$ equivalently as a distribution of current phase-space coordinates or a distribution of orbital actions only, with uniform distribution in the angles $\vect{\theta}$.
+
+\begin{itemize}
+\item \Wilma{Write down likelihood formula}
+\item \Wilma{Introduce outlier model as new aspect}
+\item \Wilma{Refer to Paper 1 for details how to evaluate it, but mention shortly that it is a combination of nested-grid and MCMC}
+\item \Wilma{Mention and reference galpy.}
+\end{itemize}
+
 \subsection{Potential and DF model}
 
 \begin{itemize}
-\item Very short intro for actions
 \item Introduce potential model, explain that form of disk was mostly chosen to the closed form expression of $Phi$ which allows for fast calculation. Both MNHH, DEHH and KKS pot.
 \item Mention action calculation and that we tested explicitely that fixing Delta=0.45 and using staeckel interpolation grid does not degrade the analysis
 \item Write down DF formula, simplest DF possible. Others use much more complicated ones.
 \end{itemize}
 
-\subsection{Likelihood}
-
-\begin{itemize}
-\item Write down likelihood formula
-\item Introduce outlier model as new aspect
-\item Refer to Paper 1 for details how to evaluate it, but mention shortly that it is a combination of nested-grid and MCMC
-\end{itemize}
 
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
