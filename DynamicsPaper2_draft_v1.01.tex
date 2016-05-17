@@ -100,20 +100,31 @@ The data that goes into the modelling are the 6D position and velocity coordinat
 \end{equation*}
 whose maximum radius $r_\text{max}$ defines the boundary of the survey volume and which is centred on $\vect{x}_0 \equiv (R_0,\phi_0,z_0=0)$. Given a parametrized potential model $\Phi(R,z)$ with parameters $p_\Phi$, the $i$-th star is on an orbit characterized by the orbital actions 
 \begin{equation*}
-\vect{J}_i \equiv \vect{J}(\vect{x}_i,\vect{v}_i \mid p_\Phi).
+\vect{J}_i \equiv \vect{J}[\vect{x}_i,\vect{v}_i \mid p_\Phi].
 \end{equation*}
-The total number of stars being on orbit $\vect{J}_i$ is given by an orbit distribution function $\text{df}(\vect{J})$ with parameters $p_\text{df}$,
+The probability of stars to be on the orbit $\vect{J}_i$ is proportional to a given orbit distribution function $\text{df}(\vect{J})$ with parameters $p_\text{df}$,
 \begin{equation*}
-\text{df}(\vect{J}_i \mid p_\text{df}) \equiv \text{df}(\vect{J}(\vect{x}_i,\vect{v}_i \mid p_\Phi) \mid p_\text{df}) \equiv \text{df}(\vect{x}_i,\vect{v}_i \mid p_\Phi,p_\text{df}),
+\text{df}(\vect{J}_i \mid p_\text{df}) \equiv \text{df}(\vect{J}[\vect{x}_i,\vect{v}_i \mid p_\Phi] \mid p_\text{df}) \equiv \text{df}(\vect{x}_i,\vect{v}_i \mid p_\Phi,p_\text{df}),
 \end{equation*} 
-where the latter equivalence arises from the Jacobian determinant between the angle-action coordinates $(\vect{\theta},\vect{J})$ and cartesian phase-space coordinates $(\vect{x},\vect{v})$, which is $\left| \partial (\vect{x},\vect{v}) / \partial(\vect{\theta},\vect{J})\right|=1$ and therefore allows us to treat the $\text{df}$ equivalently as a distribution of current phase-space coordinates or a distribution of orbital actions only, with uniform distribution in the angles $\vect{\theta}$.
+where the latter equivalence arises from the Jacobian determinant between the angle-action coordinates $(\vect{\theta},\vect{J})$ and cartesian phase-space coordinates $(\vect{x},\vect{v})$, which is $\left| \partial (\vect{x},\vect{v}) / \partial(\vect{\theta},\vect{J})\right|=1$ and therefore allows us to treat the $\text{df}$ equivalently as a distribution of current phase-space coordinates or a distribution of orbital actions only, with uniform distribution in the angles $\vect{\theta}$. In some sense, the $\text{df}(\vect{J})$ describes how we expect a realistic stellar population in the MW disk to look like.
 
-\begin{itemize}
-\item \Wilma{Write down likelihood formula}
-\item \Wilma{Introduce outlier model as new aspect}
-\item \Wilma{Refer to Paper 1 for details how to evaluate it, but mention shortly that it is a combination of nested-grid and MCMC}
-\item \Wilma{Mention and reference galpy.}
-\end{itemize}
+The joint likelihood of the $i$-th star being on an orbit $\vect{J}$ in the potential $\Phi$ and being within the survey volume is therefore
+\begin{equation*}
+\mathscr{L}_i \equiv \mathscr{L}(\vect{x}_i,\vect{v}_i) = \frac{\text{df}(\vect{x}_i,\vect{v}_i\mid p_\phi, p_\text{DF}) \cdot \text{sf}(\vect{x_i})}{\int \text{df}(\vect{x},\vect{v}\mid p_\Phi, p_\text{DF}) \cdot \text{sf}(\vect{x}) \ \Diff3 x \Diff3 v}.
+\end{equation*}
+The details how we evaluate the likelihood normalisation numerically to sufficiently high enough precision are discussed in Paper I.\footnote{\Wilma{[TO DO: Write what exact numerical accuracy we use and check that it is actually good enough.]}}
+
+In the scenario considered in this paper it can happen that there are a few ($\sim 1$ in 20,000) stars entering the catalogue that are for some reason  on rather extreme orbits, e.g., moving radially directly towards the center. These kinds of orbits do not belong to the set of orbits that we classically expect to make up a overall smooth galactic disk. To avoid that such single stars with very low likelihood mess up the modelling we introduce here a simple outlier model,
+\begin{equation*}
+\mathscr{L}_i \longrightarrow \max \left( \mathscr{L}_i, \epsilon \cdot \text{median}(\mathscr{L})\right),
+\end{equation*}
+where $\epsilon = 0.001$ for $N_*=20,000$ stars and $\text{median}(\mathscr{L})$ is the median of all the $N_*$ stellar likelihoods $\mathscr{L}_i$ with the given $p_\Phi$ and $p_\text{df}$. This outlier model was not used in Paper I.
+
+Following Paper I, we assume for now uninformative flat priors on the model parameters $p_\Phi$ and $p_\text{df}$ and find the maximum and width of the posterior probability function
+\begin{equation*}
+pdf(p_\Phi,p_\text{df} \mid \text{data}) \propto \prod_{i=1}^{N_*} \mathscr{L}_i \cdot prior(p_\Phi,p_\text{df})
+\end{equation*}
+using a nested-grid approach and then explore the full shape of the $\pdf$ using a Monte Carlo Markov Chain (MCMC)\footnote{\Wilma{[TO DO: Reference emcee]}}. Full details on this procedure are given in Paper I.
 
 \subsection{Potential and DF model}
 
@@ -121,6 +132,7 @@ where the latter equivalence arises from the Jacobian determinant between the an
 \item Introduce potential model, explain that form of disk was mostly chosen to the closed form expression of $Phi$ which allows for fast calculation. Both MNHH, DEHH and KKS pot.
 \item Mention action calculation and that we tested explicitely that fixing Delta=0.45 and using staeckel interpolation grid does not degrade the analysis
 \item Write down DF formula, simplest DF possible. Others use much more complicated ones.
+\item \Wilma{Mention and reference galpy.}
 \end{itemize}
 
 
