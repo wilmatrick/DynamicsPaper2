@@ -146,11 +146,37 @@ using a nested-grid approach and then explore the full shape of the $\pdf$ using
 \begin{figure*}[!htbp]
 \plotone{fig/plot_simulation_for_paper.pdf}
 \caption{}
-\label{fig:???}
+\label{fig:simulation}
 \end{figure*}
 %====================
 
 \subsection{Description of the galaxy simulation}
+
+We use a high-resolution N-body simulation of a disk galaxy by \citet{2013ApJ...766...34D} carried out with GADGET-3 code described in \citet{2005MNRAS.361..776S}, in which overdensities with properties similar to giant molecular clouds induced prominent spiral arms---and therefore non-axisymmetric sub-structure---via the swing amplification mechanism. 
+
+For details see \citet{2013ApJ...766...34D}, here we summarize the essential characteristics.
+
+The simulation has a gravitationally evolving stellar disk within a static/rigid analytic dark matter halo.
+
+The analytic halo follows a \citet{1990ApJ...356..359H} profile
+\begin{equation}
+\rho_\text{dm}(r) = \frac{M_\text{dm}}{2\pi} \frac{a_\text{dm}}{r (r+a_\text{dm})^3} \label{eq:dm_hernquist}
+\end{equation}
+with total halo mass $M_\text{dm} = 9.5\cdot 10^{11} ~M_\odot$ and scale length $a_\text{dm} = 29~\text{kpc}$ (Elena D'Onghia, private communication). \HW{[There is no way to check that this is indeed the case. What should I do?]}
+
+The disk consists of $10^8$ ``disk star'' particles, each having a mass of $370 ~M_\odot$, and 1000 ``giant molecular cloud'' particles with mass $9.5\cdot 10^{5} ~M_\odot$. Initially the particles are distributed following an exponential disk profile with density
+\begin{equation*}
+\rho_*(R,z) = \frac{M_*}{4\pi z_0 R_s^2} \text{sech}^2 \left( \frac{z}{z_0}\right) \exp \left(- \frac{R}{R_s} \right),
+\end{equation*}
+with $R_s = 2.5~\text{kpc}$ and $z_0=0.1R_s$ \Wilma{[TO DO: Check in my own measurements]} and total disk mass $M_* = 0.04\cdot M_\text{dm}$ \Wilma{[TO DO??? In Email from August 2011]}.
+
+The bulge consists of $10^7$ ``bulge star'' particles with mass $950 ~M_\odot$ and they are distributed following a spherical Hernquist profile analogous to Equation \eqref{eq:dm_hernquist}, with total mass $M_\text{bulge}=0.01 \cdot M_\text{dm} = \Wilma{???}$ and scale length $a_\text{bulge}=0.1\cdot R_s=0.25~\text{kpc}$.
+
+The simulation snapshot which we are using in this work has evolved under its own gravity for $\sim 250~\text{Myr}$. The mass density of simulation particles (without the DM halo) at this snapshot time is shown in Figure \ref{fig:simulation}. Pronounced spiral arms have developed due to the ``molecular cloud perturbers'', which can be seen in Figure \ref{fig:simulation} as small overdensities in the disk. The spherical bulge and very flattened disk are shown in the lower panel in Figure \ref{fig:simulation}.
+
+We have confirmed that the gravitational center of the particles corresponds to the coordinate origin.
+
+
 
 \subsection{Survey volume and data}
 
@@ -161,6 +187,8 @@ using a nested-grid approach and then explore the full shape of the $\pdf$ using
 \subsection{Symmetrized potential model}
 
 \subsection{Quantifying influence of spiral arm}
+
+\Wilma{[TO DO: There is a short comment on that in D'Onghia 2013 as well]}
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %RESULTS
@@ -247,6 +275,9 @@ using a nested-grid approach and then explore the full shape of the $\pdf$ using
 %SUMMARY AND CONCLUSION
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{Summary and conclusion}
+
+\bibliography{references_paper2}{}
+\bibliographystyle{aasjournal}
 
 
 
