@@ -89,7 +89,7 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %MODELLING
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\section{\RM{} modelling}
+\section{RoadMapping modelling}
 
 \subsection{Likelihood}
 
@@ -102,9 +102,9 @@ whose maximum radius $r_\text{max}$ defines the boundary of the survey volume an
 \begin{equation*}
 \vect{J}_i \equiv \vect{J}[\vect{x}_i,\vect{v}_i \mid p_\Phi].
 \end{equation*}
-The probability of stars to be on the orbit $\vect{J}_i$ is proportional to a given orbit distribution function $\text{df}(\vect{J})$ with parameters $p_\text{df}$,
+The probability of stars to be on the orbit $\vect{J}_i$ is proportional to a given orbit distribution function $\text{df}(\vect{J})$ with parameters $p_\text{DF}$,
 \begin{equation*}
-\text{df}(\vect{J}_i \mid p_\text{df}) \equiv \text{df}(\vect{J}[\vect{x}_i,\vect{v}_i \mid p_\Phi] \mid p_\text{df}) \equiv \text{df}(\vect{x}_i,\vect{v}_i \mid p_\Phi,p_\text{df}),
+\text{df}(\vect{J}_i \mid p_\text{DF}) \equiv \text{df}(\vect{J}[\vect{x}_i,\vect{v}_i \mid p_\Phi] \mid p_\text{DF}) \equiv \text{df}(\vect{x}_i,\vect{v}_i \mid p_\Phi,p_\text{DF}),
 \end{equation*} 
 where the latter equivalence arises from the Jacobian determinant between the angle-action coordinates $(\vect{\theta},\vect{J})$ and cartesian phase-space coordinates $(\vect{x},\vect{v})$, which is $\left| \partial (\vect{x},\vect{v}) / \partial(\vect{\theta},\vect{J})\right|=1$ and therefore allows us to treat the $\text{df}$ equivalently as a distribution of current phase-space coordinates or a distribution of orbital actions only, with uniform distribution in the angles $\vect{\theta}$. In some sense, the $\text{df}(\vect{J})$ describes how we expect a realistic stellar population in the MW disk to look like.
 
@@ -118,20 +118,45 @@ In the scenario considered in this paper it can happen that there are a few ($\s
 \begin{equation*}
 \mathscr{L}_i \longrightarrow \max \left( \mathscr{L}_i, \epsilon \cdot \text{median}(\mathscr{L})\right),
 \end{equation*}
-where $\epsilon = 0.001$ for $N_*=20,000$ stars and $\text{median}(\mathscr{L})$ is the median of all the $N_*$ stellar likelihoods $\mathscr{L}_i$ with the given $p_\Phi$ and $p_\text{df}$. This outlier model was not used in Paper I.
+where $\epsilon = 0.001$ for $N_*=20,000$ stars and $\text{median}(\mathscr{L})$ is the median of all the $N_*$ stellar likelihoods $\mathscr{L}_i$ with the given $p_\Phi$ and $p_\text{DF}$. This outlier model was not used in Paper I.
 
-Following Paper I, we assume for now uninformative flat priors on the model parameters $p_\Phi$ and $p_\text{df}$ and find the maximum and width of the posterior probability function
+Following Paper I, we assume for now uninformative flat priors on the model parameters $p_\Phi$ and $p_\text{DF}$ and find the maximum and width of the posterior probability function
 \begin{equation*}
-pdf(p_\Phi,p_\text{df} \mid \text{data}) \propto \prod_{i=1}^{N_*} \mathscr{L}_i \cdot prior(p_\Phi,p_\text{df})
+pdf(p_\Phi,p_\text{DF} \mid \text{data}) \propto \prod_{i=1}^{N_*} \mathscr{L}_i \cdot prior(p_\Phi,p_\text{DF})
 \end{equation*}
 using a nested-grid approach and then explore the full shape of the $\pdf$ using a Monte Carlo Markov Chain (MCMC)\footnote{\Wilma{[TO DO: Reference emcee]}}. Full details on this procedure are given in Paper I.
 
-\subsection{Potential and DF model}
+\subsection{ DF model}
+
+The most simple orbit distribution function exhibiting a disk-like structure may be the quasi-isothermal distribution function (qDF) introduced by \citet{2010MNRAS.401.2318B} and \citet{2011MNRAS.413.1889B}. It  proofed to be a successful model to describe the orbit distribution of individual mono-abundance populations (MAPs) in the Galactic disk \citep{2013ApJ...779..115B,2013MNRAS.434..652T}, that seem to be isothermal in $z$-direction (i.e., ``quasi-isothermal''). Modelling approaches trying to capture the overall disk distribution \citep{2014MNRAS.445.3133P,2015MNRAS.449.3479S} were describing the Galactic disk as a superposition of many qDFs. The qDF, which we already used in Paper I, has the functional form
+\begin{eqnarray}
+&&\text{qDF}(\vect{J} \mid p_\text{DF}) \nonumber\\
+&&= f_{\sigma_R}\left(J_R,L_z \mid p_\text{DF}\right) \times f_{\sigma_z}\left(J_z,L_z \mid p_\text{DF}\right)\label{eq:df_general}\end{eqnarray}
+where
+\begin{eqnarray}
+f_{\sigma_R}\left(J_R,L_z \mid p_\text{DF}\right) &=& n \times \frac{\Omega}{\pi\sigma_R^2(R_g) \kappa}\exp\left(-\frac{\kappa J_R}{\sigma_R^2(R_g)} \right) \nonumber\\
+&& \times \left[1+\tanh\left(L_z/L_0\right) \right]\\
+f_{\sigma_z}\left(J_z,L_z \mid p_\text{DF} \right) &=& \frac{\nu}{2 \pi \sigma_z^2(R_g)} \exp\left( -\frac{\nu J_z}{\sigma_z^2(R_g)} \right)
+\end{eqnarray}
+\citep{2011MNRAS.413.1889B}. The guiding-center radius $R_g$, circular frequency $\Omega$, radial/epicycle frequency $\kappa$ and vertical frequency $\nu$ describe the near-circular orbit with given angular momentum $L_z$ in a given potential. Counter-rotating orbits with $L_z < L_0$ are suppressed by the term $\left[1+\tanh\left(L_z/L_0\right) \right]$ (with $L_0 \sim 10~\text{km s}^{-1}~ \text{kpc}$). 
+We set the radial stellar tracer density $n(R_g)$ and velocity dispersion profiles $\sigma_z(R_g)$ and $\sigma_R(R_g)$ to
+\begin{eqnarray}
+n(R_g \mid p_\text{DF}) &\propto& \exp\left(-\frac{R_g}{h_R} \right)\\
+\sigma_R(R_g \mid p_\text{DF}) &=& \sigma_{R,0} \times \exp\left(- \frac{R_g-R_\odot}{h_{\sigma,R}} \right)\label{eq:sigmaRRg}\\
+\sigma_z(R_g \mid p_\text{DF}) &=& \sigma_{z,0} \times \exp\left(- \frac{R_g-R_\odot}{h_{\sigma,z}} \right)\label{eq:sigmazRg}.
+\end{eqnarray}
+The free model parameters of the qDF are therefore
+\begin{equation*}
+p_\text{DF} \equiv \left\{ \ln h_R, \ln \sigma_{R,0}, \ln \sigma_{z,0}, h_{\sigma,R}, h_{\sigma,z}\right\}.
+\end{equation*}
+
+Even though we do not have any stellar abundance or age information in the simulation snapshot we are going to investigate (see Section \ref{sec:simulation}) and we therefore cannot define stellar sub-populations for which the assumption of such a simple model might be reasonable, we will still try to model the whole disk with a single qDF---to see how far we can get with the simplest possible model.
+
+\subsection{Potential model}
 
 \begin{itemize}
 \item Introduce potential model, explain that form of disk was mostly chosen to the closed form expression of $Phi$ which allows for fast calculation. Both MNHH, DEHH and KKS pot.
 \item Mention action calculation and that we tested explicitely that fixing Delta=0.45 and using staeckel interpolation grid does not degrade the analysis
-\item Write down DF formula, simplest DF possible. Others use much more complicated ones.
 \item \Wilma{Mention and reference galpy.}
 \end{itemize}
 
@@ -140,7 +165,7 @@ using a nested-grid approach and then explore the full shape of the $\pdf$ using
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %SIMULATION
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\section{Data from a galaxy simulation}
+\section{Data from a galaxy simulation} \label{sec:simulation}
 
 %====================
 \begin{figure*}[!htbp]
