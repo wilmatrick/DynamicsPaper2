@@ -87,11 +87,66 @@
 \end{itemize}
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%SIMULATION
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Data from a galaxy simulation} \label{sec:simulation}
+
+%====================
+\begin{figure*}[!htbp]
+\plotone{fig/plot_simulation_for_paper.pdf}
+\caption{Simulation snapshot by \citet{2013ApJ...766...34D} . Shown are the surface mass density (in $(x,y)$ plane, upper panel) and mass density (in $(R,z)$ plane, lower panel) of the ``star'' particles belonging to disk, bulge and giant molecular clouds. (The dark matter halo in this simulation is static and analytic and not shown here.) Overplotted are the disk's scale length $R_s=2.5~\text{kpc}$ (see Section \ref{sec:simulation_description}) and the radii at which we center our test survey volumes in this investigation, $R=8$ and $5~\text{kpc}$. The centers of the different survey volumes are marked with a square, if the survey volume is centered on a spiral arm, or with a circle, if the volume is centerd on an inter-arm region. The yellow circle with radius $r_\text{max}=4~\text{kpc}$ marks the survey volume in which we conduct the analysis discussed in detail in Section \ref{sec:results_part1}. \Wilma{[TO DO: Rename $R_{disk}$ to $R_s$ as it is the scale length of the disk.]} \Wilma{[TO DO: Maybe include spiral arm residuals to show different strength of spiral arms?]}}
+\label{fig:simulation}
+\end{figure*}
+%====================
+
+\subsection{Description of the galaxy simulation} \label{sec:simulation_description}
+
+In this work we use stellar phase-space data drawn from high-resolution N-body simulation snapshot of a disk galaxy by \citet{2013ApJ...766...34D} carried out with GADGET-3 code described in \citet{2005MNRAS.361..776S}, in which overdensities with properties similar to giant molecular clouds induced prominent spiral arms---and therefore non-axisymmetric sub-structure---via the swing amplification mechanism. 
+
+For details see \citet{2013ApJ...766...34D}, here we summarize the essential characteristics.
+
+The simulation has a gravitationally evolving stellar disk within a static/rigid analytic dark matter halo.
+
+The analytic halo follows a \citet{1990ApJ...356..359H} profile
+\begin{equation}
+\rho_\text{dm}(r) = \frac{M_\text{dm}}{2\pi} \frac{a_\text{dm}}{r (r+a_\text{dm})^3} \label{eq:dm_hernquist}
+\end{equation}
+with total halo mass $M_\text{dm} = 9.5\cdot 10^{11} ~M_\odot$ and scale length $a_\text{dm} = 29~\text{kpc}$ (Elena D'Onghia, private communication). \HW{[There is no way to check that this is indeed the case. What should I do?]} \Jo{[What does "total mass computed at 160 kpc mean? What does concentration c=9 mean for a Hernquist halo? How does that fit together with a=29 kpc?]}
+
+The disk consists of $10^8$ ``disk star'' particles, each having a mass of $\sim370 ~M_\odot$, and 1000 ``giant molecular cloud'' particles with mass $\sim9.5\cdot 10^{5} ~M_\odot$. Initially the particles are distributed following an exponential disk profile with density
+\begin{equation*}
+\rho_*(R,z) = \frac{M_*}{4\pi z_0 R_s^2} \text{sech}^2 \left( \frac{z}{z_0}\right) \exp \left(- \frac{R}{R_s} \right),
+\end{equation*}
+with $R_s = 2.5~\text{kpc}$ and $z_0=0.1R_s$ \Wilma{[TO DO: Check in my own measurements]} and total disk mass $M_* = 0.04\cdot M_\text{dm} = 3.8\cdot 10^{10} M_\odot$ .
+
+The bulge consists of $10^7$ ``bulge star'' particles with mass $\sim950 ~M_\odot$ and they are distributed following a spherical Hernquist profile analogous to Equation \eqref{eq:dm_hernquist}, with total mass $M_\text{bulge}=0.01 \cdot M_\text{dm} = 9.5\cdot 10^9~M_\odot$ and scale length $a_\text{bulge}=0.1\cdot R_s=0.25~\text{kpc}$.
+
+The simulation snapshot which we are using in this work has evolved under its own gravity for $\sim 250~\text{Myr}$, which corresponds to approximately one orbital period at $R\sim8~\text{kpc}$. The mass density of simulation particles (without the DM halo) at this snapshot time is shown in Figure \ref{fig:simulation}. Pronounced spiral arms have developed due to the ``molecular cloud perturbers'', which can be seen in Figure \ref{fig:simulation} as small overdensities in the disk. The spherical bulge and very flattened disk are shown in the lower panel in Figure \ref{fig:simulation}.
+
+We have confirmed that the gravitational center of the particles corresponds to the coordinate origin.
+
+\subsection{Survey volume and data}
+
+The selection function of all-sky surveys like Gaia, that are only limited by the brightness of the tracers, are contiguous and---when ignoring anisotropic effects like dust obscuration---spherical in shape. For simplicity we will use spherical survey volumes centered on different vantage points and with sharp edges at a radius $r_\text{max}$ around it (see also Section \ref{sec:likelihood}). \Wilma{[TO DO: Continue.]}
+
+
+\begin{itemize}
+\item Mention that we do not consider any measurement errors
+\end{itemize}
+
+\subsection{Symmetrized potential model}
+
+\subsection{Quantifying influence of spiral arm}
+
+\Wilma{[TO DO: There is a short comment on that in D'Onghia 2013 as well]}
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %MODELLING
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{RoadMapping modelling}
 
-\subsection{Likelihood}
+\subsection{Likelihood} \label{sec:likelihood}
 
 The data that goes into the modelling are the 6D position and velocity coordinates $(\vect{x}_i,\vect{v}_i)$ of $N_*$ stars within the survey volume. For simplicity we use a purely spatial selection function $\text{sf}(\vect{x})$ of spherical shape,
 \begin{equation*}
@@ -160,67 +215,12 @@ Even though we do not have any stellar abundance or age information in the simul
 \item \Wilma{Mention and reference galpy.}
 \end{itemize}
 
-
-
-%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-%SIMULATION
-%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\section{Data from a galaxy simulation} \label{sec:simulation}
-
-%====================
-\begin{figure*}[!htbp]
-\plotone{fig/plot_simulation_for_paper.pdf}
-\caption{}
-\label{fig:simulation}
-\end{figure*}
-%====================
-
-\subsection{Description of the galaxy simulation}
-
-We use a high-resolution N-body simulation of a disk galaxy by \citet{2013ApJ...766...34D} carried out with GADGET-3 code described in \citet{2005MNRAS.361..776S}, in which overdensities with properties similar to giant molecular clouds induced prominent spiral arms---and therefore non-axisymmetric sub-structure---via the swing amplification mechanism. 
-
-For details see \citet{2013ApJ...766...34D}, here we summarize the essential characteristics.
-
-The simulation has a gravitationally evolving stellar disk within a static/rigid analytic dark matter halo.
-
-The analytic halo follows a \citet{1990ApJ...356..359H} profile
-\begin{equation}
-\rho_\text{dm}(r) = \frac{M_\text{dm}}{2\pi} \frac{a_\text{dm}}{r (r+a_\text{dm})^3} \label{eq:dm_hernquist}
-\end{equation}
-with total halo mass $M_\text{dm} = 9.5\cdot 10^{11} ~M_\odot$ and scale length $a_\text{dm} = 29~\text{kpc}$ (Elena D'Onghia, private communication). \HW{[There is no way to check that this is indeed the case. What should I do?]}
-
-The disk consists of $10^8$ ``disk star'' particles, each having a mass of $370 ~M_\odot$, and 1000 ``giant molecular cloud'' particles with mass $9.5\cdot 10^{5} ~M_\odot$. Initially the particles are distributed following an exponential disk profile with density
-\begin{equation*}
-\rho_*(R,z) = \frac{M_*}{4\pi z_0 R_s^2} \text{sech}^2 \left( \frac{z}{z_0}\right) \exp \left(- \frac{R}{R_s} \right),
-\end{equation*}
-with $R_s = 2.5~\text{kpc}$ and $z_0=0.1R_s$ \Wilma{[TO DO: Check in my own measurements]} and total disk mass $M_* = 0.04\cdot M_\text{dm}$ \Wilma{[TO DO??? In Email from August 2011]}.
-
-The bulge consists of $10^7$ ``bulge star'' particles with mass $950 ~M_\odot$ and they are distributed following a spherical Hernquist profile analogous to Equation \eqref{eq:dm_hernquist}, with total mass $M_\text{bulge}=0.01 \cdot M_\text{dm} = \Wilma{???}$ and scale length $a_\text{bulge}=0.1\cdot R_s=0.25~\text{kpc}$.
-
-The simulation snapshot which we are using in this work has evolved under its own gravity for $\sim 250~\text{Myr}$. The mass density of simulation particles (without the DM halo) at this snapshot time is shown in Figure \ref{fig:simulation}. Pronounced spiral arms have developed due to the ``molecular cloud perturbers'', which can be seen in Figure \ref{fig:simulation} as small overdensities in the disk. The spherical bulge and very flattened disk are shown in the lower panel in Figure \ref{fig:simulation}.
-
-We have confirmed that the gravitational center of the particles corresponds to the coordinate origin.
-
-
-
-\subsection{Survey volume and data}
-
-\begin{itemize}
-\item Mention that we do not consider any measurement errors
-\end{itemize}
-
-\subsection{Symmetrized potential model}
-
-\subsection{Quantifying influence of spiral arm}
-
-\Wilma{[TO DO: There is a short comment on that in D'Onghia 2013 as well]}
-
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %RESULTS
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{Results}
 
-\subsection{A single application of \RM{}}
+\subsection{A single application of \RM{}} \label{sec:results_part1}
 
 \subsubsection{Fiducial test}
 
@@ -276,12 +276,22 @@ We have confirmed that the gravitational center of the particles corresponds to 
 
 \subsubsection{Test suite}
 
+%====================
+\begin{figure*}[!htbp]
+\plotone{fig/MNdHHdiffSph2_violins.pdf}
+\caption{\Wilma{TO DO: Preliminary. Add more results. Make sure that the "true" potential parameters are the final version.}}
+\label{fig:simulation}
+\end{figure*}
+%====================
+
 \begin{itemize}
 \item $r_{max}=1,2,3,4,5kpc$
 \item $N_*=20,000$
 \item MNHH potential + KKS potential
 \item $R_{obs} =5 and 8 kpc$
 \end{itemize}
+
+
 
 \subsubsection{Survey volume and choice of potential model}
 
