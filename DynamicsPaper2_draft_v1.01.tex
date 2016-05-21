@@ -127,14 +127,11 @@ We have confirmed that the gravitational center of the particles corresponds to 
 
 \subsection{Survey volume and data}
 
-The selection function of all-sky surveys like Gaia, that are only limited by the brightness of the tracers, are contiguous and---when ignoring anisotropic effects like dust obscuration---spherical in shape. For simplicity we will use spherical survey volumes centered on different vantage points and with sharp edges at a radius $r_\text{max}$ around it (see also Section \ref{sec:likelihood}). \Wilma{[TO DO: Continue.]}
-
-
-\begin{itemize}
-\item Mention that we do not consider any measurement errors
-\end{itemize}
+The selection function of all-sky surveys like Gaia, that are only limited by the brightness of the tracers, are contiguous and---when ignoring anisotropic effects like dust obscuration---spherical in shape. For simplicity we will use spherical survey volumes centered on different vantage points and with sharp edges at a radius $r_\text{max}$ around it (see also Section \ref{sec:likelihood}), which corresponds to a magnitude cut for stellar tracers all having the same luminosity. Figure \ref{fig:simulation} illustrates the different survey volume positions we use in this study: We use each a volume with $r_\text{max}=1,2,3,4$ or $5~\text{kpc}$ centered on a spiral arm and on an inter-arm region at both the equivalent of the solar radius in this simulation, $R=8~\text{kpc}$, and at $R=5~\text{kpc}$, where the spiral arms are more pronounced (see Figure \Wilma{[TO DO: Make plot that illustrates strengt of spiral arm and reference it here]}) than at $R=~\text{kpc}$. From each volume we draw $N_*=20,000$ random ``disk star'' particles from the simulation and use their phase-space positions $(\vect{x}_i,\vect{v}_i)$ within the simulated galaxy's restframe as data. To make the data sample more realistic, one would actually have to add measurement uncertainties, especially to the distances of the survey volumes central vantage point and the proper motions measured from there. We decided not to include measurement uncertainties: Firstly, their effect on \RM{} modelling has been already investigated in Paper I and we found that the measurement uncertainties of the last data release of Gaia should be small enough to not disturb the modelling to much. Secondly, in this study we want to isolate and investigate the deviations of the data from the assumed potential and DF model and axisymmetry independently of other effect.
 
 \subsection{Symmetrized potential model}
+
+\Wilma{[TO DO]}
 
 \subsection{Quantifying influence of spiral arm}
 
@@ -209,6 +206,8 @@ Even though we do not have any stellar abundance or age information in the simul
 
 \subsection{Potential model}
 
+\Wilma{[TO DO]}
+
 \begin{itemize}
 \item Introduce potential model, explain that form of disk was mostly chosen to the closed form expression of $Phi$ which allows for fast calculation. Both MNHH, DEHH and KKS pot.
 \item Mention action calculation and that we tested explicitely that fixing Delta=0.45 and using staeckel interpolation grid does not degrade the analysis
@@ -222,13 +221,7 @@ Even though we do not have any stellar abundance or age information in the simul
 
 \subsection{A single application of \RM{}} \label{sec:results_part1}
 
-\subsubsection{Fiducial test}
-
-\begin{itemize}
-\item $r_{max}=4kpc$
-\item $N_*=20,000$
-\item MNHH potential
-\end{itemize}
+In this section we will discuss the results of the \RM{} analysis of a single data set. This fiducial data set has $N_*=20,000$ stars that were drawn from the spherical volume with $r_\text{max}=4~\text{kpc}$ centered on a spiral arm at the ``solar'' radius $R=8~\text{kpc}$ shown as yellow sphere in Figure \ref{fig:simulation}. We use \RM{} to fit a single qDF (see Section \Wilma{[TO DO]}) and the potential model consisting of a Miyamoto-Nagai disk, a Hernquist halo and a (fixed) Hernquist bulge introduced in Section \Wilma{[TO DO]} to it.
 
 \subsubsection{Recovering the stellar distribution}
 
@@ -239,6 +232,8 @@ Even though we do not have any stellar abundance or age information in the simul
 \end{itemize}
 
 \subsubsection{Recovering the potential}
+
+Figures \Wilma{[TO DO]} demonstrate the recovery of the simulation's gravitational potential with \RM{}. Figure \Wilma{[TO DO]} compares the true density distribution with the density distribution of the symmetrized simulation potential in Section \Wilma{[TO DO]} and the recovered \RM{} density distribution.
 
 %====================
 \begin{figure*}[!htbp]
