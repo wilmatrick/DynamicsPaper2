@@ -138,6 +138,26 @@ The selection function of all-sky surveys like Gaia, that are only limited by th
 
 \Wilma{[TO DO: There is a short comment on that in D'Onghia 2013 as well]}
 
+Depending on size and position of the survey volume the spiral arms and inter-arm regions dominate the stellar distribution within the survey volume to different degrees. To quantify the strength of the spiral arm, we introduce the quantity
+\begin{equation*}
+\kappa(x_j,y_j) \equiv \frac{\Sigma_{\text{disk},T}(x_j,y_j \mid z\leq z_j)}{\Sigma_{\text{disk},S}(x_j,y_j \mid z\leq z_j)} -1
+\end{equation*}
+where $\Sigma_{\text{disk},i}$ is the surface density of the disk component  of the simulation snapshot ($i=T$) or of the symmetrized snapshot model in Section \Wilma{[TO DO]} ($i=S$) within the survey volume,
+\begin{eqnarray*}
+\Sigma_{\text{disk},i} &\equiv& \int_{-z_j}^{z_j} \rho_{\text{disk},i}(x_j,y_j,z) \ \diff z\\
+z_j &=& \begin{cases}
+\sqrt{r_\text{max}^2 - (x_j-x_c)^2 - (y_j-y_c)^2} & \text{for sf}(x_j,y_j,0) > 0\\
+0 & \text{otherwise.}
+\end{cases}
+\end{eqnarray*}
+$(x_c,y_c,z_c=0)$ is the position of the survey volume's center within the simulation's cartesian coordinate system. $(x_j,y_j)$ is the centroid of a surface area element $(x_j\pm\delta,y_j\pm \delta)$ with $\delta=\Wilma{???}$. We calculate $\kappa(x_j,y_j)$ for all $n \simeq \pi r_\text{max}^2/4\delta^2$ surface elements within the survey volume. The statistics
+\begin{eqnarray*}
+\langle \kappa \rangle &\equiv& \frac 1n \sum_j^n \kappa(x_j,y_j)\\
+\sigma_\kappa &\equiv& \sqrt{\frac 1n \sum_j^n \left(\kappa(x_j,y_j) - \langle \kappa \rangle \right)^2}
+\end{eqnarray*}
+give us information if a single spiral arm or an inter-arm region dominates the survey volume ($\langle \kappa \rangle$ large for spiral arms, $\langle \kappa \rangle$ small for inter-arm regions, at small $\sigma_\kappa$) or if several spiral arms cross the survey volume (large $\sigma_\kappa$).
+
+\Wilma{[TO DO: Test also alternative models, i.e., a) using the intial condition disk density within the surface density, b) ignoring the z-height and using the best fit surface density with scale length 2.5kpc.]}
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %MODELLING
@@ -179,7 +199,7 @@ pdf(p_\Phi,p_\text{DF} \mid \text{data}) \propto \prod_{i=1}^{N_*} \mathscr{L}_i
 \end{equation*}
 using a nested-grid approach and then explore the full shape of the $\pdf$ using a Monte Carlo Markov Chain (MCMC)\footnote{\Wilma{[TO DO: Reference emcee]}}. Full details on this procedure are given in Paper I.
 
-\subsection{ DF model}
+\subsection{DF model}
 
 The most simple orbit distribution function exhibiting a disk-like structure may be the quasi-isothermal distribution function (qDF) introduced by \citet{2010MNRAS.401.2318B} and \citet{2011MNRAS.413.1889B}. It  proofed to be a successful model to describe the orbit distribution of individual mono-abundance populations (MAPs) in the Galactic disk \citep{2013ApJ...779..115B,2013MNRAS.434..652T}, that seem to be isothermal in $z$-direction (i.e., ``quasi-isothermal''). Modelling approaches trying to capture the overall disk distribution \citep{2014MNRAS.445.3133P,2015MNRAS.449.3479S} were describing the Galactic disk as a superposition of many qDFs. The qDF, which we already used in Paper I, has the functional form
 \begin{eqnarray}
@@ -234,7 +254,7 @@ In this section we will discuss the results of the \RM{} analysis of a single da
 
 \subsubsection{Recovering the potential}
 
-Figures \Wilma{[TO DO]} demonstrate the recovery of the simulation's gravitational potential with \RM{}. Figure \Wilma{[TO DO]} compares the true density distribution with the density distribution of the symmetrized simulation potential in Section \Wilma{[TO DO]} and the recovered \RM{} density distribution.
+Figures \Wilma{[TO DO]} demonstrate the recovery of the simulation's gravitational potential with \RM{}. Figure \Wilma{[TO DO]} compares the true density distribution with the density distribution of the symmetrized simulation potential in Section \Wilma{[TO DO]} and the recovered \RM{} density distribution. \Wilma{[TO DO]}
 
 %====================
 \begin{figure*}[!htbp]
