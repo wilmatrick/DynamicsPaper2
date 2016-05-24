@@ -74,9 +74,14 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{Introduction}
 
+The first step in learning more about the Milky Way's (MW) overall gravitational potential and orbit distribution function (DF)---which are crucial for understanding galaxy structure and formation---is to find the ``best possible'' axisymmetric model for the Galaxy. Given such a model the identification and characterization of non-axiysmmetries like the bar, spiral arms or stellar streams in stellar phase-space (and chemical abundance) data would then become more straightforward.
+
+Several approaches to constrain an axisymmetric potential and/or orbit DF have been recently put forward: \citet{2013ApJ...779..115B} and \citet{2014MNRAS.445.3133P} fitted potential and DF simultaneously to stellar positions and velocities in the disk and got precise constraints on the overall potential; \citet{2015MNRAS.449.3479S} and \citet{2016MNRAS.tmp..817D} investigated extended DFs for the disk and halo respectively (given a fiducial potential), that extend the distribution in orbit space by an additional dimension, the metallicity of the star. 
+
+In this work we will continue our investigation of the \RM{} approach (\emph{``Recovery of the Orbit Action Distribution of Mono-Abundance Populations and Potential INference for our Galaxy''}), which was first used by \citet{2013ApJ...779..115B} and in detail characterized by \citet{Trick 2016}, hereafter Paper I, in anticipation of the Gaia data release. Here we will specifically investigate the important question, if axisymmetric \RM{} modelling can still give reliable constraints on the potential in the presence of non-axisymmetric spiral arms in the data.
+
 
 \begin{itemize}
-\item Explain what RoadMapping is, also Acronym
 \item The first application of \RM{} was conducted by \citet{2013ApJ...779..115B}, who measured the Milky Way's surface density profile within $1.1~\text{kpc}$ from stellar mono-abundance populations (MAPs) in the Galactic disk. They fitted a single qDF and potential with two \Wilma{Check} free parameters (disk scale length and halo contribution to the radial force at the solar radius) to stars from the \Wilma{?????} survey that had the same $[\mathrm{Fe}/\mathrm{H}]$ and $[\alpha/\mathrm{H}]$ \Wilma{Check}. For each of those 42 \Wilma{Check} different MAPs they then derived the radius for which the surface density was best constrained, such constructing a surface density profile that was, for $R>6~\text{kpc}$ \Wilma{Check}, later confirmed by \citet{2014MNRAS.445.3133P} using a different action-based procedure.
 \item \Wilma{Trick et al. 2016}, hereafter Paper I, then studied the strengths and breakdowns of the \RM{} method in detail, by investigating a large suite of mock data sets. Under the prerequisite of axisymmetric data and model, they found that \RM{}'s modelling success is stable against minor misjudgements of distribution function or selection function, and that---if the true potential is not contained in the proposed family of model potentials---one can still find a good fit, given the limitations of the model. Paper I also found that measurement uncertainties of the order of those by the final Gaia data release should be good enough (within $3~\text{kpc}$) to allow for precise and unbiased modelling results. What was not investigated in Paper I, was the breakdown of axisymmetry in the data and what would happen if both axisymmetric distribution function and potential models would therefore not contain the true DF and potential anymore. This will be this work's subject of investigation.
 \item Main question: Does axisymmetric RoadMapping modelling work in the presence of non-axiysmmetric spiral arms?
@@ -321,6 +326,25 @@ Figures \Wilma{[TO DO]} demonstrate the recovery of the simulation's gravitation
 \item Figure: x-axis: $\langle \kappa \rangle$, y-axis: one panel with mean stellar rms deviation in FR and one with Fz. Analyses with same potential but at different positions and sizes within the galaxy.
 \item Figure: x-axis: $sigma_\kappa$, y-axis: same as above figure.
 \end{itemize}
+
+%====================
+\begin{figure*}[!htbp]
+\plotone{fig/MNdHHdiffSph2_4kpc8Spiral_a_estimate_spiral_strength.pdf}
+\caption{\Wilma{TO DO}}
+\label{fig:simulation}
+\end{figure*}
+%====================
+
+%====================
+\begin{figure*}[!htbp]
+\plotone{fig/MNdHHdiffSph2_spiral_strength_test.pdf}
+\caption{\Wilma{TO DO: This plot will not be in the final paper, it is just for illustration what I get as results for the strength of the spiral arms in the survey volumes. So far it is not that informative... (At least the left panel is a bit weird.)}}
+\label{fig:simulation}
+\end{figure*}
+%====================
+
+
+
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %SUMMARY AND CONCLUSION
