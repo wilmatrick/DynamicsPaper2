@@ -148,12 +148,18 @@ The selection function of all-sky surveys like Gaia, that are only limited by th
 
 \subsection{Symmetrized potential model}
 
-\Wilma{[TO DO]}
+For a galaxy with pronounced spiral arms an axisymmetric model matter distribution can per se not reproduce the truth. However, there should be a ``best possible'' symmetric model for the galaxy, which would then be by construction the best we can do with RoadMapping. We derive therefore a ``true symmetrized'' potential model directly from the snapshot via two different methods: One based on the density distribution of the different galaxy components, and the other based on the known true gravitational potential at the position of the stars. 
+
+The first approach uses our previous knowledge about the bulge and halo, which follow both a Hernquist profile with well-defined parameters by construction (see Section \Wilma{???}). The disk with its spiral arms however does deviate strongly from its initial conditions in Equation \Wilma{???}. We use two different disk models available in the \texttt{galpy} (galaxy python) library, the double exponential disk and the Miyamoto-Nagai disk, and fit them to the overall density distribution of the snapshots disk particles. The parameters of the two best fit potential models, the \texttt{DEHH-Pot} (Double Exponential disk, Hernquist halo, Hernquist bulge) and \texttt{MNHH-Pot} (Miyamoto-Nagai disk, Hernquist halo, Hernquist bulge), are given in Table \ref{tbl:symmetrizedpotential}.
+
+The second approach uses the exact same potential as the \RM{} machinery (see Section \Wilma{???}): A potential of the same shape as \texttt{MNHH-Pot}, with fixed and known bulge, but unknown disk and halo parameters. The simulation snapshot provides the local true potential evaluated at the position of each star. We pick 1 million random disk particles (to speed up the fitting) within $R=2-14~\text{kpc}$ and then run a MCMC that fits this \texttt{MNHH-Pot} to the true local potential at the given stellar positions. The resulting parameters and uncertainties are given in Table \ref{tbl:symmetrizedpotential} as well. The uncertainties are relatively large, especially in the disk scale height, because (a) the local true potential varies strongly with the the spiral arms and (b) the fitted potential model has no previous knowledge about the contribution of disk and halo relative to each other as the first approach. Also, most of the stars are located in the plane of the disk and in spiral arms, which might bias the result. 
+
+In any case, these models give a benchmark, what we can maximally expect to achieve with \RM{}.
 
 %====================
 \begin{deluxetable*}{llllll}[!htbp]
 \tabletypesize{\scriptsize}
-\tablecaption{??? \label{tbl:???}}
+\tablecaption{??? \label{tbl:symmetrizedpotential}}
 \tablewidth{0pt}
 \tablehead{
 \colhead{potential model} & \colhead{circular velocity} & \colhead{disk scale lentgh} & \colhead{disk scale height} & \colhead{halo fraction} & \colhead{halo scale length} \\
