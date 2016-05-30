@@ -1,4 +1,4 @@
-okular ../f%% Document class
+%% Document class
 \documentclass[iop,revtex4,numberedappendix,appendixfloats]{emulateapj}
 
 %% General packages
@@ -311,14 +311,18 @@ Figures \Wilma{[TO DO]} demonstrate the recovery of the simulation's gravitation
 \end{figure*}
 %====================
 
+%====================
+\begin{figure*}[!htbp]
+\centering
+\includegraphics[height=0.9\textheight]{fig/MNdHHdiffSph_4kpc8Spiral_b_test1_forces_overview_4.pdf}
+\caption{Comparison of radial and vertical forces  $F_R=-\partial \Phi / \partial R$ and $F_z = -\partial \Phi / \partial z$ of the true (upper two rows) or symmetrized (lower three rows, black and orange dotted lines) potential of the galaxy simulation snapshot with the potential model recovered with \RM{} (solid blue lines in lower three rows). The upper two rows show the relative difference between the true potential force at the position of each star that entered the \RM{} analysis, and the recovered potential force. The lower three rows compare contours of equal force and force profiles along lines of constant $R$ and $z$. Overall the radial forces are very well recovered, which is related to the well recovery of the circular velocity curve in Figure \Wilma{???}. There are more problems with the vertical force, which is related to the higher surface densities in spiral arms and lower surface density in inter-arm regions, for which the axisymmetric model can only give a average solution. Also, the potential model is not the optimal model to describe the vertical density profile, which becomes also visible in the recovery of the vertical force close to the plane of the disk. \Wilma{[TO DO: wrong analysis, wrong force calculation algorithm. Replace later.]}}
+\label{fig:???}
+\end{figure*}
+%====================
 
 
 \begin{itemize}
-\item Figure: density overview plot
-\item Figure: vcirc, surfdens overview plot
-\item Figure: local potential overview plot, scatter plot of stars color coded according to deviation of true and best fit (maybe also symmetrized) potential. normalize potential such that at solar circle pot=0. Both in \% of true potential and number of sigma away.
-\item Figure: forces overview plot, incl. local forces scatter plot
-\item Discuss somehow that the model parameters are actually themselves not very good recovered. Maybe violin plot?
+\item Figure: Idea for an additional figure (maybe not so interesting): local potential overview plot, scatter plot of stars color coded according to deviation of true and best fit (maybe also symmetrized) potential. normalize potential such that at solar circle pot=0. Both in \% of true potential and number of sigma away.
 \end{itemize}
 
 \subsubsection{Recovering the action distribution}
@@ -376,7 +380,6 @@ Figures \Wilma{[TO DO]} demonstrate the recovery of the simulation's gravitation
 \label{fig:???}
 \end{figure*}
 %====================
-
 
 
 
