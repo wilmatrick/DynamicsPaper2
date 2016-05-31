@@ -291,6 +291,15 @@ In this section we will discuss the results of the \RM{} analysis of a single da
 \item Figure: 1D histograms in velocity and different (R,z,phi) bins comparison of  true, best fit and best fit in symmetrized potential
 \end{itemize}
 
+%====================
+\begin{figure*}[!htbp]
+\plotone{fig/MNdHHdiffSph_4kpc8Spiral_a_test1_data_bestfit_residuals_2.pdf}
+\caption{??? \Wilma{[TO DO: Wrong analysis. Replace.]}}
+\label{fig:???}
+\end{figure*}
+%====================
+
+
 \subsubsection{Recovering the potential}
 
 Figures \Wilma{[TO DO]} demonstrate the recovery of the simulation's gravitational potential with \RM{}. Figure \Wilma{[TO DO]} compares the true density distribution with the density distribution of the symmetrized simulation potential in Section \Wilma{[TO DO]} and the recovered \RM{} density distribution. \Wilma{[TO DO]}
@@ -314,8 +323,8 @@ Figures \Wilma{[TO DO]} demonstrate the recovery of the simulation's gravitation
 %====================
 \begin{figure*}[!htbp]
 \centering
-\includegraphics[height=0.9\textheight]{fig/MNdHHdiffSph_4kpc8Spiral_b_test1_forces_overview_4.pdf}
-\caption{Comparison of radial and vertical forces  $F_R=-\partial \Phi / \partial R$ and $F_z = -\partial \Phi / \partial z$ of the true (upper two rows) or symmetrized (lower three rows, black and orange dotted lines) potential of the galaxy simulation snapshot with the potential model recovered with \RM{} (solid blue lines in lower three rows). The upper two rows show the relative difference between the true potential force at the position of each star that entered the \RM{} analysis, and the recovered potential force. The lower three rows compare contours of equal force and force profiles along lines of constant $R$ and $z$. Overall the radial forces are very well recovered, which is related to the well recovery of the circular velocity curve in Figure \Wilma{???}. There are more problems with the vertical force, which is related to the higher surface densities in spiral arms and lower surface density in inter-arm regions, for which the axisymmetric model can only give a average solution. Also, the potential model is not the optimal model to describe the vertical density profile, which becomes also visible in the recovery of the vertical force close to the plane of the disk. \Wilma{[TO DO: wrong analysis, wrong force calculation algorithm. Replace later.]}}
+\includegraphics[height=0.9\textheight]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_forces_overview_4.pdf}
+\caption{Comparison of radial and vertical forces  $F_R=-\partial \Phi / \partial R$ and $F_z = -\partial \Phi / \partial z$ of the true (upper two rows) or symmetrized (lower three rows, black and orange dotted lines) potential of the galaxy simulation snapshot with the potential model recovered with \RM{} (solid blue lines in lower three rows). The upper two rows show the relative difference between the true potential force at the position of each star that entered the \RM{} analysis, and the recovered potential force. The lower three rows compare contours of equal force and force profiles along lines of constant $R$ and $z$. Overall the radial forces are very well recovered, which is related to the well recovery of the circular velocity curve in Figure \Wilma{???}. There are more problems with the vertical force, which is related to the higher surface densities in spiral arms and lower surface density in inter-arm regions, for which the axisymmetric model can only give a average solution. Also, the potential model is not the optimal model to describe the vertical density profile, which becomes also visible in the recovery of the vertical force close to the plane of the disk. \Wilma{[TO DO: Might be, that I have to re-calculate the forces for some of the stars. Write Test that tests if force >1e10 and then recalculates those forces.]}}
 \label{fig:???}
 \end{figure*}
 %====================
