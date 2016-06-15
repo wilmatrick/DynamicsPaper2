@@ -285,49 +285,32 @@ In this section we will discuss the results of the \RM{} analysis of a single da
 
 \subsubsection{Recovering the stellar distribution}
 
-\begin{itemize}
-\item Figure: (x,y) and (R,z) distribution of residuals of true and best fit stellar distribution. Mark spiral arms as circles with radius Rg.
-\item Figure: 1D histograms in R,z,phi, comparison of  true, best fit and best fit in symmetrized potential
-\item Figure: 1D histograms in velocity and different (R,z,phi) bins comparison of  true, best fit and best fit in symmetrized potential
-\end{itemize}
+In Figure \ref{fig:4kpc8Spiral_DF_comparison} we compare the phase-space distribution of the 20,000 stars that entered the \RM{} analysis as data with the best-fit stellar distribution, which is given by the action-based qDF and potential model found with \RM{}. We note that the spiral arms introduce very strong non-axisymmetries in the data, both in the spatial and the velocity disrtribution (especially in $v_R$, where a lot more stars move outside than inside as compared to an axisymmetric model). We therefore compare in Figure \ref{fig:4kpc8Spiral_DF_comparison} the data and fit separately for different spatial regions, $R>$ and $<8~\text{kpc}$ and $\phi<$ and $>5^\circ$. In the region where the spiral arm dominates (blue) the best fit \RM{} model is actually a very poor model. However, what the model underestimates in the spiral arm, it slightly overestimates in the other regions and is therefore indeed something like a good average model for the overall distribution. Especially the region at $R>8~\text{kpc}$ and $\phi<5^\circ$, where neither the spiral arm nor the inter-arm regions dominate strongly, is extremely well described by the model. This is remarkable because we had no indication beforehand that a single qDF might be at all a good enough model to describe the overall stellar distribution in the simulation snapshot. But it obviously does---apart from the spiral arm of course, which we had no chance to capture anyway.
 
 %====================
 \begin{figure*}[!htbp]
   \centering
-  \begin{subfigure}
-    \centering
-    \includegraphics[width=.3\linewidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_data_bestfit_residuals_3a.pdf}
-    \caption{Caption 1}
-    \label{fig:???}
-  \end{subfigure}%
-  \quad
-  \begin{subfigure}
-    \centering
-    \includegraphics[width=.3\linewidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_data_bestfit_residuals_3b.pdf}
-    \caption{Caption 2}
-    \label{fig:???}
-  \end{subfigure}%
-  \quad
-  \begin{subfigure}
-    \centering
-    \includegraphics[width=.3\linewidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_data_bestfit_residuals_3c.pdf}
-    \caption{Caption 2}
-    \label{fig:???}
-  \end{subfigure}
-  \caption{Side-by-side figures.}
-  \label{fig:???}
+  \subfigure[DF density residuals.\label{fig:DF_densres}]{\includegraphics[width=0.32\linewidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_data_bestfit_residuals_3a.pdf}}
+  \subfigure[DF density profiles.\label{fig:DF_densprof}]{\includegraphics[width=0.32\linewidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_data_bestfit_residuals_3b.pdf}}
+  \subfigure[DF velocity residuals.\label{fig:DF_velres}]{\includegraphics[width=0.32\linewidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_data_bestfit_residuals_3c.pdf}}
+  \caption{Comparison of the DF of stars in position-velocity space in the data set with $N_*=20,000$ and $r_\text{max}=4~\text{kpc}$ from the simulation snapshot and in the single-qDF best fit \RM{} model from Section \Wilma{[TO DO]}. Panel \ref{fig:DF_densres} shows the spatial density residual significance projected to the $(x,y)$ and $(R,z)$ plane. In the $(x,y)$ panel the following regions are marked: $R<8~\text{kpc},\phi>5^\circ$ (blue), $R<8~\text{kpc},\phi<5^\circ$ (red), $R>8~\text{kpc},\phi>5^\circ$ (green), $R>8~\text{kpc},\phi<5^\circ$ (yellow). Panels \ref{fig:DF_densprof} and \ref{fig:DF_velres} show the density profiles and velocity residual significance along each of the 6D phase-space coordinates separately for each of the four spatial regions. The blue region is very much dominated by the non-axisymmetric spiral arm. For the yellow region the axisymmetric single-qDF model is a good description. Overall the qDF is a good average axisymmetric model for the data. \Wilma{[TO DO: Move legend to R panel and make it bigger]} \Wilma{[TO DO: Mark spiral arms as circles with radius Rg.]} \Wilma{[TO DO: overplot total distribution in black lines]}}
+  \label{fig:4kpc8Spiral_DF_comparison}
 \end{figure*}
 %====================
 
 
 \subsubsection{Recovering the potential}
 
-Figures \Wilma{[TO DO]} demonstrate the recovery of the simulation's gravitational potential with \RM{}. Figure \Wilma{[TO DO]} compares the true density distribution with the density distribution of the symmetrized simulation potential in Section \Wilma{[TO DO]} and the recovered \RM{} density distribution. \Wilma{[TO DO]}
+As shown in the previous section the best fit \RM{} model seems to reproduce the stellar phase-space distribution quite well. But is the corresponding potential close to the true potential? 
+
+Figures \Wilma{[TO DO]} compare the true simulation snapshot potential and the axisymmetric \texttt{DEHH-Pot} from Table \Wilma{[TO DO]} with the best fit \texttt{MNHH-Pot} from the \RM{} analysis. In particular, Figure \Wilma{[TO DO]} illustrates the overall matter density distribution, Figure \Wilma{[TO DO]} the rotation curve, surface density profile and disk-to-halo ratio and Figure \Wilma{[TO DO]} compares the true and recovered gravitational forces at the position of each star in the data set.
+
+The recovery of density, surface density and disk-to-halo ratio is especially good in the region where most of the stars are located, around $R\sim~6\text{kpc}$ and in the plane of the disk. In large regions inside the survey volume, and even outside, the density is recovered to within 15\%. Due to the spiral arms in the disk plane at smaller radii, and a misjudgement of the radial density profile at larger radii, which is most likely due to the choice of a disk potential that cannot reproduce the actual profile, The circular velocity curve is even recovered within 5\% \Wilma{[TO DO: Check that this is also the case if we use the true rotation curve.]}.
 
 %====================
 \begin{figure*}[!htbp]
 \plotone{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_density_overview.pdf}
-\caption{Comparison of the true density distribution $\rho_{\Phi,\text{T}}$ in the galaxy simulation snapshot (solid black line, averaged over $\phi$) with the axisymmetric density distribution $\rho_{\Phi,\text{R}}$ recovered with \RM{} (solid blue lines) from $N_*=20,000$ stars in the survey volume with $r_\text{max}=4~\text{kpc}$ (yellow line), as described in Section \Wilma{[TO DO]}. The first two panels show density profiles along $(R,z=0)$ and $(R=8~\text{kpc},z)$, together with the relative differences between true and recovered $\rho_{\Phi}$. The third panel displays equidensity contours of the matter distribution in the $(R,z)$ plane. Overplotted are also the symmetrized ''true´´ potential's $\rho_{\Phi,\text{S}}$ (dotted black line) (see Section \Wilma{[TO DO]}) and the $\rho_{\Phi,\text{M}}$ of the recovered mean model in Table \Wilma{[TO DO]} (dotted blue line). The last panel shows the relative difference between the true $\rho_{\Phi,\text{T}}$ (averaged over all $\phi$) and the recovered mean model $\rho_{\Phi,\text{M}}$. Over wide areas even outside of the survey volume the relative difference is less than $15\%$. At $R\gtrsim8~\text{kpc}$ and $z\sim0$ it becomes apparent that the chosen potential model cannot perfectly capture the structure of the disk. \Wilma{[TO DO: Make sure that this plot actually contains the final analysis and sym. model that I want to show.]} \Wilma{[TO DO: Maybe it would be more interesting to see a best fit MNd directly to the potential to see, how well the potential model can actually perform?]} \Wilma{[TO DO: Maybe use only stars in the cone that the survey volume probes???]}}
+\caption{Comparison of the true density distribution $\rho_{\Phi,\text{T}}$ in the galaxy simulation snapshot (solid black line, averaged over $\phi$) with the axisymmetric density distribution $\rho_{\Phi,\text{R}}$ recovered with \RM{} (solid blue lines) from $N_*=20,000$ stars in the survey volume with $r_\text{max}=4~\text{kpc}$ (yellow line), as described in Section \Wilma{[TO DO]}. The first two panels show density profiles along $(R,z=0)$ and $(R=8~\text{kpc},z)$, together with the relative differences between true and recovered $\rho_{\Phi}$. The third panel displays equidensity contours of the matter distribution in the $(R,z)$ plane. Overplotted are also the symmetrized ''true´´ potential's $\rho_{\Phi,\text{S}}$ (dotted black line) (see Section \Wilma{[TO DO]}) and the $\rho_{\Phi,\text{M}}$ of the recovered mean model in Table \Wilma{[TO DO]} (dotted blue line). The last panel shows the relative difference between the true $\rho_{\Phi,\text{T}}$ (averaged over all $\phi$) and the recovered mean model $\rho_{\Phi,\text{M}}$. Over wide areas even outside of the survey volume the relative difference is less than $15\%$. At $R\gtrsim8~\text{kpc}$ and $z\sim0$ it becomes apparent that the chosen potential model cannot perfectly capture the structure of the disk. \Wilma{[TO DO: Make sure that this plot actually contains the final analysis and sym. model that I want to show.]} \Wilma{[TO DO: Remove orange potential again? Is not good enough.]} \Wilma{[TO DO: Maybe show the profiles not at R=8 and z=0, but at R=6 and z=$h_z$ or so.]} }
 \label{fig:???}
 \end{figure*}
 %====================
