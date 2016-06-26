@@ -109,11 +109,11 @@ Here we will specifically investigate the important question, if axisymmetric \R
 \section{Data from a galaxy simulation} \label{sec:simulation}
 
 %====================
-\begin{figure*}[!htbp]
+\begin{figure}[!htbp]
 \plotone{fig/plot_simulation_for_paper.pdf}
-\caption{Simulation snapshot by \citet{2013ApJ...766...34D} . Shown are the surface mass density (in $(x,y)$ plane, upper panel) and mass density (in $(R,z)$ plane, lower panel) of the ``star'' particles belonging to disk, bulge and giant molecular clouds. (The dark matter halo in this simulation is static and analytic and not shown here.) Overplotted are the disk's scale length $R_s=2.5~\text{kpc}$ (see Section \ref{sec:simulation_description}) and the radii at which we center our test survey volumes in this investigation, $R=8$ and $5~\text{kpc}$. The centers of the different survey volumes are marked with a square, if the survey volume is centered on a spiral arm, or with a circle, if the volume is centerd on an inter-arm region. The yellow circle with radius $r_\text{max}=4~\text{kpc}$ marks the survey volume in which we conduct the analysis discussed in detail in Section \ref{sec:results_part1}. \Wilma{[TO DO: Rename $R_{disk}$ to $R_s$ as it is the scale length of the disk.]} \Wilma{[TO DO: Maybe include spiral arm residuals to show different strength of spiral arms?]}}
+\caption{Simulation snapshot by \citet{2013ApJ...766...34D} . Shown are the surface mass density (in $(x,y)$ plane, upper panel) and mass density (in $(R,z)$ plane, lower panel) of the ``star'' particles belonging to disk, bulge and giant molecular clouds. (The dark matter halo in this simulation is static and analytic and not shown here.) Overplotted are the disk's scale length $R_s=2.5~\text{kpc}$ (see Section \ref{sec:simulation_description}) and the radii at which we center our test survey volumes in this investigation, $R=8$ and $5~\text{kpc}$. The centers of the different survey volumes are marked with a square, if the survey volume is centered on a spiral arm, or with a circle, if the volume is centerd on an inter-arm region. The yellow circle with radius $r_\text{max}=4~\text{kpc}$ marks the survey volume in which we conduct the analysis discussed in detail in Section \ref{sec:results_part1}. \Wilma{[TO DO: Rename $R_{disk}$ to $R_s$ as it is the scale length of the disk.]}}
 \label{fig:simulation}
-\end{figure*}
+\end{figure}
 %====================
 
 \subsection{Description of the galaxy simulation} \label{sec:simulation_description}
@@ -148,31 +148,32 @@ The selection function of all-sky surveys like Gaia, that are only limited by th
 
 \subsection{Symmetrized potential model}
 
-For a galaxy with pronounced spiral arms an axisymmetric model matter distribution can per se not reproduce the truth. However, there should be a ``best possible'' symmetric model for the galaxy, which would then be by construction the best we can do with RoadMapping. We derive therefore a ``true symmetrized'' potential model directly from the snapshot via two different methods: One based on the density distribution of the different galaxy components, and the other based on the known true gravitational potential at the position of the stars. 
+For a galaxy with pronounced spiral arms an axisymmetric model matter distribution can per se not reproduce the true matter distribution globally. We derived an \emph{overall best fit symmetrized} potential model from the distribution of particles to be able (i) to quantify the non-axisymmetries in the simulation snapshot better and (ii) to compare how close our axisymmetric \RM{} results can get to it. 
 
-The first approach uses our previous knowledge about the bulge and halo, which follow both a Hernquist profile with well-defined parameters by construction (see Section \Wilma{???}). The disk with its spiral arms however does deviate strongly from its initial conditions in Equation \Wilma{???}. We use two different disk models available in the \texttt{galpy} (galaxy python) library, the double exponential disk and the Miyamoto-Nagai disk, and fit them to the overall density distribution of the snapshots disk particles. The parameters of the two best fit potential models, the \texttt{DEHH-Pot} (Double Exponential disk, Hernquist halo, Hernquist bulge) and \texttt{MNHH-Pot} (Miyamoto-Nagai disk, Hernquist halo, Hernquist bulge), are given in Table \ref{tbl:symmetrizedpotential}.
+We derive this model by fitting axisymmetric analytical functions to the density distribution of each of the galaxy component's particles: The bulge and halo follow each a Hernquist profile by construction (see Section \Wilma{[TO DO]}). The disk with its spiral arms however does deviate strongly from its initial conditions in Equation \Wilma{???}. We chose the double exponential disk model from the \texttt{galpy} (galaxy python) library to fit the particle distribution in the disk. (This profile is better than the Miyamoto-Nagai disk in reproducing the overall radial density slope, but as it has not the advantage of allowing fast force calculations, we are not using it in the \RM{} modelling.) The best fit parameters for this reference potential, to which we will refer as the \texttt{DEHH-Potential} (Double-Exponential disk + Hernquist halo + Hernquist bulge) in the remainder in this work, are given in Table \Wilma{[TO DO]}. As can be seen in Figures \Wilma{[TO DO]} in Section \Wilma{[TO DO]} below, the \texttt{DEHH-Pot} fits the overall density distribution very well. Its density profile might be a little stepper around $z~sim0$ than the actual particle distribution, but this should not affect the overall discussion, as the radial density, surface density and disk-to-halo ratio profiles are so well reproduced.
 
-The second approach uses the exact same potential as the \RM{} machinery (see Section \Wilma{???}): A potential of the same shape as \texttt{MNHH-Pot}, with fixed and known bulge, but unknown disk and halo parameters. The simulation snapshot provides the local true potential evaluated at the position of each star. We pick 1 million random disk particles (to speed up the fitting) within $R=2-14~\text{kpc}$ and then run a MCMC that fits this \texttt{MNHH-Pot} to the true local potential at the given stellar positions. The resulting parameters and uncertainties are given in Table \ref{tbl:symmetrizedpotential} as well. The uncertainties are relatively large, especially in the disk scale height, because (a) the local true potential varies strongly with the the spiral arms and (b) the fitted potential model has no previous knowledge about the contribution of disk and halo relative to each other as the first approach. Also, most of the stars are located in the plane of the disk and in spiral arms, which might bias the result. 
+Globally our \RM{} model can not be better than this \emph{overall best fit symmetrized} \texttt{DEHH-Pot}, which acts therefore like a global upper limit to \RM{}. We note that in deriving the \texttt{DEHH-Pot} we used the correct decomposition into bulge, disk and halo components, while \RM{} only feels the composite gravitational effect. Given the flexibility of the potential model \texttt{MNHH-Pot} used in \RM{} and the restriction of the modelling to a survey volume, it could however be possible that \RM{} can do better in fitting the local potential inside the survey volume at the price of recovering the global potential parameters to less accuracy. We will discuss this in the following sections.
 
-In any case, these models give a benchmark, what we can maximally expect to achieve with \RM{}.
 
-\Wilma{[TO DO: Remove the symmetrized MNHH-Pot completely from paper. Just not good enough. Use only the DEHH-Pot.]}
+
 
 %====================
-\begin{deluxetable*}{llllll}[!htbp]
+\begin{deluxetable}{lll}[!htbp]
 \tabletypesize{\scriptsize}
-\tablecaption{??? \label{tbl:symmetrizedpotential}}
+\tablecaption{Best fit parameters of the \texttt{DEHH-Pot} (see Section \Wilma{[TO DO]}), which we use as the global best fit symmetrized potential model. \label{tbl:symmetrizedpotential}}
 \tablewidth{0pt}
-\tablehead{
-\colhead{potential model} & \colhead{circular velocity} & \colhead{disk scale lentgh} & \colhead{disk scale height} & \colhead{halo fraction} & \colhead{halo scale length} \\
- &  \colhead{$v_\text{circ}(R_\odot)$ [km s$^{-1}$]} & \colhead{[kpc]} & \colhead{[kpc]} & \colhead{$f_\text{halo}$} & \colhead{$a_\text{halo}$ [kpc]}}
 \startdata
-\texttt{DEHH-Pot} (from disk density) & $222$ & $h_r: 2.5$ & $h_z: 0.17$ & $0.54$ & $29$\\
-\texttt{MNHH-Pot} (from disk density) & $215$ & $a_\text{disk}: 2.35$ & $b_\text{disk}: 0.21$ & $0.57$ & $29$\\
-\texttt{MNHH-Pot} (from snapshot potential) & $225_{-1}^{+1}$ & $a_\text{disk}: 3.1_{-1.3}^{+0.5}$ & $b_\text{disk}: 0.4_{-0.3}^{+1.3}$ & $0.57_{-0.08}^{+0.09}$ & $25_{-3}^{+4}$\\
+\tableline
+circular velocity & $v_\text{circ}(R_\odot)$ & $222~\text{km s}^{-1}$ \\
+disk scale length & $h_r$ & $2.5~\text{kpc}$ \\
+disk scale height & $h_z$ & $0.17~\text{kpc}$ \\
+halo fraction & $f_\text{halo}$ & $0.54$\\
+halo scale length & $a_\text{halo}$ & $29~\text{kpc}$ \\
+bulge fraction & \Wilma{[TO DO]} & \Wilma{[TO DO]} \\
+bulge scale length & \Wilma{[TO DO]} & \Wilma{[TO DO]}
 \enddata
 %\tablenotetext{(a)}{...}
-\end{deluxetable*}
+\end{deluxetable}
 %====================
 
 \subsection{Quantifying influence of spiral arm}
@@ -200,7 +201,16 @@ give us information if a single spiral arm or an inter-arm region dominates the 
 
 \Wilma{[TO DO: Test also alternative models, i.e., a) using the intial condition disk density within the surface density, b) ignoring the z-height and using the best fit surface density with scale length 2.5kpc.]}
 
-\Wilma{[TO DO: After talking to HW it is probably easier to understand for people, if I use $z_j=1.1$kpc (?). Instead of the one example for $r_{max}=4kpc$ I should plot the whole galaxy and overplot the different positions and example volumes. He also wants a histogram kappa vs. # for the whole galaxy. Then I can plot convenient properties $\langle \kappa^2 \rangle$ and $\langle|\kappa|\rangle$ and/or $max(\kappa) - min(kappa)$ and $median(\kappa)$ as function of $r_{max}$ for the different volumes. (If I precalculate kappa for the whole galaxy, I can simply do the task and also use $r_{max}$ in between the integer values.]}
+\Wilma{[TO DO: After talking to HW it is probably easier to understand for people, if I use $z_j=1.1$kpc (?). Instead of the one example for $r_{max}=4kpc$ I should plot the whole galaxy and overplot the different positions and example volumes. He also wants a histogram kappa vs. \# for the whole galaxy. Then I can plot convenient properties $\langle \kappa^2 \rangle$ and $\langle|\kappa|\rangle$ and/or $max(\kappa) - min(kappa)$ and $median(\kappa)$ as function of $r_{max}$ for the different volumes. (If I precalculate kappa for the whole galaxy, I can simply do the task and also use $r_{max}$ in between the integer values.]}
+
+%====================
+\begin{figure*}[!htbp]
+\plotone{fig/whole_galaxy_kappa_i.pdf}
+\caption{\Wilma{[TO DO: Rewrite caption. Figure has changed.]} Contrast of the spiral arms in the fiducial survey volume of Section \Wilma{???}. As described in Section \Wilma{???} we quantify the strength of the spiral arm \Wilma{???} using Equation \Wilma{???} \Wilma{[TO DO: redo the plot, not all axes labels are shown.]}}
+\label{fig:???}
+\end{figure*}
+%====================
+
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %MODELLING
@@ -273,7 +283,7 @@ Even though we do not have any stellar abundance or age information in the simul
 \Wilma{[TO DO]}
 
 \begin{itemize}
-\item Introduce potential model, explain that form of disk was mostly chosen to the closed form expression of $Phi$ which allows for fast calculation. Both MNHH, DEHH and KKS pot.
+\item Introduce MNHH potential model, explain that form of disk was mostly chosen to the closed form expression of $Phi$ which allows for fast calculation. 
 \item Mention action calculation and that we tested explicitely that fixing Delta=0.45 and using staeckel interpolation grid does not degrade the analysis
 \item \Wilma{Mention and reference galpy.}
 \end{itemize}
@@ -312,28 +322,28 @@ Figures \Wilma{[TO DO]} compare the true simulation snapshot potential and the a
 The recovery of density, surface density and disk-to-halo ratio is especially good in the region where most of the stars are located, around $R\sim~6\text{kpc}$ and in the plane of the disk. In large regions inside the survey volume, and even outside, the density is recovered to within 15\%. Due to the spiral arms in the disk plane at smaller radii, and a misjudgement of the radial density profile at larger radii, which is most likely due to the choice of a disk potential that cannot reproduce the actual profile, The circular velocity curve is even recovered within 5\% \Wilma{[TO DO: Check that this is also the case if we use the true rotation curve.]}.
 
 %====================
-\begin{figure*}[!htbp]
-\plotone{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_density_overview.pdf}
-\caption{Comparison of the true density distribution $\rho_{\Phi,\text{T}}$ in the galaxy simulation snapshot (solid black line, averaged over $\phi$) with the axisymmetric density distribution $\rho_{\Phi,\text{R}}$ recovered with \RM{} (solid blue lines) from $N_*=20,000$ stars in the survey volume with $r_\text{max}=4~\text{kpc}$ (yellow line), as described in Section \Wilma{[TO DO]}. The first two panels show density profiles along $(R,z=0)$ and $(R=8~\text{kpc},z)$, together with the relative differences between true and recovered $\rho_{\Phi}$. The third panel displays equidensity contours of the matter distribution in the $(R,z)$ plane. Overplotted are also the symmetrized ''true´´ potential's $\rho_{\Phi,\text{S}}$ (dotted black line) (see Section \Wilma{[TO DO]}) and the $\rho_{\Phi,\text{M}}$ of the recovered mean model in Table \Wilma{[TO DO]} (dotted blue line). The last panel shows the relative difference between the true $\rho_{\Phi,\text{T}}$ (averaged over all $\phi$) and the recovered mean model $\rho_{\Phi,\text{M}}$. Over wide areas even outside of the survey volume the relative difference is less than $15\%$. At $R\gtrsim8~\text{kpc}$ and $z\sim0$ it becomes apparent that the chosen potential model cannot perfectly capture the structure of the disk. \Wilma{[TO DO: Make sure that this plot actually contains the final analysis and sym. model that I want to show.]} \Wilma{[TO DO: Remove orange potential again? Is not good enough.]} \Wilma{[TO DO: Maybe show the profiles not at R=8 and z=0, but at R=6 and z=$h_z$ or so.]} }
+\begin{figure}[!htbp]
+\includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_density_overview.pdf}
+\caption{\Wilma{[TO DO: Remove MNHH symmetric potential from caption.]} Comparison of the true density distribution $\rho_{\Phi,\text{T}}$ in the galaxy simulation snapshot (solid black line, averaged over $\phi$) with the axisymmetric density distribution $\rho_{\Phi,\text{R}}$ recovered with \RM{} (solid blue lines) from $N_*=20,000$ stars in the survey volume with $r_\text{max}=4~\text{kpc}$ (yellow line), as described in Section \Wilma{[TO DO]}. The first two panels show density profiles along $(R,z=0)$ and $(R=8~\text{kpc},z)$, together with the relative differences between true and recovered $\rho_{\Phi}$. The third panel displays equidensity contours of the matter distribution in the $(R,z)$ plane. Overplotted are also the symmetrized ''true´´ potential's $\rho_{\Phi,\text{S}}$ (dotted black line) (see Section \Wilma{[TO DO]}) and the $\rho_{\Phi,\text{M}}$ of the recovered mean model in Table \Wilma{[TO DO]} (dotted blue line). The last panel shows the relative difference between the true $\rho_{\Phi,\text{T}}$ (averaged over all $\phi$) and the recovered mean model $\rho_{\Phi,\text{M}}$. Over wide areas even outside of the survey volume the relative difference is less than $15\%$. At $R\gtrsim8~\text{kpc}$ and $z\sim0$ it becomes apparent that the chosen potential model cannot perfectly capture the structure of the disk. \Wilma{[TO DO: Make sure that this plot actually contains the final analysis and sym. model that I want to show.]} \Wilma{[TO DO: Remove orange potential again? Is not good enough.]} \Wilma{[TO DO: Maybe show the profiles not at R=8 and z=0, but at R=6 and z=$h_z$ or so.]} }
 \label{fig:???}
-\end{figure*}
+\end{figure}
 %====================
 
 %====================
 \begin{figure*}[!htbp]
 \plotone{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_vcirc_surfdens_overview.pdf}
-\caption{Comparison of the circular velocity curve, surface density profile within $|z|\leq1.1~\text{kpc}$ and disk-to-halo ratio of the surface density along $R$ for the true potential of the galaxy simulation snapshot (solid black line) and the axisymmetric model potential recovered with \RM{} (solid blue lines) (see Section \Wilma{[TO DO]}). Overplotted are also the profiles of the symmetrized ''true´´ potential (dotted black line) (see Section \Wilma{[TO DO]}) and the recovered mean model (dotted blue line) (see Table \Wilma{[TO DO]}). The circular velocity curve is recovered to less than $5\%$, especially at larger radii. For the surface density and disk-to-halo ratio \RM{} recovers the truth at radii $\lesssim 8~\text{kpc}$. The deviations at larger radii are connected to the discrepancies in the density in Figure \Wilma{[TO DO]}. \Wilma{[TO DO: When I have the force I can probably also calculate the true circular velocity curve!]}}
+\caption{\Wilma{[TO DO: Remove MNHH symmetric potential from caption.]} Comparison of the circular velocity curve, surface density profile within $|z|\leq1.1~\text{kpc}$ and disk-to-halo ratio of the surface density along $R$ for the true potential of the galaxy simulation snapshot (solid black line) and the axisymmetric model potential recovered with \RM{} (solid blue lines) (see Section \Wilma{[TO DO]}). Overplotted are also the profiles of the symmetrized ''true´´ potential (dotted black line) (see Section \Wilma{[TO DO]}) and the recovered mean model (dotted blue line) (see Table \Wilma{[TO DO]}). The circular velocity curve is recovered to less than $5\%$, especially at larger radii. For the surface density and disk-to-halo ratio \RM{} recovers the truth at radii $\lesssim 8~\text{kpc}$. The deviations at larger radii are connected to the discrepancies in the density in Figure \Wilma{[TO DO]}. \Wilma{[TO DO: When I have the force I can probably also calculate the true circular velocity curve!]}}
 \label{fig:???}
 \end{figure*}
 %====================
 
 %====================
-\begin{figure*}[!htbp]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[height=0.9\textheight]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_forces_overview_4.pdf}
-\caption{Comparison of radial and vertical forces  $F_R=-\partial \Phi / \partial R$ and $F_z = -\partial \Phi / \partial z$ of the true (upper two rows) or symmetrized (lower three rows, black and orange dotted lines) potential of the galaxy simulation snapshot with the potential model recovered with \RM{} (solid blue lines in lower three rows). The upper two rows show the relative difference between the true potential force at the position of each star that entered the \RM{} analysis, and the recovered potential force. The lower three rows compare contours of equal force and force profiles along lines of constant $R$ and $z$. Overall the radial forces are very well recovered, which is related to the well recovery of the circular velocity curve in Figure \Wilma{???}. There are more problems with the vertical force, which is related to the higher surface densities in spiral arms and lower surface density in inter-arm regions, for which the axisymmetric model can only give a average solution. Also, the potential model is not the optimal model to describe the vertical density profile, which becomes also visible in the recovery of the vertical force close to the plane of the disk. \Wilma{[TO DO: Might be, that I have to re-calculate the forces for some of the stars. Write Test that tests if force >1e10 and then recalculates those forces.]}}
+\includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_forces_overview_5.pdf}
+\caption{\Wilma{[TO DO: Rewrite. Figure was replaced.]} Comparison of radial and vertical forces  $F_R=-\partial \Phi / \partial R$ and $F_z = -\partial \Phi / \partial z$ of the true (upper two rows) or symmetrized (lower three rows, black and orange dotted lines) potential of the galaxy simulation snapshot with the potential model recovered with \RM{} (solid blue lines in lower three rows). The upper two rows show the relative difference between the true potential force at the position of each star that entered the \RM{} analysis, and the recovered potential force. The lower three rows compare contours of equal force and force profiles along lines of constant $R$ and $z$. Overall the radial forces are very well recovered, which is related to the well recovery of the circular velocity curve in Figure \Wilma{???}. There are more problems with the vertical force, which is related to the higher surface densities in spiral arms and lower surface density in inter-arm regions, for which the axisymmetric model can only give a average solution. Also, the potential model is not the optimal model to describe the vertical density profile, which becomes also visible in the recovery of the vertical force close to the plane of the disk. \Wilma{[TO DO: Might be, that I have to re-calculate the forces for some of the stars. Write Test that tests if force >1e10 and then recalculates those forces.]} \Wilma{[TO DO: Show only the lower panels.]}}
 \label{fig:???}
-\end{figure*}
+\end{figure}
 %====================
 
 
@@ -342,6 +352,12 @@ The recovery of density, surface density and disk-to-halo ratio is especially go
 \end{itemize}
 
 \subsubsection{Recovering the action distribution}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_data_bestfit_residuals_only_actions.pdf}
+\caption{\Wilma{[TO DO]}}
+\end{figure}
 
 \begin{itemize}
 \item Figure: residuals in action space, comparison of true/symmetrized vs. best fit actions (maybe also true vs. best fit in symmetrized potential), overplot Lz=vcirc*Rg of spiral arms
@@ -352,11 +368,11 @@ The recovery of density, surface density and disk-to-halo ratio is especially go
 \subsubsection{Test suite}
 
 %====================
-\begin{figure*}[!htbp]
-\plotone{fig/MNdHHdiffSph2_violins.pdf}
+\begin{figure}[!htbp]
+\includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_violins.pdf}
 \caption{\Wilma{TO DO: Preliminary. Add more results. Make sure that the "true" potential parameters are the final version.}}
-\label{fig:simulation}
-\end{figure*}
+\label{fig:???}
+\end{figure}
 %====================
 
 \begin{itemize}
@@ -380,24 +396,6 @@ The recovery of density, surface density and disk-to-halo ratio is especially go
 \item Figure: x-axis: $\langle \kappa \rangle$, y-axis: one panel with mean stellar rms deviation in FR and one with Fz. Analyses with same potential but at different positions and sizes within the galaxy.
 \item Figure: x-axis: $sigma_\kappa$, y-axis: same as above figure.
 \end{itemize}
-
-%====================
-\begin{figure*}[!htbp]
-\plotone{fig/MNdHHdiffSph2_4kpc8Spiral_a_estimate_spiral_strength.pdf}
-\caption{Contrast of the spiral arms in the fiducial survey volume of Section \Wilma{???}. As described in Section \Wilma{???} we quantify the strength of the spiral arm \Wilma{???} using Equation \Wilma{???} \Wilma{[TO DO: redo the plot, not all axes labels are shown.]}}
-\label{fig:???}
-\end{figure*}
-%====================
-
-%====================
-\begin{figure*}[!htbp]
-\plotone{fig/MNdHHdiffSph2_spiral_strength_test.pdf}
-\caption{\Wilma{TO DO: This plot will not be in the final paper, it is just for illustration what I get as results for the strength of the spiral arms in the survey volumes. So far it is not that informative... (At least the left panel is a bit weird.)}}
-\label{fig:???}
-\end{figure*}
-%====================
-
-
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %SUMMARY AND CONCLUSION
