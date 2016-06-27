@@ -60,7 +60,8 @@
 \begin{abstract}
 \begin{itemize}
 \item One sentence on what RoadMapping is.
-\item Overall axisymmetric RoadMapping modelling works in the presence of non-axisymmetric spiral arms, as long as the volume is big enough.
+\item Overall axisymmetric RoadMapping modelling works in the presence of non-axisymmetric spiral arms, as long as spiral arms do not dominate too much.
+\item Our simple assumption for a DF, a single qDF, seems to be surprisingly successful in modelling the snapshot galaxy.
 \end{itemize}
 \end{abstract}
 
@@ -146,7 +147,7 @@ We have confirmed that the gravitational center of the particles corresponds to 
 
 The selection function of all-sky surveys like Gaia, that are only limited by the brightness of the tracers, are contiguous and---when ignoring anisotropic effects like dust obscuration---spherical in shape. For simplicity we will use spherical survey volumes centered on different vantage points and with sharp edges at a radius $r_\text{max}$ around it (see also Section \ref{sec:likelihood}), which corresponds to a magnitude cut for stellar tracers all having the same luminosity. Figure \ref{fig:simulation} illustrates the different survey volume positions we use in this study: We use each a volume with $r_\text{max}=1,2,3,4$ or $5~\text{kpc}$ centered on a spiral arm and on an inter-arm region at both the equivalent of the solar radius in this simulation, $R=8~\text{kpc}$, and at $R=5~\text{kpc}$, where the spiral arms are more pronounced (see Figure \Wilma{[TO DO: Make plot that illustrates strengt of spiral arm and reference it here]}) than at $R=~\text{kpc}$. From each volume we draw $N_*=20,000$ random ``disk star'' particles from the simulation and use their phase-space positions $(\vect{x}_i,\vect{v}_i)$ within the simulated galaxy's restframe as data. To make the data sample more realistic, one would actually have to add measurement uncertainties, especially to the distances of the survey volumes central vantage point and the proper motions measured from there. We decided not to include measurement uncertainties: Firstly, their effect on \RM{} modelling has been already investigated in Paper I and we found that the measurement uncertainties of the last data release of Gaia should be small enough to not disturb the modelling to much. Secondly, in this study we want to isolate and investigate the deviations of the data from the assumed potential and DF model and axisymmetry independently of other effect.
 
-\subsection{Symmetrized potential model}
+\subsection{Symmetrized potential model} \label{sec:DEHH-Pot}
 
 For a galaxy with pronounced spiral arms an axisymmetric model matter distribution can per se not reproduce the true matter distribution globally. We derived an \emph{overall best fit symmetrized} potential model from the distribution of particles to be able (i) to quantify the non-axisymmetries in the simulation snapshot better and (ii) to compare how close our axisymmetric \RM{} results can get to it. 
 
@@ -180,33 +181,28 @@ bulge scale length & \Wilma{[TO DO]} & \Wilma{[TO DO]}
 
 \Wilma{[TO DO: There is a short comment on that in D'Onghia 2013 as well]}
 
+\Wilma{[TO DO: Maybe give the different survey centroids names A,B,C,D, so it's easier to talk about them.]}
+
 Depending on size and position of the survey volume the spiral arms and inter-arm regions dominate the stellar distribution within the survey volume to different degrees. To quantify the strength of the spiral arm, we introduce the quantity
 \begin{equation*}
-\kappa(x_j,y_j) \equiv \frac{\Sigma_{\text{disk},T}(x_j,y_j \mid z\leq z_j)}{\Sigma_{\text{disk},S}(x_j,y_j \mid z\leq z_j)} -1
+\kappa(x_j,y_j) \equiv \frac{\Sigma_{\text{disk},T}(x_j,y_j \mid |z|\leq 1.5~\text{kpc})}{\Sigma_{\text{disk},S}(x_j,y_j \mid |z| \leq1.5~\text{kpc})} -1
 \end{equation*}
-where $\Sigma_{\text{disk},i}$ is the surface density of the disk component  of the simulation snapshot ($i=T$) or of the symmetrized snapshot model in Section \Wilma{[TO DO]} ($i=S$) within the survey volume,
+where $\Sigma_{\text{disk},i}$ is the surface density of the disk component  of the simulation snapshot ($i=T$) or of the symmetrized snapshot model \texttt{DEHH-Pot} in Section \ref{sec:DEHH-Pot} ($i=S$) within the survey volume,
+\begin{equation}
+\Sigma_{\text{disk},i} \equiv \int_{-1.5~\text{kpc}}^{1.5~\text{kpc}} \rho_{\text{disk},i}(x_j,y_j,z) \ \diff z.
+\end{equation}
+$(x_j,y_j)$ is the centroid of a surface area element $(x_j\pm\delta,y_j\pm \delta)$ with $\delta=0.25~\text{kpc}$. $(x_c,y_c,z_c=0)$ is the position of the survey volume's center within the simulation's cartesian coordinate system, $c\in\left\{ A,B,C,D\right\}$. We consider all $n \simeq \pi r_\text{max}^2/4\delta^2$ values of $\kappa(x_j,y_j)$ inside a given survey volume and calculate the statistics
 \begin{eqnarray*}
-\Sigma_{\text{disk},i} &\equiv& \int_{-z_j}^{z_j} \rho_{\text{disk},i}(x_j,y_j,z) \ \diff z\\
-z_j &=& \begin{cases}
-\sqrt{r_\text{max}^2 - (x_j-x_c)^2 - (y_j-y_c)^2} & \text{for sf}(x_j,y_j,0) > 0\\
-0 & \text{otherwise.}
-\end{cases}
+\langle \kappa (r \leq r_\text{max} | c) \rangle &\equiv& \frac 1n \sum_j^n \kappa(x_j,y_j)\\
+\text{and} \Delta \kappa(r \leq r_\text{max} | c) &\equiv& \text{max}[\kappa(r \leq r_\text{max} | c)] - \text{min}(r \leq r_\text{max} | c)]\\
+\text{with} && (x_j-x_c)^2 + (y_j-y_c)^2 \leq r_\text{max}.
 \end{eqnarray*}
-$(x_c,y_c,z_c=0)$ is the position of the survey volume's center within the simulation's cartesian coordinate system. $(x_j,y_j)$ is the centroid of a surface area element $(x_j\pm\delta,y_j\pm \delta)$ with $\delta=\Wilma{???}$. We calculate $\kappa(x_j,y_j)$ for all $n \simeq \pi r_\text{max}^2/4\delta^2$ surface elements within the survey volume. The statistics
-\begin{eqnarray*}
-\langle \kappa \rangle &\equiv& \frac 1n \sum_j^n \kappa(x_j,y_j)\\
-\sigma_\kappa &\equiv& \sqrt{\frac 1n \sum_j^n \left(\kappa(x_j,y_j) - \langle \kappa \rangle \right)^2}
-\end{eqnarray*}
-give us information if a single spiral arm or an inter-arm region dominates the survey volume ($\langle \kappa \rangle$ large for spiral arms, $\langle \kappa \rangle$ small for inter-arm regions, at small $\sigma_\kappa$) or if several spiral arms cross the survey volume (large $\sigma_\kappa$).
-
-\Wilma{[TO DO: Test also alternative models, i.e., a) using the intial condition disk density within the surface density, b) ignoring the z-height and using the best fit surface density with scale length 2.5kpc.]}
-
-\Wilma{[TO DO: After talking to HW it is probably easier to understand for people, if I use $z_j=1.1$kpc (?). Instead of the one example for $r_{max}=4kpc$ I should plot the whole galaxy and overplot the different positions and example volumes. He also wants a histogram kappa vs. \# for the whole galaxy. Then I can plot convenient properties $\langle \kappa^2 \rangle$ and $\langle|\kappa|\rangle$ and/or $max(\kappa) - min(kappa)$ and $median(\kappa)$ as function of $r_{max}$ for the different volumes. (If I precalculate kappa for the whole galaxy, I can simply do the task and also use $r_{max}$ in between the integer values.]}
+This gives us information if a spiral arm or an inter-arm region dominates the survey volume ($\langle \kappa \rangle > 0$ for spiral arms, $\langle \kappa \rangle < 0$ for inter-arm regions) and how large the contrast between spiral arms and inter-arm regions is ($\Delta \kappa$).
 
 %====================
 \begin{figure*}[!htbp]
 \plotone{fig/whole_galaxy_kappa_i.pdf}
-\caption{\Wilma{[TO DO: Rewrite caption. Figure has changed.]} Contrast of the spiral arms in the fiducial survey volume of Section \Wilma{???}. As described in Section \Wilma{???} we quantify the strength of the spiral arm \Wilma{???} using Equation \Wilma{???} \Wilma{[TO DO: redo the plot, not all axes labels are shown.]}}
+\caption{Contrast and dominance of the spiral arms. The left panel shows the values of $\kappa_i$ calculated according to Equation \Wilma{[TO DO]} as described in Section \Wilma{[TO DO]} at regular grid points $(x_i,y_i)$ with bin width $0.25~\text{kpc}$. Marked are the centroids of the four test survey volumes of this study. The middle and right panel show the dominance (with the mean $\langle \kappa (r \leq r_\text{max} \rangle$ of all grid points within the survey volume as measure) and the contrast (with $\text{max}[kappa (r \leq r_\text{max})] -\text{min}[\kappa (r \leq r_\text{max}]$ as measure) of spiral arms and inter-arm regions inside a spherical survey volume with given centroid (colour-coded) and size (radius $r_\text{max}$ shown on the $x$-axis). We chose two volumes in which the spiral arms dominate, and two in which an inter-arm region dominates. The dominance and contrast of spiral arms and inter-arm regions is stronger at $R=5~\text{kpc}$ than at $R=8~\text{kpc}$. Also, inter-arm regions appear larger and smoother than spiral arms, as already inside a small volume centred on a spiral arm the contrast is quite large. The larger the volume the more does the overall effect of spiral arms and inter-arm regions average out. \Wilma{[TO DO: Make plot prettier. Color scheme should be the same as in other plots.]} \Wilma{[TO DO: redo this calculation for whole galaxy such that it is okay to use rmax = 6kpc.]} \Wilma{[TO DO: Add a panel that shows a kappa histogram for the whole galaxy.]}}
 \label{fig:???}
 \end{figure*}
 %====================
@@ -324,7 +320,7 @@ The recovery of density, surface density and disk-to-halo ratio is especially go
 %====================
 \begin{figure}[!htbp]
 \includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_density_overview.pdf}
-\caption{\Wilma{[TO DO: Remove MNHH symmetric potential from caption.]} Comparison of the true density distribution $\rho_{\Phi,\text{T}}$ in the galaxy simulation snapshot (solid black line, averaged over $\phi$) with the axisymmetric density distribution $\rho_{\Phi,\text{R}}$ recovered with \RM{} (solid blue lines) from $N_*=20,000$ stars in the survey volume with $r_\text{max}=4~\text{kpc}$ (yellow line), as described in Section \Wilma{[TO DO]}. The first two panels show density profiles along $(R,z=0)$ and $(R=8~\text{kpc},z)$, together with the relative differences between true and recovered $\rho_{\Phi}$. The third panel displays equidensity contours of the matter distribution in the $(R,z)$ plane. Overplotted are also the symmetrized ''true´´ potential's $\rho_{\Phi,\text{S}}$ (dotted black line) (see Section \Wilma{[TO DO]}) and the $\rho_{\Phi,\text{M}}$ of the recovered mean model in Table \Wilma{[TO DO]} (dotted blue line). The last panel shows the relative difference between the true $\rho_{\Phi,\text{T}}$ (averaged over all $\phi$) and the recovered mean model $\rho_{\Phi,\text{M}}$. Over wide areas even outside of the survey volume the relative difference is less than $15\%$. At $R\gtrsim8~\text{kpc}$ and $z\sim0$ it becomes apparent that the chosen potential model cannot perfectly capture the structure of the disk. \Wilma{[TO DO: Make sure that this plot actually contains the final analysis and sym. model that I want to show.]} \Wilma{[TO DO: Remove orange potential again? Is not good enough.]} \Wilma{[TO DO: Maybe show the profiles not at R=8 and z=0, but at R=6 and z=$h_z$ or so.]} }
+\caption{Comparison of the true density distribution $\rho_{\Phi,\text{T}}$ in the galaxy simulation snapshot (solid black line, averaged over $\phi$) with the axisymmetric density distribution $\rho_{\Phi,\text{R}}$ recovered with \RM{} (solid blue lines) from $N_*=20,000$ stars in the survey volume with $r_\text{max}=4~\text{kpc}$ (yellow line), as described in Section \Wilma{[TO DO]}. The first two panels show density profiles along $(R,z=0)$ and $(R=8~\text{kpc},z)$, together with the relative differences between true and recovered $\rho_{\Phi}$. The third panel displays equidensity contours of the matter distribution in the $(R,z)$ plane. Overplotted are also the overall axisymmetric \texttt{DEHH-Pot}'s $\rho_{\Phi,\text{S}}$ (dotted black line) (see Section \ref{sec:DEHH-Pot}) and the $\rho_{\Phi,\text{M}}$ of the recovered mean model in Table \Wilma{[TO DO]} (dotted blue line). The last panel shows the relative difference between the true $\rho_{\Phi,\text{T}}$ (averaged over all $\phi$) and the recovered mean model $\rho_{\Phi,\text{M}}$. Over wide areas even outside of the survey volume the relative difference is less than $15\%$. At $R\gtrsim8~\text{kpc}$ and $z\sim0$ it becomes apparent that the chosen potential model cannot perfectly capture the structure of the disk. \Wilma{[TO DO: Maybe show the profiles not at R=8 and z=0, but at R=6 and z=$h_z$ or so.]} }
 \label{fig:???}
 \end{figure}
 %====================
