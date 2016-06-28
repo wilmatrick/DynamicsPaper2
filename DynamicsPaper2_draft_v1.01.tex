@@ -161,7 +161,7 @@ Globally our \RM{} model can not be better than this \emph{overall best fit symm
 %====================
 \begin{deluxetable}{lll}[!htbp]
 \tabletypesize{\scriptsize}
-\tablecaption{Best fit parameters of the \texttt{DEHH-Pot} (see Section \Wilma{[TO DO]}), which we use as the global best fit symmetrized potential model. \label{tbl:symmetrizedpotential}}
+\tablecaption{Best fit parameters of the \texttt{DEHH-Pot} (see Section \Wilma{[TO DO]}), which we use as the global best fit symmetrized potential model. \label{tbl:DEHH-Pot}}
 \tablewidth{0pt}
 \startdata
 \tableline
@@ -201,8 +201,8 @@ This gives us information if a spiral arm or an inter-arm region dominates the s
 
 %====================
 \begin{figure*}[!htbp]
-\plotone{fig/whole_galaxy_kappa_i.pdf}
-\caption{Contrast and dominance of the spiral arms. The left panel shows the values of $\kappa_i$ calculated according to Equation \Wilma{[TO DO]} as described in Section \Wilma{[TO DO]} at regular grid points $(x_i,y_i)$ with bin width $0.25~\text{kpc}$. Marked are the centroids of the four test survey volumes of this study. The middle and right panel show the dominance (with the mean $\langle \kappa (r \leq r_\text{max} \rangle$ of all grid points within the survey volume as measure) and the contrast (with $\text{max}[kappa (r \leq r_\text{max})] -\text{min}[\kappa (r \leq r_\text{max}]$ as measure) of spiral arms and inter-arm regions inside a spherical survey volume with given centroid (colour-coded) and size (radius $r_\text{max}$ shown on the $x$-axis). We chose two volumes in which the spiral arms dominate, and two in which an inter-arm region dominates. The dominance and contrast of spiral arms and inter-arm regions is stronger at $R=5~\text{kpc}$ than at $R=8~\text{kpc}$. Also, inter-arm regions appear larger and smoother than spiral arms, as already inside a small volume centred on a spiral arm the contrast is quite large. The larger the volume the more does the overall effect of spiral arms and inter-arm regions average out. \Wilma{[TO DO: Make plot prettier. Color scheme should be the same as in other plots.]} \Wilma{[TO DO: redo this calculation for whole galaxy such that it is okay to use rmax = 6kpc.]} \Wilma{[TO DO: Add a panel that shows a kappa histogram for the whole galaxy.]}}
+\includegraphics[width=\textwidth]{fig/whole_galaxy_kappa_i.pdf}
+\caption{Contrast and dominance of the spiral arms. The left panel shows the values of $\kappa_i$ calculated according to Equation \Wilma{[TO DO]} as described in Section \Wilma{[TO DO]} at regular grid points $(x_i,y_i)$ with bin width $0.25~\text{kpc}$. Marked are the centroids of the four test survey volumes of this study. The second panel shows a histogram over all $kappa(x_j,y_j)$ values in the region $x,y \in [-14,14]~\text{kpc}$. The two right panels show the dominance (with the mean $\langle \kappa (r \leq r_\text{max} \rangle$ of all grid points within the survey volume as measure) and the relative contrast (with the standard deviation $\sigma[kappa (r \leq r_\text{max})]$ as measure) of spiral arms and inter-arm regions inside a spherical survey volume with given centroid (colour-coded) and size (radius $r_\text{max}$ shown on the $x$-axis). We chose two volumes in which the spiral arms dominate, and two in which an inter-arm region dominates. The dominance and contrast of spiral arms and inter-arm regions is stronger at $R=5~\text{kpc}$ than at $R=8~\text{kpc}$. Also, inter-arm regions appear larger and smoother than spiral arms, as already inside a small volume centred on a spiral arm the contrast is quite large. The larger the volume the more does the overall effect of spiral arms and inter-arm regions average out.}
 \label{fig:???}
 \end{figure*}
 %====================
@@ -313,7 +313,7 @@ In Figure \ref{fig:4kpc8Spiral_DF_comparison} we compare the phase-space distrib
 
 As shown in the previous section the best fit \RM{} model seems to reproduce the stellar phase-space distribution quite well. But is the corresponding potential close to the true potential? 
 
-Figures \Wilma{[TO DO]} compare the true simulation snapshot potential and the axisymmetric \texttt{DEHH-Pot} from Table \Wilma{[TO DO]} with the best fit \texttt{MNHH-Pot} from the \RM{} analysis. In particular, Figure \Wilma{[TO DO]} illustrates the overall matter density distribution, Figure \Wilma{[TO DO]} the rotation curve, surface density profile and disk-to-halo ratio and Figure \Wilma{[TO DO]} compares the true and recovered gravitational forces at the position of each star in the data set.
+Figures \Wilma{[TO DO]} compare the true simulation snapshot potential and the axisymmetric \texttt{DEHH-Pot} from Table \ref{tbl:DEHH-Pot} with the best fit \texttt{MNHH-Pot} from the \RM{} analysis. In particular, Figure \Wilma{[TO DO]} illustrates the overall matter density distribution, Figure \Wilma{[TO DO]} the rotation curve, surface density profile and disk-to-halo ratio and Figure \Wilma{[TO DO]} compares the true and recovered gravitational forces at the position of each star in the data set.
 
 The recovery of density, surface density and disk-to-halo ratio is especially good in the region where most of the stars are located, around $R\sim~6\text{kpc}$ and in the plane of the disk. In large regions inside the survey volume, and even outside, the density is recovered to within 15\%. Due to the spiral arms in the disk plane at smaller radii, and a misjudgement of the radial density profile at larger radii, which is most likely due to the choice of a disk potential that cannot reproduce the actual profile, The circular velocity curve is even recovered within 5\% \Wilma{[TO DO: Check that this is also the case if we use the true rotation curve.]}.
 
@@ -328,7 +328,7 @@ The recovery of density, surface density and disk-to-halo ratio is especially go
 %====================
 \begin{figure*}[!htbp]
 \plotone{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_vcirc_surfdens_overview.pdf}
-\caption{\Wilma{[TO DO: Remove MNHH symmetric potential from caption.]} Comparison of the circular velocity curve, surface density profile within $|z|\leq1.1~\text{kpc}$ and disk-to-halo ratio of the surface density along $R$ for the true potential of the galaxy simulation snapshot (solid black line) and the axisymmetric model potential recovered with \RM{} (solid blue lines) (see Section \Wilma{[TO DO]}). Overplotted are also the profiles of the symmetrized ''true´´ potential (dotted black line) (see Section \Wilma{[TO DO]}) and the recovered mean model (dotted blue line) (see Table \Wilma{[TO DO]}). The circular velocity curve is recovered to less than $5\%$, especially at larger radii. For the surface density and disk-to-halo ratio \RM{} recovers the truth at radii $\lesssim 8~\text{kpc}$. The deviations at larger radii are connected to the discrepancies in the density in Figure \Wilma{[TO DO]}. \Wilma{[TO DO: When I have the force I can probably also calculate the true circular velocity curve!]}}
+\caption{\Wilma{[TO DO: Remove MNHH symmetric potential from caption.]} Comparison of the circular velocity curve, surface density profile within $|z|\leq1.1~\text{kpc}$ and disk-to-halo ratio of the surface density along $R$ for the true potential of the galaxy simulation snapshot (solid black line) and the axisymmetric model potential recovered with \RM{} (solid blue lines) (see Section \Wilma{[TO DO]}). Overplotted are also the profiles of the symmetrized ''true´´ potential (dotted black line) (see Section \Wilma{[TO DO]} and Table \ref{tbl:DEHH-Pot}) and the recovered mean model (dotted blue line) (see Table \Wilma{[TO DO]}). The circular velocity curve is recovered to less than $5\%$, especially at larger radii. For the surface density and disk-to-halo ratio \RM{} recovers the truth at radii $\lesssim 8~\text{kpc}$. The deviations at larger radii are connected to the discrepancies in the density in Figure \Wilma{[TO DO]}. \Wilma{[TO DO: When I have the force I can probably also calculate the true circular velocity curve!]}}
 \label{fig:???}
 \end{figure*}
 %====================
@@ -359,32 +359,35 @@ The recovery of density, surface density and disk-to-halo ratio is especially go
 \item Figure: residuals in action space, comparison of true/symmetrized vs. best fit actions (maybe also true vs. best fit in symmetrized potential), overplot Lz=vcirc*Rg of spiral arms
 \end{itemize}
 
-\subsection{Investigation of different aspects}
+\subsection{The influence of spiral arms on \RM{}}
 
-\subsubsection{Test suite}
+In the previous section we showed that for a large enough survey volume ($r_\text{max}=4~\text{kpc}$) the \RM{} modelling result was a good fit to the data and gave constraints on the gravitational potential which were very close to the true potential. In the following we want to investigate how this modelling success depends on the position and the size of the survey volume.
+
+\subsubsection{Test suite and parameter recovery}
+
+We center our test survey volumes at the positions marked in Figures \Wilma{[TO DO]} and consider volume sizes with $r_\text{max} \in [0,1,2,3,4,5]~\text{kpc}$ for $R_0 = 8~\text{kpc}$ and $r_\text{max} \in [0,1,2,3,4]~\text{kpc}$ for $R_0 = 5~\text{kpc}$. As demonstrated in Figure \Wilma{[TO DO]} the spiral arm strength is very different in these four different test volumes. Each data set contains then $N_*=20,000$ stars inside this spherical volume and we fit a single qDF and \texttt{MNHH-Pot} to it. Figure \ref{fig:model_parameters} shows the best fit parameters for the different \RM{} analyses. We also overplot the parameter of the reference \texttt{DEHH-Pot} in Table \ref{tbl:DEHH-Pot}. Overall the statistical random errors on the parameter recovery are very small for $N*=20,000$ and possible systematic errors dominate. 
+Let's first consider the parameters of the gravitational potential: All volumes recover $v_\text{circ}(R_\odot)$ within a few $\text{km s}^{-1}$; in the largest volumes, where the circular velocity curve is probed over several $\text{kpc}$ the estimate is the most accurate. The halo fraction $f_\text{halo}$ of the radial force at the Sun is very well recovered, independent of the size of the volume. The estimate that we get for the best fit Miyamoto-Nagai disk scale height $b_\text{disk}$ seems to be approximately independent of the size of the volume as well. We can even recover the true halo scale length $a_\text{disk}$, however only for a volume as large as $r_\text{max}=5\text{kpc}$. Smaller volumes that underestimate $a_\text{halo}$ get slightly larger estimates for the disk scale length $a_\text{disk}$ and the overall radial density slope is then probably closer to the truth, even if the individual parameters are not.
+\Wilma{[TO DO: Discuss qDF parameters.]}
 
 %====================
 \begin{figure}[!htbp]
 \includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_violins.pdf}
-\caption{\Wilma{TO DO: Preliminary. Add more results. Make sure that the "true" potential parameters are the final version.}}
+\caption{\Wilma{TO DO: Preliminary. Add more results. Make sure that the "true" potential parameters are the final version.} \Wilma{[TO DO: Include vcirc of DEHH-Pot.]} \Wilma{[TO DO: Instead of the pink line make a black dotted line.]}}
+\label{fig:model_parameters}
+\end{figure}
+%====================
+
+\subsubsection{Size of survey volume}
+
+%====================
+\begin{figure}[!htbp]
+\includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_bias_in_forces_recovery.pdf}
+\caption{\Wilma{TO DO} \Wilma{[TO DO: Make sure all final analyses are in this plot.]}}
 \label{fig:???}
 \end{figure}
 %====================
 
-\begin{itemize}
-\item $r_{max}=1,2,3,4,5kpc$
-\item $N_*=20,000$
-\item MNHH potential + KKS potential
-\item $R_{obs} =5 and 8 kpc$
-\end{itemize}
 
-
-
-\subsubsection{Survey volume and choice of potential model}
-
-\begin{itemize}
-\item Figure: x-axis: $r_{max}$, y-axis: one panel with mean stellar rms deviation in FR and one with Fz. With different potentials and $r_{max}$.
-\end{itemize}
 
 \subsubsection{Influence of spiral arms}
 
