@@ -201,6 +201,7 @@ This gives us information if a spiral arm or an inter-arm region dominates the s
 
 %====================
 \begin{figure*}[!htbp]
+\centering
 \includegraphics[width=\textwidth]{fig/whole_galaxy_kappa_i.pdf}
 \caption{Contrast and dominance of the spiral arms. The left panel shows the values of $\kappa_i$ calculated according to Equation \Wilma{[TO DO]} as described in Section \Wilma{[TO DO]} at regular grid points $(x_i,y_i)$ with bin width $0.25~\text{kpc}$. Marked are the centroids of the four test survey volumes of this study. The second panel shows a histogram over all $kappa(x_j,y_j)$ values in the region $x,y \in [-14,14]~\text{kpc}$. The two right panels show the dominance (with the mean $\langle \kappa (r \leq r_\text{max} \rangle$ of all grid points within the survey volume as measure) and the relative contrast (with the standard deviation $\sigma[kappa (r \leq r_\text{max})]$ as measure) of spiral arms and inter-arm regions inside a spherical survey volume with given centroid (colour-coded) and size (radius $r_\text{max}$ shown on the $x$-axis). We chose two volumes in which the spiral arms dominate, and two in which an inter-arm region dominates. The dominance and contrast of spiral arms and inter-arm regions is stronger at $R=5~\text{kpc}$ than at $R=8~\text{kpc}$. Also, inter-arm regions appear larger and smoother than spiral arms, as already inside a small volume centred on a spiral arm the contrast is quite large. The larger the volume the more does the overall effect of spiral arms and inter-arm regions average out.}
 \label{fig:???}
@@ -303,7 +304,7 @@ In Figure \ref{fig:4kpc8Spiral_DF_comparison} we compare the phase-space distrib
   \subfigure[DF density residuals.\label{fig:DF_densres}]{\includegraphics[width=0.32\linewidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_data_bestfit_residuals_3a.pdf}}
   \subfigure[DF density profiles.\label{fig:DF_densprof}]{\includegraphics[width=0.32\linewidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_data_bestfit_residuals_3b.pdf}}
   \subfigure[DF velocity residuals.\label{fig:DF_velres}]{\includegraphics[width=0.32\linewidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_data_bestfit_residuals_3c.pdf}}
-  \caption{Comparison of the DF of stars in position-velocity space in the data set with $N_*=20,000$ and $r_\text{max}=4~\text{kpc}$ from the simulation snapshot and in the single-qDF best fit \RM{} model from Section \Wilma{[TO DO]}. Panel \ref{fig:DF_densres} shows the spatial density residual significance projected to the $(x,y)$ and $(R,z)$ plane. In the $(x,y)$ panel the following regions are marked: $R<8~\text{kpc},\phi>5^\circ$ (blue), $R<8~\text{kpc},\phi<5^\circ$ (red), $R>8~\text{kpc},\phi>5^\circ$ (green), $R>8~\text{kpc},\phi<5^\circ$ (yellow). Panels \ref{fig:DF_densprof} and \ref{fig:DF_velres} show the density profiles and velocity residual significance along each of the 6D phase-space coordinates separately for each of the four spatial regions. The blue region is very much dominated by the non-axisymmetric spiral arm. For the yellow region the axisymmetric single-qDF model is a good description. Overall the qDF is a good average axisymmetric model for the data. \Wilma{[TO DO: Move legend to R panel and make it bigger]} \Wilma{[TO DO: Mark spiral arms as circles with radius Rg.]} \Wilma{[TO DO: overplot total distribution in black lines]}}
+  \caption{Comparison of the DF of stars in position-velocity space in the data set with $N_*=20,000$ and $r_\text{max}=4~\text{kpc}$ from the simulation snapshot and in the single-qDF best fit \RM{} model from Section \Wilma{[TO DO]}. Panel \ref{fig:DF_densres} shows the spatial density residual significance projected to the $(x,y)$ and $(R,z)$ plane. In the $(x,y)$ panel the following regions are marked: $R<8~\text{kpc},\phi>5^\circ$ (blue), $R<8~\text{kpc},\phi<5^\circ$ (red), $R>8~\text{kpc},\phi>5^\circ$ (green), $R>8~\text{kpc},\phi<5^\circ$ (yellow). Panels \ref{fig:DF_densprof} and \ref{fig:DF_velres} show the density profiles and velocity residual significance along each of the 6D phase-space coordinates separately for each of the four spatial regions. The blue region is very much dominated by the non-axisymmetric spiral arm. For the yellow region the axisymmetric single-qDF model is a good description. Overall the qDF is a good average axisymmetric model for the data. \Wilma{[TO DO: Move legend to R panel and make it bigger]} \Wilma{[TO DO: Mark spiral arms as circles with radius Rg.]} \Wilma{[TO DO: overplot total distribution in black lines]} \Wilma{[TO DO: Calculate reference data new. Now I use the median of MCMC samples as best fit model.]} \Wilma{TO DO: Redo plot. Now I use the median of MCMC samples as best fit model.]}}
   \label{fig:4kpc8Spiral_DF_comparison}
 \end{figure*}
 %====================
@@ -319,16 +320,18 @@ The recovery of density, surface density and disk-to-halo ratio is especially go
 
 %====================
 \begin{figure}[!htbp]
+\centering
 \includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_density_overview.pdf}
-\caption{Comparison of the true density distribution $\rho_{\Phi,\text{T}}$ in the galaxy simulation snapshot (solid black line, averaged over $\phi$) with the axisymmetric density distribution $\rho_{\Phi,\text{R}}$ recovered with \RM{} (solid blue lines) from $N_*=20,000$ stars in the survey volume with $r_\text{max}=4~\text{kpc}$ (yellow line), as described in Section \Wilma{[TO DO]}. The first two panels show density profiles along $(R,z=0)$ and $(R=8~\text{kpc},z)$, together with the relative differences between true and recovered $\rho_{\Phi}$. The third panel displays equidensity contours of the matter distribution in the $(R,z)$ plane. Overplotted are also the overall axisymmetric \texttt{DEHH-Pot}'s $\rho_{\Phi,\text{S}}$ (dotted black line) (see Section \ref{sec:DEHH-Pot}) and the $\rho_{\Phi,\text{M}}$ of the recovered mean model in Table \Wilma{[TO DO]} (dotted blue line). The last panel shows the relative difference between the true $\rho_{\Phi,\text{T}}$ (averaged over all $\phi$) and the recovered mean model $\rho_{\Phi,\text{M}}$. Over wide areas even outside of the survey volume the relative difference is less than $15\%$. At $R\gtrsim8~\text{kpc}$ and $z\sim0$ it becomes apparent that the chosen potential model cannot perfectly capture the structure of the disk. \Wilma{[TO DO: Maybe show the profiles not at R=8 and z=0, but at R=6 and z=$h_z$ or so.]} }
+\caption{Comparison of the true density distribution $\rho_{\Phi,\text{T}}$ in the galaxy simulation snapshot (solid black line, averaged over $\phi$) with the axisymmetric density distribution $\rho_{\Phi,\text{R}}$ recovered with \RM{} (solid blue lines) from $N_*=20,000$ stars in the survey volume with $r_\text{max}=4~\text{kpc}$ (yellow line), as described in Section \Wilma{[TO DO]}. The first two panels show density profiles along $(R,z=0)$ and $(R=8~\text{kpc},z)$, together with the relative differences between true and recovered $\rho_{\Phi}$. The third panel displays equidensity contours of the matter distribution in the $(R,z)$ plane. Overplotted are also the overall axisymmetric \texttt{DEHH-Pot}'s $\rho_{\Phi,\text{S}}$ (dotted black line) (see Section \ref{sec:DEHH-Pot}) and the $\rho_{\Phi,\text{M}}$ of the recovered mean model in Table \Wilma{[TO DO]} (dotted blue line). The last panel shows the relative difference between the true $\rho_{\Phi,\text{T}}$ (averaged over all $\phi$) and the recovered mean model $\rho_{\Phi,\text{M}}$. Over wide areas even outside of the survey volume the relative difference is less than $15\%$. At $R\gtrsim8~\text{kpc}$ and $z\sim0$ it becomes apparent that the chosen potential model cannot perfectly capture the structure of the disk. \Wilma{[TO DO: Maybe show the profiles not at R=8 and z=0, but at R=6 and z=$h_z$ or so.]} \Wilma{TO DO: Redo plot. Now I use the median of MCMC samples as best fit model.]}}
 \label{fig:???}
 \end{figure}
 %====================
 
 %====================
 \begin{figure*}[!htbp]
-\plotone{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_vcirc_surfdens_overview.pdf}
-\caption{\Wilma{[TO DO: Remove MNHH symmetric potential from caption.]} Comparison of the circular velocity curve, surface density profile within $|z|\leq1.1~\text{kpc}$ and disk-to-halo ratio of the surface density along $R$ for the true potential of the galaxy simulation snapshot (solid black line) and the axisymmetric model potential recovered with \RM{} (solid blue lines) (see Section \Wilma{[TO DO]}). Overplotted are also the profiles of the symmetrized ''true´´ potential (dotted black line) (see Section \Wilma{[TO DO]} and Table \ref{tbl:DEHH-Pot}) and the recovered mean model (dotted blue line) (see Table \Wilma{[TO DO]}). The circular velocity curve is recovered to less than $5\%$, especially at larger radii. For the surface density and disk-to-halo ratio \RM{} recovers the truth at radii $\lesssim 8~\text{kpc}$. The deviations at larger radii are connected to the discrepancies in the density in Figure \Wilma{[TO DO]}. \Wilma{[TO DO: When I have the force I can probably also calculate the true circular velocity curve!]}}
+\centering
+\includegraphics[width=0.7\textwidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_vcirc_surfdens_overview.pdf}
+\caption{\Wilma{[TO DO: Remove MNHH symmetric potential from caption.]} Comparison of the circular velocity curve, surface density profile within $|z|\leq1.1~\text{kpc}$ and disk-to-halo ratio of the surface density along $R$ for the true potential of the galaxy simulation snapshot (solid black line) and the axisymmetric model potential recovered with \RM{} (solid blue lines) (see Section \Wilma{[TO DO]}). Overplotted are also the profiles of the symmetrized ''true´´ potential (dotted black line) (see Section \Wilma{[TO DO]} and Table \ref{tbl:DEHH-Pot}) and the recovered mean model (dotted blue line) (see Table \Wilma{[TO DO]}). The circular velocity curve is recovered to less than $5\%$, especially at larger radii. For the surface density and disk-to-halo ratio \RM{} recovers the truth at radii $\lesssim 8~\text{kpc}$. The deviations at larger radii are connected to the discrepancies in the density in Figure \Wilma{[TO DO]}. \Wilma{[TO DO: When I have the force I can probably also calculate the true circular velocity curve!]} \Wilma{TO DO: Redo plot. Now I use the median of MCMC samples as best fit model.]}}
 \label{fig:???}
 \end{figure*}
 %====================
@@ -337,14 +340,14 @@ The recovery of density, surface density and disk-to-halo ratio is especially go
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_test1_forces_overview_5.pdf}
-\caption{\Wilma{[TO DO: Rewrite. Figure was replaced.]} Comparison of radial and vertical forces  $F_R=-\partial \Phi / \partial R$ and $F_z = -\partial \Phi / \partial z$ of the true (upper two rows) or symmetrized (lower three rows, black and orange dotted lines) potential of the galaxy simulation snapshot with the potential model recovered with \RM{} (solid blue lines in lower three rows). The upper two rows show the relative difference between the true potential force at the position of each star that entered the \RM{} analysis, and the recovered potential force. The lower three rows compare contours of equal force and force profiles along lines of constant $R$ and $z$. Overall the radial forces are very well recovered, which is related to the well recovery of the circular velocity curve in Figure \Wilma{???}. There are more problems with the vertical force, which is related to the higher surface densities in spiral arms and lower surface density in inter-arm regions, for which the axisymmetric model can only give a average solution. Also, the potential model is not the optimal model to describe the vertical density profile, which becomes also visible in the recovery of the vertical force close to the plane of the disk. \Wilma{[TO DO: Might be, that I have to re-calculate the forces for some of the stars. Write Test that tests if force >1e10 and then recalculates those forces.]} \Wilma{[TO DO: Show only the lower panels.]}}
-\label{fig:???}
+\caption{\Wilma{[TO DO: Rewrite. Figure was replaced.]} Comparison of radial and vertical forces  $F_R=-\partial \Phi / \partial R$ and $F_z = -\partial \Phi / \partial z$ of the true (upper two rows) or symmetrized (lower three rows, black and orange dotted lines) potential of the galaxy simulation snapshot with the potential model recovered with \RM{} (solid blue lines in lower three rows). The upper two rows show the relative difference between the true potential force at the position of each star that entered the \RM{} analysis, and the recovered potential force. The lower three rows compare contours of equal force and force profiles along lines of constant $R$ and $z$. Overall the radial forces are very well recovered, which is related to the well recovery of the circular velocity curve in Figure \Wilma{???}. There are more problems with the vertical force, which is related to the higher surface densities in spiral arms and lower surface density in inter-arm regions, for which the axisymmetric model can only give a average solution. Also, the potential model is not the optimal model to describe the vertical density profile, which becomes also visible in the recovery of the vertical force close to the plane of the disk. \Wilma{[TO DO: Might be, that I have to re-calculate the forces for some of the stars. Write Test that tests if force >1e10 and then recalculates those forces.]} \Wilma{[TO DO: Show only the lower panels.]} \Wilma{TO DO: Redo plot. Now I use the median of MCMC samples as best fit model.]}}
+\label{fig:4kpc8Spiral_forces}
 \end{figure}
 %====================
 
 
 \begin{itemize}
-\item Figure: Idea for an additional figure (maybe not so interesting): local potential overview plot, scatter plot of stars color coded according to deviation of true and best fit (maybe also symmetrized) potential. normalize potential such that at solar circle pot=0. Both in \% of true potential and number of sigma away.
+\item As can be seen in Figure \ref{fig:4kpc8Spiral_forces} the model is a good average model for the majority of stars, i.e. in the wide inter-arm regions and also the stars the peaks of the spiral arms. For the wings of the spiral arms the model is less good: in the leading side of the spiral arm the $|F_{R,M}|$ is underestimated because it does not account for the additional pull of the spiral arm, while in the trailing side of the spiral arm $|F_{R,M}|$ is overestimated, as it does not feel the pull away from the Galactic center by the spiral arm.
 \end{itemize}
 
 \subsubsection{Recovering the action distribution}
@@ -352,7 +355,7 @@ The recovery of density, surface density and disk-to-halo ratio is especially go
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_data_bestfit_residuals_only_actions.pdf}
-\caption{\Wilma{[TO DO]}}
+\caption{\Wilma{[TO DO]} \Wilma{[TO DO: Calculate reference data new. Now I use the median of MCMC samples as best fit model.]} \Wilma{TO DO: Redo plot. Now I use the median of MCMC samples as best fit model.]}}
 \end{figure}
 
 \begin{itemize}
@@ -371,22 +374,39 @@ Let's first consider the parameters of the gravitational potential: All volumes 
 
 %====================
 \begin{figure}[!htbp]
+\centering
 \includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_violins.pdf}
-\caption{\Wilma{TO DO: Preliminary. Add more results. Make sure that the "true" potential parameters are the final version.} \Wilma{[TO DO: Include vcirc of DEHH-Pot.]} \Wilma{[TO DO: Instead of the pink line make a black dotted line.]}}
+\caption{\Wilma{TO DO: Preliminary. Add more results. Make sure that the "true" potential parameters are the final version.}}
 \label{fig:model_parameters}
 \end{figure}
 %====================
 
 \subsubsection{Size of survey volume}
 
+\Wilma{[To Do: Introductory paragraph.]}
+
 %====================
 \begin{figure}[!htbp]
+\centering
 \includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_bias_in_forces_recovery.pdf}
 \caption{\Wilma{TO DO} \Wilma{[TO DO: Make sure all final analyses are in this plot.]}}
-\label{fig:???}
+\label{fig:forces_bias}
 \end{figure}
 %====================
 
+\begin{itemize}
+\item The first and most important thing to notice is, that we get very close to recovering the true forces at the positions of the stars in the survey volume, no matter how large the survey volume is.
+\item The second thing to notice is, that, if we consider not the stars inside the survey volume, but a spatial average of the forces in a large volume ($r_\text{max}=5~\text{kpc}$) independent of the survey volume, the radial forces are overall very well recovered, especially for large survey volumes. There is however a overestimation of $\sim5-20\%$ in the vertical forces (depending on volume size and position) which is induced by the spiral arms (see explanation below).
+\item The third thing to notice is that the constraints we get on the spatially averaged forces inside $r<5~\text{kpc}$ is almost as good for the survey volume of $r_\text{max}=3~\text{kpc}$ as compared to survey volumes of $r_\text{max}=4$ or $5~\text{kpc}$. If we had to decide between a $r_\text{max}=3~\text{kpc}$ volume with good data quality and a larger volume with worse data quality, we would loose nothing in terms of force recovery when using the smaller volume. (Only the halo scale length might not be as well constrained, see Figure \ref{fig:model_parameters}).
+
+\item Now let's discuss the reason for the biases that we observe. The peak of the distribution in $\Delta F_R(*_i)$ and $\Delta F_R(g_j)$ is slightly biased towards an underestimation of $|F_{R,M}|$ in our \RM{} models. We think the explanation is the following: Spiral arms are very thin. If a spiral arm crosses the observation volume both its leading side (at large radii) and its trailing side (at small radii) are also in the volume. Stars in the trailing side feel a lower gravitational pull towards the galaxy center than they would if there was no spiral arm. Because there are in general more stars at smaller radii, the \RM{} fit is slightly biased to reproduce in general slightly weaker radial forces. \Wilma{[TO DO: Not 100\% sure but it could be that, when I include the true circular velocity in the vcirc plot above, that one sees that the true vcirc (and therefore FR) is slightly larger than the recovered vcirc.]}
+
+\item The peak of $\Delta F_z(*_i)$ is approximately at 0, while the peak of $\Delta F_z(g_j)$ is strongly biased towards an overestimation of $|F_{z,M}|$. There are much more stars in the spiral arms than in the inter-arm regions, and the stars in the spiral arm feel stronger vertical forces because of the higher disk mass. \RM{} finds a model that in general has much stronger vertical forces than expected for a smooth potential. While the actual vertical forces that the many stars in the spiral arms feel are very well recovered, it becomes obvious when looking at the grid points regularly distributed in space that the \RM{} vertical forces are much stronger. As expected the overestimation is especially strong ($\sim 20 \%$) for small survey volumes dominated by spiral arms, while small volumes dominated by an inter-arm region result in much better estimates for the spatially averaged $F_z(g_j)$ ($\sim5\%$ bias). Large volumes lie somewhere in between (bias of $\sim10\%$).
+
+\item Because the stellar number asymmetry in the trailing vs. leading sides of spiral arms is much smaller than the stellar number asymmetry in spiral arm vs. inter-arm region, the bias is visible in the distribution of $\Delta F_R{*_i}$ ($F_R$ recovery biased only by a few stars $\longrightarrow$ bias for majority of stars visible) and not in $\Delta F_z(*_i)$ (majority of stars biases the fit $\longrightarrow$ we recover $F_z$ for the majority of stars), but becomes really pronounced for $\Delta F_z{g_i}$ (the inter-arm regions dominate when averaging spatially $\longrightarrow$ large overestimation of $F_z$) and stays small for $\Delta F_R{g_i}$ (trailing and leading sides of spiral arms are similarly important when averaging spatially $\longrightarrow$ it becomes visible that the bias is actually not that big).
+\end{itemize}
+
+\Wilma{[TO DO: make consistent: $i$ counts stars, $j$ counts grid points.]}
 
 
 \subsubsection{Influence of spiral arms}
