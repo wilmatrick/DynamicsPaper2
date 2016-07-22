@@ -64,6 +64,7 @@
 \item Our simple assumption for a DF, a single qDF, seems to be surprisingly successful in modelling the snapshot galaxy.
 \item Forces can be reliably recovered at the position of the stars that entered the analysis, with only small biases induced by the spiral arms.
 \item A survey volume of $r_\text{kpc}=3~\text{kpc}$ gives equally good constraints on a spatially averaged radial and vertical forces as a volume with $r_\text{max}=5~\text{kpc}$. However, only the latter seems to be able to recover the true halo scale length. 
+\item \RM{} can not only give a good average axisymmetric model for the galaxy; by modelling smaller regions of the galaxy independently ($r_\text{max}\sim 1~\text{kpc}$) we are actually able to make first and correct measurements of the non-axisymmetric structures in the gravitational potential as well.
 \end{itemize}
 \end{abstract}
 
@@ -185,7 +186,7 @@ bulge scale length & \Wilma{[TO DO]} & \Wilma{[TO DO]}
 
 \Wilma{[TO DO: There is a short comment on that in D'Onghia 2013 as well]}
 
-\Wilma{[TO DO: Maybe give the different survey centroids names A,B,C,D, so it's easier to talk about them.]}
+\Wilma{[TO DO: Maybe give the different survey centroids names I8,S8,I5,S5, so it's easier to talk about them.]}
 
 Depending on size and position of the survey volume the spiral arms and inter-arm regions dominate the stellar distribution within the survey volume to different degrees. To quantify the strength of the spiral arm, we introduce the quantity
 \begin{equation*}
@@ -208,7 +209,7 @@ This gives us information if a spiral arm or an inter-arm region dominates the s
 \centering
 \includegraphics[width=\textwidth]{fig/whole_galaxy_kappa_i.pdf}
 \caption{Contrast and dominance of the spiral arms. The left panel shows the values of $\kappa_i$ calculated according to Equation \Wilma{[TO DO]} as described in Section \Wilma{[TO DO]} at regular grid points $(x_i,y_i)$ with bin width $0.25~\text{kpc}$. Marked are the centroids of the four test survey volumes of this study. The second panel shows a histogram over all $kappa(x_j,y_j)$ values in the region $x,y \in [-14,14]~\text{kpc}$. The two right panels show the dominance (with the mean $\langle \kappa (r \leq r_\text{max} \rangle$ of all grid points within the survey volume as measure) and the relative contrast (with the standard deviation $\sigma[kappa (r \leq r_\text{max})]$ as measure) of spiral arms and inter-arm regions inside a spherical survey volume with given centroid (colour-coded) and size (radius $r_\text{max}$ shown on the $x$-axis). We chose two volumes in which the spiral arms dominate, and two in which an inter-arm region dominates. The dominance and contrast of spiral arms and inter-arm regions is stronger at $R=5~\text{kpc}$ than at $R=8~\text{kpc}$. Also, inter-arm regions appear larger and smoother than spiral arms, as already inside a small volume centred on a spiral arm the contrast is quite large. The larger the volume the more does the overall effect of spiral arms and inter-arm regions average out.}
-\label{fig:???}
+\label{fig:spiral_arm_kappa}
 \end{figure*}
 %====================
 
@@ -296,7 +297,7 @@ Even though we do not have any stellar abundance or age information in the simul
 
 We run the \RM{} modelling on several data sets drawn from different survey volumes in the simulation snapshot introduced in Section \ref{sec:simulation_description}. In Section \ref{sec:results_part1} we will analyze one of these \RM{} analyses in detail, and in Section \ref{sec:results_part2} we compare the different results for the different data sets.
 
-\subsection{A single application of \RM{}} \label{sec:results_part1}
+\subsection{An axisymmetric galaxy model from \RM{}} \label{sec:results_part1}
 
 In this section we will discuss the results of the \RM{} analysis of a single data set. This fiducial data set has $N_*=20,000$ stars that were drawn from the spherical volume with $r_\text{max}=4~\text{kpc}$ centered on a spiral arm at the ``solar'' radius $R=8~\text{kpc}$ shown as yellow sphere in Figure \ref{fig:simulation} (position \texttt{S8}). We use \RM{} to fit a single qDF (see Section \ref{sec:DF_model}) and the potential model \texttt{MNHH-Pot} consisting of a Miyamoto-Nagai disk, a Hernquist halo and a (fixed) Hernquist bulge introduced in Section \ref{sec:potential_model} to it. The best fit parameters are summarized in Table \Wilma{[TO DO]}.
 
@@ -328,7 +329,7 @@ The recovery of density, surface density, circular velocity curve and disk-to-ha
 
 There is however a very small ($<1.5\%$) underestimation of $v_\text{circ}$ at larger radii. We suspect that this is a combination of a bias introduced by the spiral arms (see also discussion in Section \Wilma{[TO DO]}) and the choice of potential model (as a similar bias shows up in the \texttt{DEHH-Pot}). The overall surface density profile is a bit overestimated ($\sim 15\%$) at smaller radii; the reason is clearly the local spiral arm at $R\sim6~\text{kpc}$ with its higher surface density  and many stars entering the analysis, which bias the result and which was to be expected. At larger radii ($R\sim10-12~\text{kpc}$) the fit of radial local density and surface density profile is less good, which we account to the Miyamoto-Nagai disk having a shallower radial profile than an exponential disk, and not enough stars in this outer regions to give good constraints. The much stronger bias in the disk-to-halo ratio at larger radii is the result of a misjudgement of the halo scale length. As we will see later (see Figure \ref{fig:model_parameters}) we seem to need an even larger survey volume to have enough radial coverage to constrain the halo scale length properly. But again, where most of the stars are located, our \RM{} model is a very good average model for the true galaxy.
 
-In Figure \ref{fig:4kpc8Spiral_forces} we compare the true force that each star in the data set feels ($F_{R,T}(*_i)$ and $F_{T,M}(*_i)$, calculated as sum of the individual contributions by each particle in the simulation and the analytic dark matter halo) with the force that the \RM{} median model predicts for each star ($F_{R,M}(*_i)$ and $F_{z,M}(*_i)$). We scale the difference between truth and model by a typical radial or vertical force at the given radius for which we use
+The aspect of the potential to which the stellar orbits are actually sensitive to, are the gravitational forces. In Figure \ref{fig:4kpc8Spiral_forces} we compare therefore the true force that each star in the data set feels ($F_{R,T}(*_i)$ and $F_{T,M}(*_i)$, calculated as sum of the individual contributions by each particle in the simulation and the analytic dark matter halo) with the force that the \RM{} median model predicts for each star ($F_{R,M}(*_i)$ and $F_{z,M}(*_i)$). We scale the difference between truth and model by a typical radial or vertical force at the given radius for which we use
 \begin{eqnarray}
 F_{R,\text{typ}}(R) &\equiv& v^2_{\text{circ},S}(R) / R\\
 F_{z,\text{typ}}(R) &\equiv& F_{z,S}(R,z=h_r),
@@ -341,11 +342,13 @@ where $v_{\text{circ},S}$ and $F_{z,S}$ are the circular velocity and vertical f
 &\lesssim& \langle J_z(*_i) \times \Omega_z(*_i) / h_r \rangle (R),
 \end{eqnarray*}
 where, e.g., $\langle |F_{z,T}(*_i)|  (R) \rangle$ denotes the mean of the absolute value of the true vertical force of all stars at radius $R$, and $J_z \times \Omega_z \sim \langle E_z \rangle$ is something like the mean vertical energy of a stellar orbit. Figure \ref{fig:4kpc8Spiral_forces} shows therefore
-\begin{eqnarray*}
-\Delta F_R(*_i) \equiv \left(|F_{R,M}| - |F_{R,T}| \right) / F_{R,\text{typ}}\\
-\Delta F_z(*_i) \equiv \left(|F_{z,M}| - |F_{z,T}| \right) / F_{z,\text{typ}}\\
-\end{eqnarray*}
-for each star. The recovery is as expected: The true vertical force is stronger in the spiral arms (due to the higher surface density) and weaker in the inter-arm regions as compared to the axisymmetric best fit model; the true radial force (i.e., the pull towards the galactic center) is stronger at the outer edge/leading side of the spiral arm because of the additional pull towards the massive spiral arm (and the other way round for the inner edge/trailing side).
+\begin{eqnarray}
+\Delta F_R(*_i) \equiv \left(|F_{R,M}| - |F_{R,T}| \right) / F_{R,\text{typ}}\label{eq:delta_FR}\\
+\Delta F_z(*_i) \equiv \left(|F_{z,M}| - |F_{z,T}| \right) / F_{z,\text{typ}}\label{eq:delta_Fz}\\
+\end{eqnarray}
+for each star. The recovery is as expected: The true vertical force is stronger in the spiral arms (due to the higher surface density) and weaker in the inter-arm regions as compared to the axisymmetric best fit model. The radial force is well recovered where the majority of the stars are located, i.e. in the wide inter-arm regions and in the peaks of the spiral arms. Misjudgments happen in the wings of the spiral arms: The true radial force (i.e., the pull towards the galactic center) is stronger at the outer edge/leading side of the spiral arm because of the additional gravitational pull towards the massive spiral arm, and for the same reason weaker at the inner edge/trailing side. Overall the recovered \RM{} model appears to be a good mean model, averaging over spiral arms and inter-arm regions.
+
+
 
 %====================
 \begin{figure}[!htbp]
@@ -375,42 +378,40 @@ for each star. The recovery is as expected: The true vertical force is stronger 
 %====================
 
 
-\begin{itemize}
-\item As can be seen in Figure \ref{fig:4kpc8Spiral_forces} the model is a good average model for the majority of stars, i.e. in the wide inter-arm regions and also the stars the peaks of the spiral arms. For the wings of the spiral arms the model is less good: in the leading side of the spiral arm the $|F_{R,M}|$ is underestimated because it does not account for the additional pull of the spiral arm, while in the trailing side of the spiral arm $|F_{R,M}|$ is overestimated, as it does not feel the pull away from the Galactic center by the spiral arm.
-\end{itemize}
-
 \subsubsection{Recovering the action distribution}
 
 In Sections \ref{sec:4kpc8Spiral_DF} and \ref{sec:4kpc8Spiral_potential} we have demonstrated the goodness of fit in the configuration space of the data, and of the recovered gravitational potential. What \RM{} is actually fitting is however the distribution in action space. Figure \ref{fig:4kpc8Spiral_actions} compares the data and the model action distribution given the best fit \text{MNHH-Pot} in Table \Wilma{[TO DO]}. (We only use this axisymmetric potential to estimate the actions as they enter the fit, and do not calculate the true actions in the true potential.)
 
 We note that the radial and vertical action distribution fits indeed quite well; the axisymmetric model however contains much more stars on close to circular orbits $(J_R \sim 0,J_z \sim 0)$ than the simulation does. In the data set there is an excess of stars in the galactic plane $(J_z\sim0)$ that have more eccentric orbits  than the axisymmetric model would have. In Figure \ref{fig:DF_densres} we have marked the radial extent of the stronger spiral arm with dotted lines ($R_\text{spiral} \in [5.6,6.8]~\text{kpc}$), and over-plotted the corresponding angular momenta $L_z = R_\text{spiral} \times v_\text{circ}(R_\text{spiral})$ in Figure \ref{fig:4kpc8Spiral_actions} as a rough estimate where in action space we expect the stars of this spiral arm. It is again obvious that this spiral arm contains (i) more stars in general and (ii) more stars with eccentric orbits  $(J_R>0)$ which are (iii) located mostly close to the plane $(J_z\sim0)$, as compared to the axisymmetric model. All of this confirms our expectations for orbits in a spiral arm. 
 
+This exercise of comparing the data and the model actions in a best-fit axisymmetric potential should be performed for a future application to data in the Milky Way as well. It could help to learn about the approximate orbits that stars move on in real spiral arms and to subsequently construct orbit distribution functions for spiral arms.
+
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_4kpc8Spiral_a_data_bestfit_residuals_only_actions.pdf}
-\caption{Comparison of the stellar action distribution of the data set $D$ used in the analysis and the recovered axisymmetric stellar distribution $M$ (see Figure \ref{fig:4kpc8Spiral_DF_comparison} for the distribution in configuration space). All actions, of data set and best fit distribution, where calculated in the best fit \texttt{MNHH-Pot} in Table \Wilma{[TO DO]}. The upper panel in each column compares the 1D histograms of the  angular momentum $L_z$, the radial action $J_R$ and the vertical action $J_z$ of both data and best fit. The other 1D and 2D distributions show the residual significance $(D-M)/\sqrt{M}$. The 2D residuals are over-plotted with equidensity contours of the data $D$'s 2D action distribution. In Figure \ref{fig:DF_densres} we have marked the approximate radial extent of the stronger spiral arm with black dotted lines ($R_\text{spiral} \in [5.6,6.8]~\text{kpc}$); the dotted lines in the $L_z$ distributions in this figure correspond to $L_z = R_\text{spiral} \times v_\text{circ}(R_\text{spiral})$.  \Wilma{[TO DO: Ergaenze overall take home message fuer diesen plot.]} \Wilma{[TO DO: Calculate reference data new. Now I use the median of MCMC samples as best fit model.]} \Wilma{TO DO: Redo plot. Now I use the median of MCMC samples as best fit model.]} \Wilma{[TO DO: Add in legend that simulation data was calculated in best fit potential too.]} \Wilma{[TO DO: use the best fit and not the sym model to overplot the dotted lines]}}
+\caption{Comparison of the stellar action distribution of the data set $D$ used in the analysis and the recovered axisymmetric stellar distribution $M$ (see Figure \ref{fig:4kpc8Spiral_DF_comparison} for the distribution in configuration space). All actions, of data set and best fit distribution, where calculated in the best fit \texttt{MNHH-Pot} in Table \Wilma{[TO DO]}. The upper panel in each column compares the 1D histograms of the  angular momentum $L_z$, the radial action $J_R$ and the vertical action $J_z$ of both data and best fit. The other 1D and 2D distributions show the residual significance $(D-M)/\sqrt{M}$. The 2D residuals are over-plotted with equidensity contours of the data $D$'s 2D action distribution. In Figure \ref{fig:DF_densres} we have marked the approximate radial extent of the stronger spiral arm with black dotted lines ($R_\text{spiral} \in [5.6,6.8]~\text{kpc}$); the dotted lines in the $L_z$ distributions in this figure correspond to $L_z = R_\text{spiral} \times v_\text{circ}(R_\text{spiral})$. This comparison gives a first impression of how he approximate action distribution in spiral arms might look like. An open task that the Galactic dynamical modelling community faces in the future, is to construct orbit distribution functions for spiral arms. \Wilma{[TO DO: Calculate reference data new. Now I use the median of MCMC samples as best fit model.]} \Wilma{TO DO: Redo plot. Now I use the median of MCMC samples as best fit model.]} \Wilma{[TO DO: Add in legend that simulation data was calculated in best fit potential too.]} \Wilma{[TO DO: use the best fit and not the sym model to overplot the dotted lines]}}
 \label{fig:4kpc8Spiral_actions}
 \end{figure}
-
-\begin{itemize}
-\item Figure: residuals in action space, comparison of true/symmetrized vs. best fit actions (maybe also true vs. best fit in symmetrized potential), overplot Lz=vcirc*Rg of spiral arms
-\end{itemize}
 
 \clearpage
 \newpage
 
-\subsection{The influence of spiral arms on \RM{}} \label{sec:results_part2}
+\subsection{The influence of spiral arms in \RM{} modelling} \label{sec:results_part2}
 
-In the previous section we showed that for a large enough survey volume ($r_\text{max}=4~\text{kpc}$) the \RM{} modelling result was a good fit to the data and gave constraints on the gravitational potential which were very close to the true potential. In the following we want to investigate how this modelling success depends on the position and the size of the survey volume.
+In the previous section we showed that for a large enough survey volume ($r_\text{max}=4~\text{kpc}$) \RM{} can construct a good average axisymmetric potential (and DF) model for a galaxy with spiral arms. In the following we want to investigate how this modelling success depends on the position and the size of the survey volume within the galaxy and with respect to the spiral arms.
 
 \subsubsection{Test suite and parameter recovery}
 
-We center our test survey volumes at the positions marked in Figures \Wilma{[TO DO]} and consider volume sizes with $r_\text{max} \in [0,1,2,3,4,5]~\text{kpc}$ for $R_0 = 8~\text{kpc}$ and $r_\text{max} \in [0,1,2,3,4]~\text{kpc}$ for $R_0 = 5~\text{kpc}$. As demonstrated in Figure \Wilma{[TO DO]} the spiral arm strength is very different in these four different test volumes. Each data set contains then $N_*=20,000$ stars inside this spherical volume and we fit a single qDF and \texttt{MNHH-Pot} to it. Figure \ref{fig:model_parameters} shows the best fit parameters for the different \RM{} analyses. We also overplot the parameter of the reference \texttt{DEHH-Pot} in Table \ref{tbl:DEHH-Pot}. Overall the statistical random errors on the parameter recovery are very small for $N*=20,000$ and possible systematic errors dominate. 
+We center our test survey volumes at the positions marked in Figures \ref{fig:simulation} and \ref{fig:spiral_arm_kappa} (see also Table \Wilma{[TO DO]}) and consider volume sizes with $r_\text{max} \in [0,1,2,3,4,5]~\text{kpc}$ for $R_0 = 8~\text{kpc}$ and $r_\text{max} \in [0,1,2,3,4]~\text{kpc}$ for $R_0 = 5~\text{kpc}$. As demonstrated in Figure \ref{fig:spiral_arm_kappa} the spiral arm strength is very different in these four different test volumes. Each data set that we draw from the simulation contains a random selection of $N_*=20,000$ stars inside this spherical volume and we fit a single qDF and \texttt{MNHH-Pot} to it. 
+
+Figure \ref{fig:model_parameters} shows the best fit parameters for the different \RM{} analyses. We also overplot the parameters of the reference \texttt{DEHH-Pot} in Table \ref{tbl:DEHH-Pot}. Overall the statistical random errors on the parameter recovery are very small for $N*=20,000$ and possible systematic errors dominate. 
 
 Let's first consider the parameters of the gravitational potential: All volumes recover $v_\text{circ}(R_\odot)$ within a few $\text{km s}^{-1}$; in the largest volumes, where the circular velocity curve is probed over several $\text{kpc}$ the estimate is the most accurate. The halo fraction $f_\text{halo}$ of the radial force at the Sun is very well recovered, independent of the size of the volume. The estimate that we get for the best fit Miyamoto-Nagai disk scale height $b_\text{disk}$ seems to be approximately independent of the size of the volume as well. We can even recover the true halo scale length $a_\text{disk}$, however only for a volume as large as $r_\text{max}=5\text{kpc}$. Smaller volumes that underestimate $a_\text{halo}$ get slightly larger estimates for the disk scale length $a_\text{disk}$ and the overall radial density slope is then probably closer to the truth, even if the individual parameters are not.
 
-The right column of Figure \ref{fig:model_parameters} compares the recovered qDF parameters for the different survey volumes with the qDF parameters we got from fixing the potential model to the \text{expHH-Pot} and fitting the qDF only in a $r_\text{max}=5~\text{kpc}$ volume. Even though the qDF parameters for small volumes are widely different for different positions within the galaxy, they all approach the values recovered with the \text{expHH-Pot} for larger volumes. There seems therefore to be indeed an overall best-fit qDF describing the average tracer distribution in the galaxy's disk. The only difference is in the $h_{\sigma,z}$ parameter, where the models with free \texttt{MNHH-Pot} recover a slightly larger value than the models using the known \texttt{expHH-Pot}. The reason is that the Miyamoto-Nagai disk has a different radial profile than the double exponential-disk (see Figure \ref{fig:4kpc8Spiral_density}), which leads to a less steep radial decline in the vertical forces and therefore mean vertical orbital energies $\langle E_z \rangle \sim \nu \times J_z$ and therefore to a slightly longer $h_{\sigma,z}$ scale length. In general, volumes centered on spiral arms have larger velocity dispersion parameters $\sigma_{R,0}$ and $\sigma_{z,0}$ as compared to volumes at the same radius $R$ but centered on an inter-arm region, and the volumes at $R=5~\text{kpc}$ with their stronger spiral arms have larger velocity dispersions than those at $R=8~\text{kpc}$---which is what we expect. Most volumes recover similar tracer scale lengths $h_R$ \Wilma{[TO DO: Value]}; only the volume centered on the inter-arm region at $R=8~\text{kpc}$ recovers much longer $h_R$. This might be related to the fact, that most volumes have strong spiral arms at smaller radii, which leads to estimates of shorter tracer scale lengths, while volume \Wilma{[TO DO: Give different volumes different names. Use 8Void volume here.]} is located in a comparably smooth region of the galaxy.
+The right column of Figure \ref{fig:model_parameters} compares the recovered qDF parameters for the different survey volumes with the qDF parameters we got from fixing the potential model to the \text{expHH-Pot} and fitting the qDF only in a $r_\text{max}=5~\text{kpc}$ volume. Even though the qDF parameters for small volumes are widely different for different positions within the galaxy, they all approach the values recovered with the \text{expHH-Pot} for larger volumes. There seems therefore to be indeed an overall best-fit qDF describing the average tracer distribution in the galaxy's disk. The only difference is in the $h_{\sigma,z}$ parameter, where the models with free \texttt{MNHH-Pot} recover a slightly larger value than the models using the known \texttt{expHH-Pot}. The reason is that the Miyamoto-Nagai disk has a different radial profile than the double exponential-disk (see Figure \ref{fig:4kpc8Spiral_density}), which leads to a less steep radial decline in the vertical forces and therefore mean vertical orbital energies $\langle E_z \rangle \sim \nu \times J_z$ and therefore to a slightly longer $h_{\sigma,z}$ scale length. In general, volumes centered on spiral arms have larger velocity dispersion parameters $\sigma_{R,0}$ and $\sigma_{z,0}$ as compared to volumes at the same radius $R$ but centered on an inter-arm region, and the volumes at $R=5~\text{kpc}$ with their stronger spiral arms have larger velocity dispersions than those at $R=8~\text{kpc}$---which is what we expect. Most volumes recover similar tracer scale lengths $h_R$ \Wilma{[TO DO: Value]}; only the volume centered on the inter-arm region at $R=8~\text{kpc}$ recovers much longer $h_R$. This might be related to the fact, that most volumes have strong spiral arms at smaller radii, which leads to estimates of shorter tracer scale lengths, while volume \texttt{I8} is located in a comparably smooth region of the galaxy.
+
+\Wilma{[TO DO: Discuss parameter recovery for volumes where fhalo went to zero.]}
 
 
 %====================
@@ -423,6 +424,8 @@ The right column of Figure \ref{fig:model_parameters} compares the recovered qDF
 %====================
 
 \subsubsection{Size of survey volume}
+
+In the previous section we found that the potential and qDF parameters recovered from different survey volumes can differ quite a lot. How good are the corresponding potential constraints in this case? To test this we calculate again $\Delta F_R{*_i}$ and $\Delta F_z{*_i}$ from Equations \eqref{eq:delta_FR}-\eqref{eq:delta_Fz} at the position of each star $*_i$ in each data set. From the corresponding histograms we derive the median and the \Wilma{[TO DO]} percentiles and show them in the left panels two of Figure \Wilma{[TO DO]}. We chose this diagnostic because the forces at the positions of the stars are the quantities of the potential to which our modelling is sensitive to.
 
 \Wilma{[To Do: Introductory paragraph.]}
 
@@ -470,6 +473,19 @@ The right column of Figure \ref{fig:model_parameters} compares the recovered qDF
 \caption{\Wilma{TO DO} \Wilma{[TO DO: Make sure all final analyses are in this plot.]}}
 \label{fig:????}
 \end{figure}
+%====================
+
+\subsubsection{Constructing a non-axisymmetric potential from small volumes}
+
+\Wilma{[TO DO]}
+
+%====================
+\begin{figure*}[!htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{fig/MNdHHdiffSph2_vcirc_surfdens_1kpcSuite.pdf}
+\caption{\Wilma{TO DO} \Wilma{[TO DO: Make sure all final analyses are in this plot.]}}
+\label{fig:????}
+\end{figure*}
 %====================
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
