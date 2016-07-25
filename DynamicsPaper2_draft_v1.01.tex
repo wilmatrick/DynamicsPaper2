@@ -58,7 +58,7 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 \begin{abstract}
-\RM{} is a well-tested and robust dynamical modelling machinery that we developed to constrain the Milky Way's (MW) gravitational potential by simultaneously fitting an axisymmetric parametrized potential model and an axisymmetric action-based stellar orbit distribution function (DF) to the discrete 6D phase-space measurements from stars in the Galactic disk. In this work we investigate if \RM{}'s robustness is still given for data affected by non-axisymmetric spiral arms for which the axisymmetric modelling cannot account. We do this by drawing data from a N-body simulation snapshot of a MW-like spiral galaxy. We find that \RM{} gives surprisingly successful potential constraints even in the presence of strong spiral arms and even when using the most simple assumption for an action-based DF, the quasi-isothermal DF (qDF). For data from large survey volumes \RM{} finds models that average successfully over the spiral arms. As was to be expected the recovered models are slightly biased by the excess of stars in the spiral arms that feel stronger vertical gravitational forces. For all and even small survey volumes with radius $r_\text{max}>500~\text{kpc}$ around the Sun the best fit model always reproduces the forces at the positions of the stars that entered the analysis very well. Survey volumes with $r_\text{max}\leq 3~\text{kpc}$ give already predictions for the \emph{overall} gravitational potential as good as those from larger volumes. However, only volumes as large as $r_\text{max}=5~\text{kpc}$ are able to recover the correct dark matter halo scale length. While small volumes ($r_\text{max} < 2~\text{kpc}$) centered on spiral arms do not have a large predictive power, inter-arm regions appear smooth and axisymmetric enough such that the potentials derived from small volumes centered here can be extrapolated to regions outside of the survey volume more reliably. The stellar phase-space measurements from the upcoming Gaia data releases will cover a large proportion of the MW disk. As all survey volumes give good potential constraints where most of the stars are located, \RM{} should not only be able to find a good average potential model for the MW from Gaia data. By breaking up and modelling the data in smaller volumes independently, \RM{} will also be able to make correct measurements of non-axisymmetric structures in the MW's gravitational potential. \Wilma{[TO DO: Too long. Cut out 110 words.]}
+\RM{} is a well-tested and robust dynamical modelling machinery developed to constrain the Milky Way's (MW) gravitational potential by simultaneously fitting an axisymmetric parametrized potential model and an axisymmetric action-based stellar orbit distribution function (DF) to the discrete 6D phase-space measurements from stars in the Galactic disk. In this work we investigate if \RM{}'s robustness is still given for data affected by non-axisymmetric spiral arms for which the axisymmetric modelling cannot account. We do this by drawing data from a N-body simulation snapshot of a MW-like spiral galaxy. We find that \RM{} gives surprisingly successful potential constraints even in the presence of strong spiral arms and even when using the most simple assumption for an action-based DF, the quasi-isothermal DF (qDF). For data from large survey volumes \RM{} finds models that average successfully over the spiral arms. As was to be expected the recovered models are slightly biased by the excess of stars in the spiral arms that feel stronger vertical gravitational forces. For all and even small survey volumes with radius $r_\text{max}>500~\text{kpc}$ around the Sun the best fit model always reproduces the forces at the positions of the stars that entered the analysis very well. Survey volumes with $r_\text{max}\leq 3~\text{kpc}$ give already predictions for the \emph{overall} gravitational potential as good as those from larger volumes. However, only volumes as large as $r_\text{max}=5~\text{kpc}$ are able to recover the correct dark matter halo scale length. While small volumes ($r_\text{max} < 2~\text{kpc}$) centered on spiral arms do not have a large predictive power, inter-arm regions appear smooth and axisymmetric enough such that the potentials derived from small volumes centered here can be extrapolated to regions outside of the survey volume more reliably. The stellar phase-space measurements from the upcoming Gaia data releases will cover a large proportion of the MW disk. As all survey volumes give good potential constraints where most of the stars are located, \RM{} should not only be able to find a good average potential model for the MW from Gaia data. By breaking up and modelling the data in smaller volumes independently, \RM{} will also be able to make correct measurements of non-axisymmetric structures in the MW's gravitational potential. \Wilma{[TO DO: Too long. Cut out 110 words.]}
 \end{abstract}
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -416,17 +416,17 @@ This exercise of comparing the data and the model actions in a best-fit axisymme
 
 In the previous section we showed that for a large enough survey volume ($r_\text{max}=4~\text{kpc}$) \RM{} can construct a good average axisymmetric potential (and DF) model for a galaxy with spiral arms. In the following we want to investigate how this modelling success depends on the position and the size of the survey volume within the galaxy and with respect to the spiral arms.
 
-\subsubsection{Test suite and parameter recovery} \label{sec:suite_parameters}
+\subsubsection{Test suite}
 
 We center our test survey volumes at the positions marked in Figures \ref{fig:simulation} and \ref{fig:spiral_arm_kappa} (see also Table \Wilma{[TO DO]}) and consider volume sizes with $r_\text{max} \in [0,1,2,3,4,5]~\text{kpc}$ for $R_0 = 8~\text{kpc}$ and $r_\text{max} \in [0,1,2,3,4]~\text{kpc}$ for $R_0 = 5~\text{kpc}$. As demonstrated in Figure \ref{fig:spiral_arm_kappa} the spiral arm strength is very different in these four different test volumes. Each data set that we draw from the simulation contains a random selection of $N_*=20,000$ stars inside this spherical volume and we fit a single qDF and \texttt{MNHH-Pot} to it. 
+
+\subsubsection{Discussion of the model parameter recovery} \label{sec:parameter recovery}
 
 Figure \ref{fig:model_parameters} shows the best fit parameters for the different \RM{} analyses. We also overplot the parameters of the reference \texttt{DEHH-Pot} in Table \ref{tbl:DEHH-Pot}. Overall the statistical random errors on the parameter recovery are very small for $N*=20,000$ and possible systematic errors dominate. 
 
 Let's first consider the parameters of the gravitational potential: All volumes recover $v_\text{circ}(R_\odot)$ within a few $\text{km s}^{-1}$; in the largest volumes, where the circular velocity curve is probed over several $\text{kpc}$ the estimate is the most accurate. The halo fraction $f_\text{halo}$ of the radial force at the Sun is very well recovered, independent of the size of the volume. The estimate that we get for the best fit Miyamoto-Nagai disk scale height $b_\text{disk}$ seems to be approximately independent of the size of the volume as well. We can even recover the true halo scale length $a_\text{disk}$, however only for a volume as large as $r_\text{max}=5\text{kpc}$. Smaller volumes that underestimate $a_\text{halo}$ get slightly larger estimates for the disk scale length $a_\text{disk}$ and the overall radial density slope is then probably closer to the truth, even if the individual parameters are not.
 
 The right column of Figure \ref{fig:model_parameters} compares the recovered qDF parameters for the different survey volumes with the qDF parameters we got from fixing the potential model to the \text{expHH-Pot} and fitting the qDF only in a $r_\text{max}=5~\text{kpc}$ volume. Even though the qDF parameters for small volumes are widely different for different positions within the galaxy, they all approach the values recovered with the \text{expHH-Pot} for larger volumes. There seems therefore to be indeed an overall best-fit qDF describing the average tracer distribution in the galaxy's disk. The only difference is in the $h_{\sigma,z}$ parameter, where the models with free \texttt{MNHH-Pot} recover a slightly larger value than the models using the known \texttt{expHH-Pot}. The reason is that the Miyamoto-Nagai disk has a different radial profile than the double exponential-disk (see Figure \ref{fig:4kpc8Spiral_density}), which leads to a less steep radial decline in the vertical forces and therefore mean vertical orbital energies $\langle E_z \rangle \sim \nu \times J_z$ and therefore to a slightly longer $h_{\sigma,z}$ scale length. In general, volumes centered on spiral arms have larger velocity dispersion parameters $\sigma_{R,0}$ and $\sigma_{z,0}$ as compared to volumes at the same radius $R$ but centered on an inter-arm region, and the volumes at $R=5~\text{kpc}$ with their stronger spiral arms have larger velocity dispersions than those at $R=8~\text{kpc}$---which is what we expect. Most volumes recover similar tracer scale lengths $h_R$ \Wilma{[TO DO: Value]}; only the volume centered on the inter-arm region at $R=8~\text{kpc}$ recovers much longer $h_R$. This might be related to the fact, that most volumes have strong spiral arms at smaller radii, which leads to estimates of shorter tracer scale lengths, while volume \texttt{I8} is located in a comparably smooth region of the galaxy.
-
-\Wilma{[TO DO: Discuss parameter recovery for volumes where fhalo went to zero.]}
 
 
 %====================
@@ -475,7 +475,7 @@ Because the stellar number asymmetry in the trailing vs. leading sides of spiral
 \Wilma{[TO DO: make consistent: $i$ counts stars, $j$ counts grid points.]}
 
 
-\subsubsection{Influence of spiral arms}
+\subsubsection{Influence of spiral arms on the recovery of the gravitational forces} \label{sec:spiral_arms_and_forces}
 
 The Figure \ref{fig:forces_bias} in Section \ref{sec:forces_bias} gave an overview over the accuracy of the gravitational forces recovery for our whole suite of data sets depending on the size of the different survey volumes. In the following we want to relate the same quantities, i.e., local force recovery at the positions of the stars that entered the analysis (see Equations \eqref{eq:delta_FR}-\eqref{eq:delta_Fz}) and power of a recovered model to predict the forces in a fixed large volume (see Equations \eqref{eq:delta_FR_grid}-\eqref{eq:delta_Fz_grid}), to the actual strength and dominance of spiral arms in the respective survey volumes (see Section \ref{sec:spiral_arm_kappa}). In Figure \ref{fig:std_kappa_vs_frac10_stars} we find a connection between the local force recovery and the relative spiral contrast, and Figure \ref{fig:mean_kappa_vs_frac10_grid} shows a trend that the ''predictive power'' of the recovered model depends on the dominance of a spiral arm in the survey volume. The former was to be expected, but the latter is a very interesting result.
 
@@ -503,9 +503,77 @@ The result in Figure \ref{fig:mean_kappa_vs_frac10_grid} is especially interesti
 \end{figure}
 %====================
 
-\subsubsection{Constructing a non-axisymmetric potential from small volumes}
+\subsubsection{Circular velocity curves and surface density profiles}
+
+In this section we will illustrate even further that even though the recovered potential parameters are very different for different survey volumes, the actual potential parameter recovery is very good---and not just the gravitational forces on average. In Appendix \Wilma{[TO DO]} in Figures \ref{fig:500pcSuite}-\Wilma{[TO DO]} we show the circular velocity curves and surface density profiles within two times the disk scale height ($|z|\leq 2 \times h_z = 0.34~\text{kpc}$) for all data sets in this work and compare them with the actual matter distribution in the angular wedge $\phi_0\pm \arcsin(r_\text{max}/R_0)$ in which the corresponding survey volume lies. We also mark the approximate radial regions in which the stellar number density per radial bin $\Delta R =\Wilma{[TO DO]}$ is higher than average in each data set. Even though the curves vary extremely between the individual data sets, it becomes very obvious that it is indeed the regions in which the majority of stars is located that drives the \RM{} fit. And that, no matter if this region is dominated by a spiral arm or inter-arm region and no matter if this region is only as small as $r_\text{max}=500~\text{kpc}$, \RM{} is indeed constraining the local potential where most of the stars of the data set are located. Also, the constraints are not only most accurate but also most precise in these regions.
+
+Only in the two volumes with $r_\text{max}=[0.5,1]~\text{kpc}$ at position \texttt{S8} \RM{} has some difficulties fitting the circular velocity curve; the model expects a flat or falling rotation curve and is presented with a steeply rising rotation curve due to the spiral arm dominating the region. But given \RM{} recovers a good average surface density profile and the circular velocity at least at the center of the small volume, the fit is still quite succesfull.
+
+Given the sometimes extremely strong variations in circular velocity and surface density, and given the limitations of the smooth parametrized potential model, \RM{} is very successful at recovering the local potential.
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%DISCUSSION
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Discussion}
+
+\subsection{On the informativeness of an orbit distribution function}
+
+The qDF is surprisingly informative; even though there was absolutely no indication beforehand that the qDF would be actually a good model for the simulation snapshot; and even though small survey volumes dominated by non-axisymmetric spiral arms are definitely not well-described by the qDF. It appears however that a potential model that does not fit the gravitational forces acting on the stars must lead to such an unrealistic orbit/action distribution, that a fit with even such a simple orbit DF as the the qDF is impossible. This demonstrates once more how powerful the concept of an orbit DF is.
+
+\subsection{On the restrictiveness of the parametrized potential model}
+
+We do, on the one hand, use a bulge and halo model that reproduce the true bulge and halo better than we can hope to use one in reality for the MW. The fact that for all except of the largest volumes the true halo scale length is not remotely recovered (and some small volumes even have $f_\text{halo}=0$), and that the contribution of the bulge to the overall potential is very small (\Wilma{[TO DO]}) remedies this apparent advantage. 
+
+We use on the other hand a disk model, the Miyamoto-Nagai disk, that we chose purely for its convenient parametric form and of which we know that it is not a good model for the simulation snapshot, especially not for the radial density profile. As we saw in most figures in this work this might lead to biases in predicting the potential at radii where we have only a few or no stars. But because the spiral arms are such strong perturbations in the overall potential, a better disk model would not give much better results.
+
+It appears that a potential model with a reasonable shape and flexibility (here: disk+bulge+halo structure with 5 free parameters) can do well enough in finding a good fit, both locally for small volumes and overall for large volumes.
+
+
+\subsection{Recovering non-axisymmetric structures from the potential from small volumes}
 
 \Wilma{[TO DO]}
+
+
+\subsection{Precision of Gaia measurement errors}
+
+Considering measurement uncertainties of distances and proper motions, we found in Paper I that for a survey volume with $r_\text{max} = 3~\text{kpc}$, distance uncertainties of <10\% and proper motion uncertainties of \Wilma{[TO DO]} \RM{} still gives unbiased parameter results. Even if the proper motion errors are not perfectly known. 
+
+At a distance of $3~\text{kpc}$ the measurement uncertainties of bright stars in Gaia lie even below these limits. 
+
+In paper I we focussed on recovering completely unbiased model parameters and found that \RM{} is robust to moderate deviations of the model assumptions. In this work we released the condition that the model parameters itself had to be recovered accurately, but allowed \RM{} to simply find an overall best fit for the data strongly affected by spiral arms---which was surprisingly successful in recovering the local potential even if the model parameters were not recovered. 
+
+We therefore presume that in reality we probably have an even larger margin of error before the measurement uncertainties mess up the constraints noticeably than we found in Paper I. And Gaia uncertainties are already below our formal error.
+
+In addition, we found in this work that a volume of $r_\text{max} = 3~\text{kpc}$ should be already big enough to find an overall best fit axisymmetric model for the galaxy. At larger radii dust starts affecting the measurements.
+
+Overall we should therefore be very well off by applying \RM{} to Gaia data within $r_\text{max}=3~\text{kpc}$ only.
+
+\subsection{Location of the Sun}
+
+\Wilma{[TO DO]}
+
+
+
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%CONCLUSION
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Conclusion}
+
+\begin{itemize}
+\item \Wilma{[TO DO]}
+\end{itemize}
+
+
+In Section \ref{sec:suite_parameters} and Figure \ref{fig:model_parameters} we found that the potential and qDF parameters recovered from different survey volumes are widely different. In Sections \ref{sec:forces_bias} and \ref{sec:spiral_arms_and_forces} we found that the gravitational forces are however very well recovered on the average at the positions of the stars. The reason for this and possible biases were 
+
+
+
+\bibliography{references_paper2}{}
+\bibliographystyle{aasjournal}
+
+\begin{appendix}
 
 %====================
 \begin{figure*}[!htbp]
@@ -542,15 +610,6 @@ The result in Figure \ref{fig:mean_kappa_vs_frac10_grid} is especially interesti
 \label{fig:????}
 \end{figure*}
 %====================
-
-%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-%SUMMARY AND CONCLUSION
-%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\section{Summary and conclusion}
-
-\bibliography{references_paper2}{}
-\bibliographystyle{aasjournal}
-
-
+\end{appendix}
 
 \end{document}
