@@ -43,7 +43,7 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %TITLE
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\title{The Influence of Spiral Arms on Action-based Dynamical Milky Way Disk Modelling\\}
+\title{The Influence of Spiral Arms on Action-based Dynamical Modelling for the Milky Way Disk\\}
 
 %% Authors
 \author{Wilma H. Trick\altaffilmark{1,2}, Jo Bovy\altaffilmark{3}, Elena D'Onghia\HW{???}, and Hans-Walter Rix\altaffilmark{1}}
@@ -58,14 +58,7 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 \begin{abstract}
-\begin{itemize}
-\item One sentence on what RoadMapping is.
-\item Overall axisymmetric RoadMapping modelling works in the presence of non-axisymmetric spiral arms.
-\item Our simple assumption for a DF, a single qDF, seems to be surprisingly successful in modelling the snapshot galaxy.
-\item Forces can be reliably recovered at the position of the stars that entered the analysis, with only small biases induced by the spiral arms.
-\item A survey volume of $r_\text{kpc}=3~\text{kpc}$ gives equally good constraints on a spatially averaged radial and vertical forces as a volume with $r_\text{max}=5~\text{kpc}$. However, only the latter seems to be able to recover the true halo scale length. 
-\item \RM{} can not only give a good average axisymmetric model for the galaxy; by modelling smaller regions of the galaxy independently ($r_\text{max}\sim 1~\text{kpc}$) we are actually able to make first and correct measurements of the non-axisymmetric structures in the gravitational potential as well.
-\end{itemize}
+\RM{} is a well-tested and robust dynamical modelling machinery that we developed to constrain the Milky Way's (MW) gravitational potential by simultaneously fitting an axisymmetric parametrized potential model and an axisymmetric action-based stellar orbit distribution function (DF) to the discrete 6D phase-space measurements from stars in the Galactic disk. In this work we investigate if \RM{}'s robustness is still given for data affected by non-axisymmetric spiral arms for which the axisymmetric modelling cannot account. We do this by drawing data from a N-body simulation snapshot of a MW-like spiral galaxy. We find that \RM{} gives surprisingly successful potential constraints even in the presence of strong spiral arms and even when using the most simple assumption for an action-based DF, the quasi-isothermal DF (qDF). For data from large survey volumes \RM{} finds models that average successfully over the spiral arms. As was to be expected the recovered models are slightly biased by the excess of stars in the spiral arms that feel stronger vertical gravitational forces. For all and even small survey volumes with radius $r_\text{max}>500~\text{kpc}$ around the Sun the best fit model always reproduces the forces at the positions of the stars that entered the analysis very well. Survey volumes with $r_\text{max}\leq 3~\text{kpc}$ give already predictions for the \emph{overall} gravitational potential as good as those from larger volumes. However, only volumes as large as $r_\text{max}=5~\text{kpc}$ are able to recover the correct dark matter halo scale length. While small volumes ($r_\text{max} < 2~\text{kpc}$) centered on spiral arms do not have a large predictive power, inter-arm regions appear smooth and axisymmetric enough such that the potentials derived from small volumes centered here can be extrapolated to regions outside of the survey volume more reliably. The stellar phase-space measurements from the upcoming Gaia data releases will cover a large proportion of the MW disk. As all survey volumes give good potential constraints where most of the stars are located, \RM{} should not only be able to find a good average potential model for the MW from Gaia data. By breaking up and modelling the data in smaller volumes independently, \RM{} will also be able to make correct measurements of non-axisymmetric structures in the MW's gravitational potential. \Wilma{[TO DO: Too long. Cut out 110 words.]}
 \end{abstract}
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -115,7 +108,7 @@ Here we will specifically investigate the important question, if axisymmetric \R
 %====================
 \begin{figure}[!htbp]
 \plotone{fig/plot_simulation_for_paper.pdf}
-\caption{Simulation snapshot by \citet{2013ApJ...766...34D} . Shown are the surface mass density (in $(x,y)$ plane, upper panel) and mass density (in $(R,z)$ plane, lower panel) of the ``star'' particles belonging to disk, bulge and giant molecular clouds. (The dark matter halo in this simulation is static and analytic and not shown here.) Overplotted are the disk's scale length $R_s=2.5~\text{kpc}$ (see Section \ref{sec:simulation_description}) and the radii at which we center our test survey volumes in this investigation, $R=8$ and $5~\text{kpc}$. The centers of the different survey volumes are marked with a square, if the survey volume is centered on a spiral arm, or with a circle, if the volume is centerd on an inter-arm region. The yellow circle with radius $r_\text{max}=4~\text{kpc}$ marks the survey volume in which we conduct the analysis discussed in detail in Section \ref{sec:results_part1}.}
+\caption{Simulation snapshot by \citet{2013ApJ...766...34D} . Shown are the surface mass density (in $(x,y)$ plane, upper panel) and mass density (in $(R,z)$ plane, lower panel) of the ``star'' particles belonging to disk, bulge and giant molecular clouds. (The dark matter halo in this simulation is static and analytic and not shown here.) Overplotted are the disk's scale length $R_s=2.5~\text{kpc}$ (see Section \ref{sec:simulation_description}) and the radii at which we center our test survey volumes in this investigation, $R=8$ and $5~\text{kpc}$. The centers of the different survey volumes are marked with a square, if the survey volume is centered on a spiral arm, or with a circle, if the volume is centerd on an inter-arm region. The yellow circle with radius $r_\text{max}=4~\text{kpc}$ marks the survey volume in which we conduct the analysis discussed in detail in Section \ref{sec:results_part1}. \Wilma{[TO DO: overplot names of positions.]}}
 \label{fig:simulation}
 \end{figure}
 %====================
@@ -210,7 +203,7 @@ This gives us information if a spiral arm or an inter-arm region dominates the s
 \begin{figure*}[!htbp]
 \centering
 \includegraphics[width=\textwidth]{fig/whole_galaxy_kappa_i.pdf}
-\caption{Contrast and dominance of the spiral arms. The left panel shows the values of $\kappa_i$ calculated according to Equation \ref{eq:kappa_definition} as described in Section \ref{sec:spiral_arm_kappa} at regular grid points $(x_i,y_i)$ with bin width $0.25~\text{kpc}$. Marked are the centroids of the four test survey volumes of this study. The second panel shows a histogram over all $kappa(x_j,y_j)$ values in the region $x,y \in [-14,14]~\text{kpc}$. The two right panels show the dominance (with the mean $\langle \kappa (r \leq r_\text{max} \rangle$ of all grid points within the survey volume as measure) and the relative contrast (with the standard deviation $\sigma[kappa (r \leq r_\text{max})]$ as measure) of spiral arms and inter-arm regions inside a spherical survey volume with given centroid (colour-coded) and size (radius $r_\text{max}$ shown on the $x$-axis). We chose two volumes in which the spiral arms dominate, and two in which an inter-arm region dominates. The dominance and contrast of spiral arms and inter-arm regions is stronger at $R=5~\text{kpc}$ than at $R=8~\text{kpc}$. Also, inter-arm regions appear larger and smoother than spiral arms, as already inside a small volume centred on a spiral arm the contrast is quite large. The larger the volume the more does the overall effect of spiral arms and inter-arm regions average out.}
+\caption{Contrast and dominance of the spiral arms. The left panel shows the values of $\kappa_i$ calculated according to Equation \ref{eq:kappa_definition} as described in Section \ref{sec:spiral_arm_kappa} at regular grid points $(x_i,y_i)$ with bin width $0.25~\text{kpc}$. Marked are the centroids of the four test survey volumes of this study. The second panel shows a histogram over all $kappa(x_j,y_j)$ values in the region $x,y \in [-14,14]~\text{kpc}$. The two right panels show the dominance (with the mean $\langle \kappa (r \leq r_\text{max} \rangle$ of all grid points within the survey volume as measure) and the relative contrast (with the standard deviation $\sigma[kappa (r \leq r_\text{max})]$ as measure) of spiral arms and inter-arm regions inside a spherical survey volume with given centroid (colour-coded) and size (radius $r_\text{max}$ shown on the $x$-axis). We chose two volumes in which the spiral arms dominate, and two in which an inter-arm region dominates. The dominance and contrast of spiral arms and inter-arm regions is stronger at $R=5~\text{kpc}$ than at $R=8~\text{kpc}$. Also, inter-arm regions appear larger and smoother than spiral arms, as already inside a small volume centred on a spiral arm the contrast is quite large. The larger the volume the more does the overall effect of spiral arms and inter-arm regions average out. \HW{[TO DO: Jo suggested to look into implementing a tanh2 disk for galpy to not have the slight bias in mean($\kappa$) at higher rmax. Maybe it's easy to implement. Maybe it isn't.]}}
 \label{fig:spiral_arm_kappa}
 \end{figure*}
 %====================
@@ -419,9 +412,6 @@ This exercise of comparing the data and the model actions in a best-fit axisymme
 \label{fig:4kpc8Spiral_actions}
 \end{figure}
 
-\clearpage
-\newpage
-
 \subsection{The influence of spiral arms in \RM{} modelling} \label{sec:results_part2}
 
 In the previous section we showed that for a large enough survey volume ($r_\text{max}=4~\text{kpc}$) \RM{} can construct a good average axisymmetric potential (and DF) model for a galaxy with spiral arms. In the following we want to investigate how this modelling success depends on the position and the size of the survey volume within the galaxy and with respect to the spiral arms.
@@ -448,7 +438,7 @@ The right column of Figure \ref{fig:model_parameters} compares the recovered qDF
 \end{figure}
 %====================
 
-\subsubsection{Recovery of the gravitational forces depending on the size of the survey volume}
+\subsubsection{Recovery of the gravitational forces depending on the size of the survey volume}\label{sec:forces_bias}
 
 In the previous section we found that the potential and qDF parameters recovered from different survey volumes can differ quite a lot. How good are the corresponding potential constraints in this case? To test this we calculate again $\Delta F_R{*_i}$ and $\Delta F_z{*_i}$ from Equations \eqref{eq:delta_FR}-\eqref{eq:delta_Fz} at the position of each star $*_i$ in each data set. From the corresponding histograms we derive the median and the $15.87th$ and $84.13th$ percentiles and show them in the left panels two of Figure \ref{fig:forces_bias}. We chose this diagnostic because the forces at the positions of the stars are the quantities of the potential to which our modelling is sensitive to.
 
@@ -464,7 +454,7 @@ analogous to Equations \eqref{eq:delta_FR}-\eqref{eq:delta_Fz}. The two panels o
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_bias_in_forces_recovery.pdf}
-\caption{Accuracy of the radial (upper panels) and vertical (lower panels) gravitational forces recovered with \RM{} from the suite of data sets introduced in Section \ref{sec:suite_parameters}, depending on the size $r_\text{max}$ of the survey volume. The left panels investigate how well \RM{} recovers the forces for the ensemble of stars in the data set ($\Delta F_{R/z}(*_i)$ in Equations \eqref{eq:delta_FR}-\eqref{eq:delta_Fz}) and the right panels test the ''predictive power'' of each of the data sets' best-fit potential by showing how well the forces are recovered at regular grid points in a large cylinder of $r_\text{max}=5~\text{kpc}$ and height $|z|=1.5~\text{kpc}$ around the survey volumes center ($\Delta F_{R/z}(g_j)$ in Equations \eqref{eq:delta_FR_grid}-\eqref{eq:delta_Fz_grid}). For each distribution of $\Delta F_{R/z}(*_i)$ and $\Delta F_{R/z}(g_j)$ we show here the median as dot with the  [$15.87th$,$84.13th$] percentile range as bar. We find that the forces are very well recovered at the positions of the stars independent of the size of the volume. The spiral arms introduce some biases in the overall recovered potential and we need at least a survey volume of $r_\text{max}=3~\text{kpc}$ to get a potential with a reasonable ''predictive power''. \Wilma{[TO DO: Make sure all final analyses are in this plot.]} \Wilma{[TO DO: use Delta F(gj) on right y-axis]} \Wilma{[TO DO: Add legend to plot.]}}
+\caption{Accuracy of the radial (upper panels) and vertical (lower panels) gravitational forces recovered with \RM{} from the suite of data sets introduced in Section \ref{sec:suite_parameters}, depending on the size $r_\text{max}$ of the survey volume. The left panels investigate how well \RM{} recovers the forces for the ensemble of stars in the data set ($\Delta F_{R/z}(*_i)$ in Equations \eqref{eq:delta_FR}-\eqref{eq:delta_Fz}) and the right panels test the ''predictive power'' of each of the data sets' best-fit potential by showing how well the forces are recovered at regular grid points in a large cylinder of $r_\text{max}=5~\text{kpc}$ and height $|z|=1.5~\text{kpc}$ around the survey volumes center ($\Delta F_{R/z}(g_j)$ in Equations \eqref{eq:delta_FR_grid}-\eqref{eq:delta_Fz_grid}). For each distribution of $\Delta F_{R/z}(*_i)$ and $\Delta F_{R/z}(g_j)$ we show here the median as dot with the  [$15.87th$,$84.13th$] percentile range as bar. We find that the forces are very well recovered at the positions of the stars independent of the size of the volume. The spiral arms introduce some biases in the overall recovered potential and we need at least a survey volume of $r_\text{max}=3~\text{kpc}$ to get a potential with a reasonable ''predictive power''. \Wilma{[TO DO: Make sure all final analyses are in this plot.]} \Wilma{[TO DO: use Delta F(gj) on right y-axis]} \Wilma{[TO DO: Add legend to plot.]} \HW{[TO DO: Jo suggested to make the right lower plot for slices at different heights, because it is very likely that most of the misjudgement is at high z. Alternatively we could use a different reference volume with that's not going up to 1.5kpc but maybe only up to 3-4 scale heights?]}}
 \label{fig:forces_bias}
 \end{figure}
 %====================
@@ -487,13 +477,20 @@ Because the stellar number asymmetry in the trailing vs. leading sides of spiral
 
 \subsubsection{Influence of spiral arms}
 
+The Figure \ref{fig:forces_bias} in Section \ref{sec:forces_bias} gave an overview over the accuracy of the gravitational forces recovery for our whole suite of data sets depending on the size of the different survey volumes. In the following we want to relate the same quantities, i.e., local force recovery at the positions of the stars that entered the analysis (see Equations \eqref{eq:delta_FR}-\eqref{eq:delta_Fz}) and power of a recovered model to predict the forces in a fixed large volume (see Equations \eqref{eq:delta_FR_grid}-\eqref{eq:delta_Fz_grid}), to the actual strength and dominance of spiral arms in the respective survey volumes (see Section \ref{sec:spiral_arm_kappa}). In Figure \ref{fig:std_kappa_vs_frac10_stars} we find a connection between the local force recovery and the relative spiral contrast, and Figure \ref{fig:mean_kappa_vs_frac10_grid} shows a trend that the ''predictive power'' of the recovered model depends on the dominance of a spiral arm in the survey volume. The former was to be expected, but the latter is a very interesting result.
+
+
+Let's have a closer look at Figure \ref{fig:std_kappa_vs_frac10_stars}, where we relate Equations \eqref{eq:delta_FR}-\eqref{eq:delta_Fz} (see also Figure \ref{fig:forces_bias}, left panels) to Equation \Wilma{[TO DO]} (see also Figure \ref{fig:spiral_arm_kappa}, right panel). The average fraction of stars for which the recovery of radial or vertical force is less than 10\% increases with decreasing spiral contrast $\sigma_\kappa \equiv \sigma[\kappa(r \leq r_\text{max})]$ and is overall very similar (see the linear fits in Figure \ref{fig:std_kappa_vs_frac10_stars}) for a given $\sigma_\kappa$, but there is scatter when considering individual analyses, which is stronger for the radial forces. The overall trend is however obvious and as expected: Volumes, in which the spatially steep surface density drop in the wings of a strong spiral arm is not balanced by larger areas with less perturbations ($\kappa_j \sim 0$), have both a large relative spiral contrast $\sigma_\kappa$ and a large relative number of stars affected by the non-axisymmetric kinematics of the spiral arms. In this case there are less stars in the survey volume for which he axisymmetric \RM{} model can properly predict the forces. We see again the trend, that volumes at $R_0=5~\text{kpc}$ have a stronger spiral contrast and a worse forces recovery than the volumes centered at $R_0=8~\text{kpc}$. Volumes centered on inter-arm regions have, as expected, slightly lower $\sigma_\kappa$ than volumes centerd on spiral arms and therefore a better local forces recovery.
+
+The result in Figure \ref{fig:mean_kappa_vs_frac10_grid} is especially interesting. Here we relate the volume averaged ''predictive power'' (\eqref{eq:delta_FR_grid}-\eqref{eq:delta_Fz_grid} (see also Figure \ref{fig:forces_bias}, right panels) to the dominance of the spiral arm in Equation \Wilma{[TO DO]} (see also Figure \ref{fig:spiral_arm_kappa}, third panel). Firstly we note that $F_z(g_j)$ is recovered much worse than $F_R(g_j)$ and the reason is, as laid out in Section \ref{sec:forces_bias}), that the reference cylinder contains some regions at high $|z|$ that is not probed by stars. The main result of this figure is the following: The less a volume is dominated by a spiral arm (smaller $\langle \kappa \rangle$), the better the model recovered from the corresponding volume can predict the forces in a large cylinder of $r_\text{max}=5~\text{kpc}$ around the volumes midpoint. For large volumes where spiral arms and inter-arm regions average out ($\langle \kappa \rangle \sim 0$) this is true and as expected. For smaller volumes the picture is different: Small volumes centered on spiral arms ($\langle \kappa \rangle >> 0$) contain a especially large fraction of stars in spiral arms that bias the potential estimates strongly. Small volumes centered on inter-arm regions ($\langle \kappa \rangle < 0$) seem to be smooth enough and close enough to the axisymmetric average model, that the potentials recovered from these volumes have real predictive power for much a much larger volume. This is an important result.
+
 
 %====================
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_plot_stdkappa_vs_frac10star.pdf}
-\caption{\Wilma{TO DO} \Wilma{[TO DO: Make sure all final analyses are in this plot.]}}
-\label{fig:????}
+\caption{Influence of the spiral arm contrast within the survey volume on the recovery of the gravitational forces at the positions of the stars that entered the \RM{analysis}. The relative spiral contrast on the $x$-axis was quantified as $\sigma[\kappa(r\leq r_\text{max})]$ according to Equation \Wilma{[TO DO]} in Section \ref{sec:spiral_arm_kappa}. On the $y$-axis the fraction of stars is shown for which the radial (circle symbols) and vertical (cross symbols) force residual calculated from Equations \eqref{eq:delta_FR}-\eqref{eq:delta_Fz} is smaller than 10\%. The dotted lines (small circles and crosses) are linear fits to the radial and vertical force residual fraction, respectively, and are guides to the eye that show the clear and expected trend that in volumes with smaller spiral arm contrast, where comparably fewer stars are located in spiral arms, the axisymmetric best-fit model can recover the true gravitational forces also for more stars. \Wilma{[TO DO: Make sure all final analyses are in this plot.]} \Wilma{[TO DO: Legend with positions.]} \Wilma{[TO DO: rewrite x-axis]}}
+\label{fig:std_kappa_vs_frac10_stars}
 \end{figure}
 %====================
 
@@ -501,8 +498,8 @@ Because the stellar number asymmetry in the trailing vs. leading sides of spiral
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\columnwidth]{fig/MNdHHdiffSph2_plot_meankappa_vs_frac10grid.pdf}
-\caption{\Wilma{TO DO} \Wilma{[TO DO: Make sure all final analyses are in this plot.]}}
-\label{fig:????}
+\caption{Influence of the spiral arm dominance within the survey volume on the "predictive power" of the models recovered from each survey volume. The spiral arm dominance on the $x$-axis was quantified as $\langle \kappa \rangle \equiv \langle \kappa(r\leq r_\text{max})\rangle$ from Equation \Wilma{[TO DO]} in Section \ref{sec:spiral_arm_kappa}. The $y$-axis shows the fraction of a large and fixed cylindrical volume with $r_\text{max}=5~\text{kpc}$ and $|z|1.5~\text{kpc}$ centred around the respective survey volume positions given in Table \Wilma{[TO DO]}, i.e., number of regular grid points with radial (circle symbols) and vertical (cross symbols) force residuals smaller than 10\%, i.e., how well the model can predict the potential in a large portion of the galaxy. The dotted lines (small circles and crosses) are guides to the eyes. This figure demonstrates that the ''predictive power'' of a model derived from a survey volume that is either large enough for spiral arms not to dominate the volume ($\langle \kappa \rangle \sim 0$, compare Figure \ref{fig:spiral_arm_kappa}), or that are derived from volumes centered on inter-arm regions ($\langle \kappa \rangle \lesssim 0$) are less biased by the kinematics in the spiral arms and have therefore a higher predictive power. \Wilma{[TO DO: Make sure all final analyses are in this plot.]} \Wilma{[TO DO: Legend with positions.]} \Wilma{[TO DO: rewrite x-axis]}}
+\label{fig:mean_kappa_vs_frac10_grid}
 \end{figure}
 %====================
 
@@ -513,8 +510,35 @@ Because the stellar number asymmetry in the trailing vs. leading sides of spiral
 %====================
 \begin{figure*}[!htbp]
 \centering
-\includegraphics[width=0.9\textwidth]{fig/MNdHHdiffSph2_vcirc_surfdens_1kpcSuite.pdf}
+\includegraphics[width=0.6\textwidth]{fig/MNdHHdiffSph2_vcirc_surfdens_500pcSuite.pdf}
 \caption{\Wilma{TO DO} \Wilma{[TO DO: Make sure all final analyses are in this plot.]}}
+\label{fig:500pcSuite}
+\end{figure*}
+%====================
+
+%====================
+\begin{figure*}[!htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{fig/MNdHHdiffSph2_vcirc_surfdens_1kpcSuite.pdf}
+\caption{Same as Figure \ref{fig:500pcSuite}, but for all survey volumes with $r_\text{max}=1~\text{kpc}$. \Wilma{[TO DO: Make sure all final analyses are in this plot.]}}
+\label{fig:????}
+\end{figure*}
+%====================
+
+%====================
+\begin{figure*}[!htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{fig/MNdHHdiffSph2_vcirc_surfdens_2kpcSuite.pdf}
+\caption{Same as Figure \ref{fig:500pcSuite}, but for all survey volumes with $r_\text{max}=2~\text{kpc}$. \Wilma{[TO DO: Make sure all final analyses are in this plot.]}}
+\label{fig:????}
+\end{figure*}
+%====================
+
+%====================
+\begin{figure*}[!htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{fig/MNdHHdiffSph2_vcirc_surfdens_3kpcSuite.pdf}
+\caption{Same as Figure \ref{fig:500pcSuite}, but for all survey volumes with $r_\text{max}=3~\text{kpc}$. \Wilma{[TO DO: Make sure all final analyses are in this plot.]}}
 \label{fig:????}
 \end{figure*}
 %====================
