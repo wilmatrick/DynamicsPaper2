@@ -34,6 +34,16 @@
 \newcommand{\HW}[1]{\textcolor{Green}{#1}}
 \newcommand{\Jo}[1]{\textcolor{Blue}{#1}}
 
+%% Symbols
+\definecolor{darkorange}{HTML}{FF7F00}
+\definecolor{brightorange}{HTML}{FDBF6F}
+\definecolor{darkgreen}{HTML}{33A02C}
+\definecolor{brightgreen}{HTML}{B2DF8A}
+\usepackage{tikz}
+\newcommand{\tikzcircle}[2][black,fill=black]{\tikz[baseline=-0.5ex]\draw[#1] (0,0) circle (#2);}%
+\newcommand{\tikzsquare}[2][black,fill=black]{\tikz[baseline=-0.5ex]\draw[#1] ([xshift=-2pt,yshift=-2pt]10,0) rectangle ++(#2,#2);}%
+
+
 %% Abbreviations
 \shorttitle{Action-based Dynamical Modelling in the Presence of Spiral Arms}
 \shortauthors{Trick et al.}
@@ -79,30 +89,26 @@ Several approaches to constrain an axisymmetric potential and/or orbit DF have r
 
 In this work we will continue our investigation of the \RM{} approach (\emph{``Recovery of the Orbit Action Distribution of Mono-Abundance Populations and Potential INference for our Galaxy''}). The first application of \RM{} was done by \citet{2013ApJ...779..115B} and \citet{2016arXiv160508601T}, hereafter Paper I, performed a detailed analysis of the strengths and weaknesses of the approach. 
 
-The idea behind \RM{} is, that simple stellar populations in the MW disk---be it mono-abundance populations \citep{2012ApJ...751..131B,2012ApJ...753..148B,2012ApJ...755..115B,2016ApJ...823...30B} (i.e., stars with the same $[\mathrm{Fe}/\mathrm{H}]$ and $[\alpha/\mathrm{Fe}]$) or maybe also mono-age populations \citep{2013ApJ...773...43B,2014MNRAS.442.2474M,2016MNRAS.456.3655M,2014A&A...572A..92M,2016ApJ...823..114N}---follow simple orbit DFs, like, e.g., the quasi-isothermal DF (qDF) by \citet{2011MNRAS.413.1889B} \citep{2013MNRAS.434..652T}. Given an assumed gravitational potential one can calculate the orbits---or specifically the orbits' actions $\vect{J}=(J_R,J_\phi=L_z,J_z)$, which are integrals of motions---from the stars' current phase-space positions $(\vect{x},\vect{v})$ \citep{2012MNRAS.426.1324B,2016MNRAS.457.2107S}. Only if the assumed gravitational potential is realistic, this orbital action distribution will follow a realistic orbit DF like the qDF. This allows one to simultaneously fit potential and orbit DF to observations.
+The idea behind \RM{} is, that simple stellar populations in the MW disk---be it mono-abundance populations \citep{2012ApJ...751..131B,2012ApJ...753..148B,2012ApJ...755..115B,2016ApJ...823...30B} (i.e., stars with the same $[\mathrm{Fe}/\mathrm{H}]$ and $[\alpha/\mathrm{Fe}]$) or maybe also mono-age populations \citep{2013ApJ...773...43B,2014MNRAS.442.2474M,2016MNRAS.456.3655M,2014A&A...572A..92M,2016ApJ...823..114N}---follow simple orbit DFs, like, e.g., the quasi-isothermal DF (qDF) by \citet{2011MNRAS.413.1889B} \citep{2013MNRAS.434..652T}. The qDF is expressed in terms of the orbital actions $\vect{J}=(J_R,J_\phi=L_z,J_z)$, which are integrals of motion, quantify the amount of the orbit's oscillation in each of the coordinate directions $(R,\phi,z)$ and are therefore excellent orbit labels. Given an assumed gravitational potential one can calculate the orbital actions from the stars' current phase-space positions $(\vect{x},\vect{v})$ \citep{2012MNRAS.426.1324B,2016MNRAS.457.2107S}. Only if the assumed gravitational potential is realistic, this stellar action distribution will follow a realistic orbit DF like the qDF. This allows one to simultaneously fit potential and orbit DF to observations.
 
 \citet{2013ApJ...779..115B} employed this approach to measure the Milky Way's surface density profile within $1.1~\text{kpc}$ using 43 MAPs in the Galactic disk from the SDSS/SEGUE survey \citep{2009AJ....137.4377Y}. Their potential model had only two free parameters (disk scale length and relative halo-to-disk contribution to the radial force at the solar radius). To account for missing model flexibility they constrained the surface density for each MAP only at one best radius. The profile they derived in this fashion had a scale length of $R_s=2.5~\text{kpc}$ and was---in the regime $R>6.6~\text{kpc}$---later confirmed by \citet{2014MNRAS.445.3133P} using a different action-based procedure.
 
-Given the success of this first application and in anticipation of the upcoming data releases from Gaia in 2016-2022, Paper I improved the \RM{} machinery and studied its strengths and breakdowns in detail, by investigating a large suite of mock data sets. Under the prerequisite of axisymmetric data and model, they found that \RM{}'s modelling success is stable against minor misjudgements of DF or selection function, and that---if the true potential is not contained in the proposed family of model potentials---one can still find a good fit, given the limitations of the model. Paper I also found that measurement uncertainties of the order of those by the final Gaia data release should be good enough (within $3~\text{kpc}$ from the Sun) to allow for precise and unbiased modelling results. 
+Given the success of this first application and in anticipation of the upcoming data releases from Gaia in 2016-2022 \citep{2013CEAB...37..115E}, Paper I improved the \RM{} machinery and studied its strengths and breakdowns in detail, by investigating a large suite of mock data sets. Under the prerequisite of axisymmetric data and model, they found that \RM{}'s modelling success is stable against minor misjudgements of DF or selection function, and that---if the true potential is not contained in the proposed family of model potentials---one can still find a good fit, given the limitations of the model. Paper I also found that measurement uncertainties of the order of those by the final Gaia data release should be good enough (within $3~\text{kpc}$ from the Sun) to allow for precise and unbiased modelling results. 
 
-The MW is, however, not perfectly axisymmetric. The bulge contains a strong bar \Wilma{[TO DO: Reference]} and the disk itself
+The MW is, however, not axisymmetric. The bulge contains a strong bar \citep{1980ApJ...236..779L,1991ApJ...379..631B,2000MNRAS.317L..45H,2013MNRAS.435.1874W} and the disk itself is threaded by spiral arms \citep{2009PASP..121..213C,2014ApJ...783..130R} \Wilma{[TO DO: More references]} and (ring-like) overdensities \citep{2002ApJ...569..245N,2008ApJ...673..864J,2015ApJ...801..105X}, which induce non-circular motions and asymmetries in stellar number counts and correspond consequently to a non-axisymmetric gravitational potential and stellar DF.
 
-\Wilma{[TO DO: Continue]}
+We are however planing to ultimately use an axisymmetric model to describe and model our non-axisymmetric Galaxy with \RM{}. This is an important breakdown of modelling assumptions which was not investigated in Paper I. But will \RM{} still be able to give reliable constraints on the MW's gravitational potential in the presence of spiral arms? Answering this question will be this work's objective.
 
-What was not investigated in Paper I, was the breakdown of axisymmetry in the data and what would happen if both axisymmetric distribution function and potential models would therefore not contain the true DF and potential anymore. This will be this work's subject of investigation.
+Our investigation makes use of a N-body simulation snapshot of a spiral galaxy with strong spiral arms by \citet{2013ApJ...766...34D}. We draw mock data from this simulation in different regions with different spiral arm strengths and run the \RM{} machinery on these data sets and test how well we recover the local and overall gravitational potential.
 
-Here we will specifically investigate the important question, if axisymmetric \RM{} modelling can still give reliable constraints on the potential in the presence of non-axisymmetric spiral arms in the data.
+In Paper I we tested and confirmed separately the robustness of \RM{} in the case that data came from a different model family of either potential or DF than assumed in the dynamical modelling. What would happen if both potential and DF model families were slightly wrong at the same time? The set-up of this study will automatically cover this important test case: The disk potential and orbit DF models that we are using are partly chosen because of their simplicity and computational advantages and---in case of the qDF---because that's what we are planning to use in the MW. We did not have any indications that they might be especially well-suited to describe an axisymmetric version of this simulated galaxy---quite the contrary.
 
+A third modelling aspect that comes with the breakdown of axisymmetry in the data, is that the assumption actions being integrals of motion is not given anymore \citep{2016ApJ...824...39V} \Wilma{[TO DO: more references]}. This somewhat dilutes the advantages of using actions in the first place and it is not clear how well the orbit DF describes the distribution of instantaneous actions estimated in a slightly wrong and axisymmetric potential.
 
-\begin{itemize}
-\item 
-\item Main question: Does axisymmetric RoadMapping modelling work in the presence of non-axiysmmetric spiral arms?
-\item Consequences: Both potential and orbit DF are not axisymmetric, i.e., the fitted axisymmetric potential model and DF do per se not contain the truth.
-\item How to approach this: Use simulation by D'Onghia et al. 2013 and apply RM to it
-\item The potential model we use is chosen mostly for practical reasons and is not necessarily the optimal one for the simulation. Also, we use a single qDF as DF - because it is the simplest thing to do. Also independently of the non-axisymmetries the chosen models might deviate from the truth. Where we investigated deviations between model and truth in isolated test cases, here several assumptions break down simultaneously.
-\item Explain actions very shortly. $\vect{J}=(J_R,J_\phi=L_z,J_z)$ quantify oscillation in the coordinate directions $(R,\phi,z)$. Are calculated from current phase-space position in a given potential $\Phi$.
-\item Say that actions are conserved in an axisymmetric potential, but not in non-axisymmetric potentials. (Maybe the mean vertical action is conserved \Wilma{[TO DO: Reference]}.) It is therefore important to check, if our modelling works in a system where actions are not conserved.
-\end{itemize}
+Overall, there are several reasons why the \RM{} modelling could result in severely biased potential constraints when applying it to the spiral galaxy simulation snapshot at hand---or directly to the MW, for that matter. Similar studies, like the ones by \citet{2013ApJ...779..115B,2014MNRAS.445.3133P,2015MNRAS.449.3479S} \Wilma{[TO DO: more references]}, implicitly assumed that the effect of the spiral arms should not matter too much. In this study we explicitely demonstrate that the \RM{} potential estimates are still surprisingly accurate, which makes us optimistic that they will be for the MW as well and were already in previous similar action-based modelling attempts.
+
+This paper is organized as follows. Section \ref{sec:simulation} describes the N-body simulation snapshot of a MW-like spiral galaxy, that we are going to model in this study, explains how we extract 6D stellar phase-space data from it, and how we quantify the spiral arm strength. Section \ref{sec:RoadMapping} summarizes the \RM{} dynamical modelling framework and introduces the DF and potential model that will fit to the data. Section \ref{sec:results} finally presents the results. In Section \ref{sec:results_part1} we present in detail the \RM{} modelling results derived from a data set within a survey volume with radius $r_\text{max}=4~\text{kpc}$ around the Sun. Section \ref{sec:results_part2} investigates then a whole suite of \RM{} analyses, corresponding to survey volumes of different sizes and different positions within the galaxy and with respect to the spiral arms. In Section \ref{sec:discussion} we discuss the results and conclude in Section \ref{sec:conclusion}.
+
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %SIMULATION
@@ -129,12 +135,12 @@ The analytic halo follows a \citet{1990ApJ...356..359H} profile
 \begin{equation}
 \rho_\text{dm}(r) = \frac{M_\text{dm}}{2\pi} \frac{a_\text{dm}}{r (r+a_\text{dm})^3} \label{eq:dm_hernquist}
 \end{equation}
-with total halo mass $M_\text{dm} = 9.5\cdot 10^{11} ~M_\odot$ and scale length $a_\text{dm} = 29~\text{kpc}$ (Elena D'Onghia, private communication). \HW{[There is no way to check that this is indeed the case. What should I do?]} \Jo{[What does "total mass computed at 160 kpc mean? What does concentration c=9 mean for a Hernquist halo? How does that fit together with a=29 kpc?]}
+with total halo mass $M_\text{dm} = 9.5\cdot 10^{11} ~M_\odot$ and scale length $a_\text{dm} = 29~\text{kpc}$ (Elena D'Onghia, private communication).
 
 The disk consists of $10^8$ ``disk star'' particles, each having a mass of $\sim370 ~M_\odot$, and 1000 ``giant molecular cloud'' particles with mass $\sim9.5\cdot 10^{5} ~M_\odot$. Initially the particles are distributed following an exponential disk profile with density
-\begin{equation*}
-\rho_*(R,z) = \frac{M_*}{4\pi z_0 R_s^2} \text{sech}^2 \left( \frac{z}{z_0}\right) \exp \left(- \frac{R}{R_s} \right),
-\end{equation*}
+\begin{equation}
+\rho_*(R,z) = \frac{M_*}{4\pi z_0 R_s^2} \text{sech}^2 \left( \frac{z}{z_0}\right) \exp \left(- \frac{R}{R_s} \right), \label{eq:tanh_disk}
+\end{equation}
 with $R_s = 2.5~\text{kpc}$ and $z_0=0.1R_s$ \Wilma{[TO DO: Check in my own measurements]} and total disk mass $M_* = 0.04\cdot M_\text{dm} = 3.8\cdot 10^{10} M_\odot$ .
 
 The bulge consists of $10^7$ ``bulge star'' particles with mass $\sim950 ~M_\odot$ and they are distributed following a spherical Hernquist profile analogous to Equation \eqref{eq:dm_hernquist}, with total mass $M_\text{bulge}=0.01 \cdot M_\text{dm} = 9.5\cdot 10^9~M_\odot$ and scale length $a_\text{bulge}=0.1\cdot R_s=0.25~\text{kpc}$.
@@ -145,20 +151,36 @@ We have confirmed that the gravitational center of the particles corresponds to 
 
 \subsection{Survey volume and data}
 
-The selection function of all-sky surveys like Gaia, that are only limited by the brightness of the tracers, are contiguous and---when ignoring anisotropic effects like dust obscuration---spherical in shape. For simplicity we will use spherical survey volumes centered on different vantage points and with sharp edges at a radius $r_\text{max}$ around it (see also Section \ref{sec:likelihood}), which corresponds to a magnitude cut for stellar tracers all having the same luminosity. Figure \ref{fig:simulation} illustrates the different survey volume positions we use in this study: We use each a volume with $r_\text{max}=1,2,3,4$ or $5~\text{kpc}$ centered on a spiral arm and on an inter-arm region at both the equivalent of the solar radius in this simulation, $R=8~\text{kpc}$, and at $R=5~\text{kpc}$, where the spiral arms are more pronounced (see Figure \ref{fig:spiral_arm_kappa}) than at $R=8~\text{kpc}$. From each volume we draw $N_*=20,000$ random ``disk star'' particles from the simulation and use their phase-space positions $(\vect{x}_i,\vect{v}_i)$ within the simulated galaxy's restframe as data. To make the data sample more realistic, one would actually have to add measurement uncertainties, especially to the distances of the survey volumes central vantage point and the proper motions measured from there. We decided not to include measurement uncertainties: Firstly, their effect on \RM{} modelling has been already investigated in Paper I and we found that the measurement uncertainties of the last data release of Gaia should be small enough to not disturb the modelling to much. Secondly, in this study we want to isolate and investigate the deviations of the data from the assumed potential and DF model and axisymmetry independently of other effect.
+%====================
+\begin{deluxetable}{clccc}[!htbp]
+\tabletypesize{\scriptsize}
+\tablecaption{Vantage points within the galaxy simulation snapshot around which we center survey volumes of radius $r_\text{max}$. \label{tbl:volume_positions}}
+\tablewidth{0pt}
+\tablehead{
+\colhead{name} & \colhead{position} & \colhead{$R_0$ [kpc]} & \colhead{$\phi_0$ [degrees]} & \colhead{legend}}
+\startdata
+\tableline
+\texttt{S8} & on spiral arm & 8 & 5 & \tikzsquare[fill=darkorange]{6pt}\\
+\texttt{I8} & in inter-arm region & 8 & -15 &  \tikzcircle[fill=brightorange]{3pt}\\
+\texttt{S5} & on spiral arm & 5 &  60 & \tikzsquare[fill=darkgreen]{6pt}\\
+\texttt{I5} & in inter-arm region & 5 & 0 & \tikzcircle[fill=brightgreen]{3pt}
+\enddata
+\tablecomments{All volumes are centered on $z_0=0$ in the plane of the disk, and $\phi_0$ is measured counter-clockwise from the positive $x$-coordinate axis.}
+\end{deluxetable}
 
-\Wilma{[TO DO: Add a table that introduces names for the positions S8, S5, I8, I5, and lists their coordinates.]}
+The selection function of all-sky surveys like Gaia, that are only limited by the brightness of the tracers, are contiguous and---when ignoring anisotropic effects like dust obscuration---spherical in shape. For simplicity we will use spherical survey volumes centered on different vantage points and with sharp edges at a radius $r_\text{max}$ around it (see also Section \ref{sec:likelihood}), which corresponds to a magnitude cut for stellar tracers all having the same luminosity. 
+
+Figure \ref{fig:simulation} illustrates the different survey volume positions we use in this study: We use each a volume with $r_\text{max}=1,2,3,4$ or $5~\text{kpc}$ centered on a spiral arm and on an inter-arm region at both the equivalent of the solar radius in this simulation, $R=8~\text{kpc}$, and at $R=5~\text{kpc}$, where the spiral arms are more pronounced (see Figure \ref{fig:spiral_arm_kappa}) than at $R=8~\text{kpc}$. The exact positions of the vantage points are summarized in Table \ref{tbl:volume_positions}.
+
+From each volume we draw $N_*=20,000$ random ``disk star'' particles from the simulation and use their phase-space positions $(\vect{x}_i,\vect{v}_i)$ within the simulated galaxy's restframe as data. 
+
+To make the data sample more realistic, one would actually have to add measurement uncertainties, especially to the distances from the survey volume's central vantage point and the proper motions measured from there. We decided not to include measurement uncertainties: Firstly, their effect on \RM{} modelling has been already investigated in Paper I and we found that the measurement uncertainties of the last data release of Gaia should be small enough to not disturb the modelling to much. Secondly, in this study we want to isolate and investigate the deviations of the data from the assumed potential and DF model and axisymmetry independently of other effects.
 
 \subsection{Symmetrized potential model} \label{sec:DEHH-Pot}
 
 For a galaxy with pronounced spiral arms an axisymmetric model matter distribution can per se not reproduce the true matter distribution globally. We derived an \emph{overall best fit symmetrized} potential model from the distribution of particles to be able (i) to quantify the non-axisymmetries in the simulation snapshot better and (ii) to compare how close our axisymmetric \RM{} results can get to it. 
 
-We derive this model by fitting axisymmetric analytical functions to the density distribution of each of the galaxy component's particles: The bulge and halo follow each a Hernquist profile by construction (see Section \Wilma{[TO DO]}). The disk with its spiral arms however does deviate strongly from its initial conditions in Equation \Wilma{???}. We chose the double exponential disk model from the \texttt{galpy} (galaxy python) library to fit the particle distribution in the disk. (This profile is better than the Miyamoto-Nagai disk in reproducing the overall radial density slope, but as it has not the advantage of allowing fast force calculations, we are not using it in the \RM{} modelling.) The best fit parameters for this reference potential, to which we will refer as the \texttt{DEHH-Potential} (Double-Exponential disk + Hernquist halo + Hernquist bulge) in the remainder in this work, are given in Table \ref{tbl:DEHH-Pot}. As can be seen in Figures \Wilma{[TO DO]} in Section \Wilma{[TO DO]} below, the \texttt{DEHH-Pot} fits the overall density distribution very well. Its density profile might be a little stepper around $z~sim0$ than the actual particle distribution, but this should not affect the overall discussion, as the radial density, surface density and disk-to-halo ratio profiles are so well reproduced.
-
-Globally our \RM{} model can not be better than this \emph{overall best fit symmetrized} \texttt{DEHH-Pot}, which acts therefore like a global upper limit to \RM{}. We note that in deriving the \texttt{DEHH-Pot} we used the correct decomposition into bulge, disk and halo components, while \RM{} only feels the composite gravitational effect. Given the flexibility of the potential model \texttt{MNHH-Pot} used in \RM{} and the restriction of the modelling to a survey volume, it could however be possible that \RM{} can do better in fitting the local potential inside the survey volume at the price of recovering the global potential parameters to less accuracy. We will discuss this in the following sections.
-
-
-
+We derive this model by fitting axisymmetric analytical functions to the density distribution of each of the galaxy component's particles: The bulge and halo follow each a Hernquist profile by construction (see Section \ref{sec:simulation_description}). The disk with its spiral arms however does deviate strongly from its initial conditions in Equation \ref{eq:tanh_disk}. We chose the double exponential disk model from the \texttt{galpy} python library by \citet{2015ApJS..216...29B}\footnote{The \texttt{galpy} (galaxy python) package by \citet{2015ApJS..216...29B} can be downloaded from \url{http://github.com/jobovy/galpy}.} to fit the particle distribution in the disk. The best fit parameters for this reference potential, to which we will refer as the \texttt{DEHH-Potential} (Double-Exponential disk + Hernquist halo + Hernquist bulge) in the remainder of this work, are given in Table \ref{tbl:DEHH-Pot}. As can be seen in Figures \ref{fig:4kpc8Spiral_density} and \ref{fig:4kpc8Spiral_vcirc_surfdens} in Section \ref{sec:results_part1} below, the \texttt{DEHH-Pot} fits the overall density distribution very well. Its density profile might be a little stepper around $z~sim0$ than the actual particle distribution, but this should not affect the overall discussion, as the radial density, surface density and disk-to-halo ratio profiles are so well reproduced.
 
 %====================
 \begin{deluxetable}{lll}[!htbp]
@@ -216,7 +238,7 @@ This gives us information if a spiral arm or an inter-arm region dominates the s
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %MODELLING
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\section{RoadMapping modelling}
+\section{RoadMapping modelling} \label{sec:RoadMapping}
 
 \subsection{Likelihood} \label{sec:likelihood}
 
@@ -284,6 +306,9 @@ Even though we do not have any stellar abundance or age information in the simul
 \Wilma{[TO DO]}
 
 \begin{itemize}
+\item Globally our \RM{} model can not be better than this \emph{overall best fit symmetrized} \texttt{DEHH-Pot}, which acts therefore like a global upper limit to \RM{}. We note that in deriving the \texttt{DEHH-Pot} we used the correct decomposition into bulge, disk and halo components, while \RM{} only feels the composite gravitational effect. Given the flexibility of the potential model \texttt{MNHH-Pot} used in \RM{} and the restriction of the modelling to a survey volume, it could however be possible that \RM{} can do better in fitting the local potential inside the survey volume at the price of recovering the global potential parameters to less accuracy. We will discuss this in the following sections.
+\item also introdoce halo fraction formula
+\item (This profile is better than the Miyamoto-Nagai disk in reproducing the overall radial density slope, but as it has not the advantage of allowing fast force calculations, we are not using it in the \RM{} modelling.)
 \item Introduce MNHH potential model, explain that form of disk was mostly chosen to the closed form expression of $Phi$ which allows for fast calculation. 
 \item Mention action calculation and that we tested explicitely that fixing Delta=0.45 and using staeckel interpolation grid does not degrade the analysis
 \item \Wilma{Mention and reference galpy.}
@@ -292,7 +317,7 @@ Even though we do not have any stellar abundance or age information in the simul
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %RESULTS
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\section{Results}
+\section{Results} \label{sec:results}
 
 We run the \RM{} modelling on several data sets drawn from different survey volumes in the simulation snapshot introduced in Section \ref{sec:simulation_description}. In Section \ref{sec:results_part1} we will analyze one of these \RM{} analyses in detail, and in Section \ref{sec:results_part2} we compare the different results for the different data sets.
 
@@ -518,7 +543,7 @@ Given the sometimes extremely strong variations in circular velocity and surface
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %DISCUSSION
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\section{Discussion}
+\section{Discussion} \label{sec:discussion}
 
 \subsection{On the informativeness of an orbit distribution function}
 
@@ -533,7 +558,7 @@ We use on the other hand a disk model, the Miyamoto-Nagai disk, that we chose pu
 It appears that a potential model with a reasonable shape and flexibility (here: disk+bulge+halo structure with 5 free parameters) can do well enough in finding a good fit, both locally for small volumes and overall for large volumes.
 
 
-\subsection{Recovering non-axisymmetric structures from the potential from small volumes}
+\subsection{Recovering non-axisymmetric structures in the potential from modelling small volumes}
 
 \Wilma{[TO DO]}
 
@@ -552,7 +577,15 @@ In addition, we found in this work that a volume of $r_\text{max} = 3~\text{kpc}
 
 Overall we should therefore be very well off by applying \RM{} to Gaia data within $r_\text{max}=3~\text{kpc}$ only.
 
+\Wilma{[TO DO: Add that for r=3 also a lot of non-circular motion induced by the bar should be avoided (read in Reid et al. 2014]}
+
 \subsection{Location of the Sun}
+
+%Reid et al. 2014: the Local (Orion) arm,often called a “spur” and considered a minor structure (Blaauw1985),  has  comparable  massive star formation to its adjacentSagittarius and Perseus arms (Xu et al.2013)
+
+%Rotation curve measurement in Reid et al. 2014, scatter in Figure 4 suggests a rotation curve that is similarly perturbed by spiral arms as the ones in this work
+
+%Our Figure 3 shows an excess of stars with (radial) velocities different by 50km/s from the expected 0km/s. Reid et al. 2014 found: Typical peculiar motions are ≈10 km s−1,butsomesources have much larger values. For example, many sourcesin  the  Perseus  arm  in  the  Galactic  longitude  range≈100◦to≈135◦display  peculiar  motions20 km  s−1.  Many  sourceswithin≈4 kpc of the Galactic center display even larger pecu-liar motions, probably indicating that the rotation curve usedhere is inadequate to describe their Galactic orbits, especially inthe presence of the Galactic bar(s)
 
 \Wilma{[TO DO]}
 
@@ -563,7 +596,7 @@ Overall we should therefore be very well off by applying \RM{} to Gaia data with
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %CONCLUSION
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\section{Conclusion}
+\section{Conclusion} \label{sec:conclusion}
 
 \begin{itemize}
 \item \Wilma{[TO DO]}
