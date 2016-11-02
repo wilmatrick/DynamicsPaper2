@@ -151,7 +151,7 @@ The simulation snapshot which we are using in this work has evolved in isolation
 
 We have confirmed that the gravitational center of the particles corresponds to the coordinate origin.
 
-\subsection{Survey volume and data} \label{sec:survey_volume_data}
+\subsection{Data selection and survey volume} \label{sec:survey_volume_data}
 
 %====================
 \begin{deluxetable}{clccc}[!htbp]
@@ -178,10 +178,11 @@ From within each volume we drew $N_*=20,000$ random ``disk star'' particles, and
 
 To make the data sample more realistic, one would actually have to add measurement uncertainties, especially to the distances from the survey volume's central vantage point and the proper motions measured from there. We decided not to include measurement uncertainties: Firstly, their effect on \RM{} modeling has been already investigated in Paper I, and we found that the measurement uncertainties of the last data release of Gaia should be small enough to not significantly disturb the modeling. Secondly, in this study we want to isolate and investigate the deviations of the data from axisymmetry and the assumed potential and DF model independently of other effects.
 
-\subsection{Symmetrized potential model} \label{sec:DEHH-Pot}
+\subsection{True symmetrized potential} \label{sec:DEHH-Pot}
+
 For a galaxy with pronounced spiral arms, an axisymmetric model of matter distribution can per se not reproduce the true matter distribution globally. We therefore obtain an ``overall best fit symmetrized'' potential model from the distribution of particles to be able (i) to quantify the non-axisymmetries in the simulation snapshot better and (ii) to compare how close our axisymmetric \RM{} results can get to it. 
 
-We derive this model by fitting axisymmetric analytical functions to the density distribution of each of the galaxy component's particles. The bulge and halo follow Hernquist profiles by construction (see Section \ref{sec:simulation_description}). The disk however does deviate from its initial conditions in Equation \eqref{eq:sech_disk}: after $250~\text{Myr}$ pronounced spiral arms have formed, caused some in-plane heating and introduced non-axisymmetries. Except of an overdensity around $R\sim6~\text{kpc}$ (see Figure \ref{fig:4kpc8Spiral_vcirc_surfdens_b} in Section \ref{sec:4kpc8Spiral_potential}), the overall surface density profile was however not changed much. We therefore chose a double exponential disk model to fit the particle distribution in the disk.\footnote{We found the scale height $h_r$ and scale length $h_z$ of the best fit double exponential disk profile, $\rho_\text{DE-disk}(R,z|h_r,h_z)$, by maximizing the likelihood $\mathscr{L}(h_r,h_z)\equiv\prod_i \rho_\text{DE-disk}(R_i,z_i|h_r,h_z)$ for all particles to be drawn from this density profile. In that way the fit does not depend on the choice of how we bin the particles, but might be slightly biased by the excess of stars in the strong spiral arms at $R\sim6~\text{kpc}$. The total mass of the disk was set by the total mass of all disk particles.} The best fit parameters for this reference potential, to which we will refer as the \texttt{DEHH-Potential} (Double-Exponential disk + Hernquist halo + Hernquist bulge) in the remainder of this work, are given in Table \ref{tbl:DEHH-Pot}. As can be seen in Figures \ref{fig:4kpc8Spiral_density} and \ref{fig:4kpc8Spiral_vcirc_surfdens} in Section \ref{sec:4kpc8Spiral_potential} below, the \texttt{DEHH-Pot} fits the overall true density distribution very well. Its density profile might be a little steeper around $z\sim 0$ than the actual particle distribution, but this should not affect the overall discussion, as the radial density, surface density and disk-to-halo ratio profiles are so well reproduced.
+We derive this model by fitting axisymmetric analytical functions to the density distribution of each of the galaxy component's particles. The bulge and halo follow Hernquist profiles by construction (see Section \ref{sec:simulation_description}). The disk however does deviate from its initial conditions in Equation \eqref{eq:sech_disk}: after $250~\text{Myr}$ pronounced spiral arms have formed, caused some in-plane heating and introduced non-axisymmetries. Except of an overdensity around $R\sim6~\text{kpc}$ (see Figure \ref{fig:4kpc8Spiral_vcirc_surfdens_b} in Section \ref{sec:4kpc8Spiral_potential}), the overall surface density profile was however not changed much. We therefore chose a double exponential disk model to fit the particle distribution in the disk.\footnote{We found the scale height $h_r$ and scale length $h_z$ of the best fit double exponential disk profile, $\rho_\text{DE-disk}(R,z|h_r,h_z)$, by maximizing the likelihood $\mathscr{L}(h_r,h_z)\equiv\prod_i \rho_\text{DE-disk}(R_i,z_i|h_r,h_z)$ for all particles to be drawn from this density profile. In that way the fit does not depend on the choice of how we bin the particles, but might be slightly biased by the excess of stars in the strong spiral arms at $R\sim6~\text{kpc}$. The total mass of the disk was set by the total mass of all disk particles.} The best fit parameters for this reference potential, to which we will refer as the \texttt{DEHH-Pot} (Double-Exponential disk + Hernquist halo + Hernquist bulge) in the remainder of this work, are given in Table \ref{tbl:DEHH-Pot}. As can be seen in Figures \ref{fig:4kpc8Spiral_density} and \ref{fig:4kpc8Spiral_vcirc_surfdens} in Section \ref{sec:4kpc8Spiral_potential} below, the \texttt{DEHH-Pot} fits the overall true density distribution very well. Its density profile might be a little steeper around $z\sim 0$ than the actual particle distribution, but this should not affect the overall discussion, as the radial density, surface density and disk-to-halo ratio profiles are so well reproduced.
 
 %====================
 \begin{deluxetable}{lll}[!htbp]
@@ -370,9 +371,7 @@ We present our results in two steps. In Section \ref{sec:results_part1} we discu
 
 \subsection{An axisymmetric galaxy model from \RM{}} \label{sec:results_part1}
 
-\Jo{[TO DO: Jo writes: "I know that we don’t want to change anything major, but I think it would be nice if there is *some* reason for focusing on the rmax=4 kpc volume. For example, is it where we can expect good data for Gaia DR2, DRX, final DR? If so, that would be a good reason to focus on this volume. Is there isn’t a simple reason like this, then just ignore this comment, but think it would help if there was a simple reason like this."]}
-
-We will focus in this section on one single data set for which we discuss all the different aspects of a \RM{} model. This data set has $N_*=20,000$ stars that were drawn from the spherical volume with $r_\text{max}=4~\text{kpc}$ centred on a spiral arm at the ``solar'' radius $R_0=8~\text{kpc}$ shown as orange sphere in Figure \ref{fig:simulation} (position \texttt{S8}). We chose this volume because of its position centred on a smaller spiral arm---similar to our Sun being located in the Orion spiral arm---and because it probes the galaxy's potential over an extended region. Our goal is to investigate the ability of this best fit \RM{} model to serve as an overall axisymmetric model for the galaxy.
+We will focus in this section on one single data set for which we discuss all the different aspects of a \RM{} model. This data set has $N_*=20,000$ stars that were drawn from the spherical volume with $r_\text{max}=4~\text{kpc}$ centred on a spiral arm at the ``solar'' radius $R_0=8~\text{kpc}$ shown as orange sphere in Figure \ref{fig:simulation} (position \texttt{S8}). We chose this volume because of its position centred on a smaller spiral arm, similar to our Sun being located in the Orion spiral arm. Our conservative guess for the survey volume size for which we will expect unbiased potential estimates from the final Gaia data release (DR) and with \RM{} in its current form is $r_\text{max}=3~\text{kpc}$ (see Paper I and Section \ref{sec:discussion_choosing_SV}). The slightly larger volume with $r_\text{max}=4~\text{kpc}$ in this section is crossed by several spiral arms and therefore demonstrates \RM{}'s ability to average over spiral arms very well. In addition, we are optimistic that improvements in \RM{}'s treatment of measurement uncertainties that will be made until the final Gaia DR, will ultimately allow the modeling of regions as large as $r_\text{max}=4~\text{kpc}$. In this section our goal is now to investigate the ability of the best fit \RM{} model derived from this survey volume to serve as an overall axisymmetric model for the galaxy.
 
 The parameters of the best fit \texttt{MNHH-Pot} and qDF recovered with \RM{} from this data set are summarized in Table \ref{tbl:MNHHdiffSph2_4kpc8Spiral}. The circular velocity $v_\text{circ}(R_\odot)$ and halo fraction $f_\text{halo}$ are especially well-recovered (compare to Table \ref{tbl:DEHH-Pot}).
 
@@ -438,14 +437,7 @@ The aspect of the potential to which the stellar orbits are actually sensitive t
 F_{R,\text{typ}}(R) &\equiv& v^2_{\text{circ},S}(R) / R\\
 F_{z,\text{typ}}(R) &\equiv& F_{z,S}(R,z=h_z),
 \end{eqnarray}
-where $v_{\text{circ},S}$ and $F_{z,S}$ are the circular velocity and vertical force evaluated in the ``true symmetric'' reference potential \texttt{DEHH-Pot} in Table \ref{tbl:DEHH-Pot}. As the typical vertical force at a given radius we use the vertical force evaluated at the scale height $h_z=0.17~\text{kpc}$ of the disk, which is motivated by our findings that 
-\begin{eqnarray} 
-&&\langle |F_{z,S} (*_i)| \rangle (R) \nonumber\\
-&\lesssim& \langle |F_{z,T}(*_i)|\rangle (R) \nonumber\\
-&\lesssim& F_{z,S}(R,z=h_z) \nonumber\\
-&\lesssim& \langle J_z(*_i) \times \Omega_z(*_i) / h_r \rangle (R),
-\end{eqnarray}
-\Jo{[TO DO: Jo writes: "Equation (23): I’m confused about what this is supposed to show? Maybe just remove it (hope I didn’t suggest adding this!)? I think just using $z=h_z$ makes sense without any reasoning."]} where, e.g., $\langle |F_{z,T}(*_i)|\rangle (R) $ denotes the mean of the absolute value of the true vertical force of all stars at radius $R$, and $J_z \times \Omega_z \sim \langle E_z \rangle$ is close to the mean vertical energy of a stellar orbit. Figure \ref{fig:4kpc8Spiral_forces} shows therefore
+where $v_{\text{circ},S}$ and $F_{z,S}$ are the circular velocity and vertical force evaluated in the ``true symmetric'' reference potential \texttt{DEHH-Pot} in Table \ref{tbl:DEHH-Pot}. As the typical vertical force at a given radius we use $F_{z,S}$ evaluated at the scale height $h_z=0.17~\text{kpc}$ of the disk. This is of the same order as the true vertical force averaged over all stars at this radius. Figure \ref{fig:4kpc8Spiral_forces} shows therefore
 \begin{eqnarray}
 \Delta F_R(*_i) \equiv \frac{|F_{R,M}(R_i,z_i)| - |F_{R,T}(x_i,y_i,z_i)|}{F_{R,\text{typ}}(R_i)}\label{eq:delta_FR}\\
 \Delta F_z(*_i) \equiv \frac{|F_{z,M}(R_i,z_i)| - |F_{z,T}(x_i,y_i,z_i)|}{F_{z,\text{typ}}(R_i)}\label{eq:delta_Fz}
@@ -459,7 +451,7 @@ for each star. The recovery is as expected: The true vertical force is stronger 
     {\includegraphics[width=0.6\textwidth]{fig/MNdHHdiffSph2_vcirc_surfdens_2kpcSuite.pdf}} % 
     \subfigure[$r_\text{max}=3~\text{kpc}$. \label{fig:3kpcSuite}]
     {\includegraphics[width=0.6\textwidth]{fig/MNdHHdiffSph2_vcirc_surfdens_3kpcSuite.pdf}}
-\caption{Comparison of the true local circular velocity curve and surface density within $|z| \leq 2 \times h_z = 0.34~\text{kpc}$ with the recovered \RM{} models from survey volumes of size $r_\text{max}=2~\text{kpc}$ and $r_\text{max}=3~\text{kpc}$. The blue lines show the \RM{} potential models recovered from these data sets (each line is one of 100 potentials drawn from the full $pdf$ sampled with the MCMC). The grey curves show the true profiles as derived from the galaxy simulation snapshot, averaged over the angular wedge $\phi_0\pm\arcsin(r_\text{max}/R_0)$ that encloses the corresponding survey volume (see Table \ref{tbl:volume_positions} for all $R_0$ and $\phi_0$ values). In other words, we show the true profiles only for the region of the spiral galaxy that was actually probed by the data. The orange and green coloured regions mark the radial extent of the survey volume. We sorted the stars of each data set into radial bins of size $\Delta R = 200~\text{kpc}$. The radial bins with a higher than average number of stars are marked with a lighter shade of the corresponding color, and the bins with a lower than average number with a darker shade. It turns out that the constraints of highest accuracy and precision are always where most of the stars are located---within the survey volume and in particular at the peak of the distribution. \Wilma{[TO DO: Larger labels - HW agrees.]} \Jo{[TO DO: Figure 8, 9, and 10: Why are these out of order of max?]}}
+\caption{Comparison of the true local circular velocity curve and surface density within $|z| \leq 2 \times h_z = 0.34~\text{kpc}$ with the recovered \RM{} models from survey volumes of size $r_\text{max}=2~\text{kpc}$ and $r_\text{max}=3~\text{kpc}$. The blue lines show the \RM{} potential models recovered from these data sets (each line is one of 100 potentials drawn from the full $pdf$ sampled with the MCMC). The grey curves show the true profiles as derived from the galaxy simulation snapshot, averaged over the angular wedge $\phi_0\pm\arcsin(r_\text{max}/R_0)$ that encloses the corresponding survey volume (see Table \ref{tbl:volume_positions} for all $R_0$ and $\phi_0$ values). In other words, we show the true profiles only for the region of the spiral galaxy that was actually probed by the data. The orange and green coloured regions mark the radial extent of the survey volume. We sorted the stars of each data set into radial bins of size $\Delta R = 200~\text{kpc}$. The radial bins with a higher than average number of stars are marked with a lighter shade of the corresponding color, and the bins with a lower than average number with a darker shade. It turns out that the constraints of highest accuracy and precision are always where most of the stars are located---within the survey volume and in particular at the peak of the distribution. \Wilma{[TO DO: Larger labels - HW agrees.]} \Jo{[Jo asked: "Figure 8, 9, and 10: Why are these out of order of max?" Answer: Because I consider $r_\text{max}=2$ and $3~\text{kpc}$ the most interesting ones in the long term for Gaia, and the very small and very large volumes just special cases investigated in this paper.]}}
     \label{fig:vcirc_surfdens_suite_medium}
 \end{figure*}
 %====================
@@ -493,19 +485,17 @@ We note that the radial and vertical action distribution fits quite well; the ax
 
 One of the open tasks that the Galactic dynamical modeling community faces is the description of the orbit distribution of spiral arms. The above exercise of comparing the data and the model actions in a best-fit axisymmetric potential should therefore be performed for any future application to data in the Milky Way as well. It could help to learn more about the approximate orbits that stars move on in real spiral arms, and how spiral arms perturb axisymmetric action DFs.
 
-\Jo{[TO DO: Jo writes: "If you make the equivalent of Figure 7 for fits that are especially good and those that are especially bad, is the difference between the qDF prediction and the data that went into the analysis very different? If so, that might be nice to point out and then say that we will investigate this in later work."]}
+\hiddenComment{[TO DO: Jo writes: "If you make the equivalent of Figure 7 for fits that are especially good and those that are especially bad, is the difference between the qDF prediction and the data that went into the analysis very different? If so, that might be nice to point out and then say that we will investigate this in later work." $\longrightarrow$ I should do this as part of the review process.]}
 
 \subsection{The influence of spiral arms in \RM{} modeling} \label{sec:results_part2}
 
 In the previous section we showed that for a large survey volume ($r_\text{max}=4~\text{kpc}$) \RM{} can construct a good average axisymmetric potential (and DF) model for a galaxy with spiral arms. In the following we want to investigate how this modeling success depends on the position and the size of the survey volume within the galaxy and with respect to the spiral arms.
 
-\subsubsection{A suite of data sets drawn from and from between spiral arms} \label{sec:suite}
-
-\Elena{[TO DO: Elena finds this title odd.]}
+\subsubsection{A suite of data sets drawn from spiral arms and inter-arm regions} \label{sec:suite}
 
 To investigate a range of data sets affected in different proportions by spiral arms, we center our test survey volumes at the positions marked in Figures \ref{fig:simulation} and \ref{fig:spiral_arm_DeltaS} (see also Table \ref{tbl:volume_positions}) and consider volume sizes with $r_\text{max} \in [0.5,1,2,3,4,5]~\text{kpc}$ for $R_0 = 8~\text{kpc}$ and $r_\text{max} \in [0.5,1,2,3,4]~\text{kpc}$ for $R_0 = 5~\text{kpc}$ (to avoid the galactic center). As demonstrated in Figure \ref{fig:spiral_arm_DeltaS} the spiral arm strength is very different in these test volumes. Each data set that we draw from the simulation contains a random selection of $N_*=20,000$ stars inside the given spherical volume and we fit a single qDF and \texttt{MNHH-Pot} to it. 
 
-\subsubsection{Illustrating \RM{}'s success in recovering the circular velocity curves and surface density profiles} \label{sec:circvel_surfdens}
+\subsubsection{Recovering the circular velocity curves and surface density profiles} \label{sec:circvel_surfdens}
 
 It turns out that \RM{} was successful in finding reasonable and even very good best fit potential models for each single one of the 22 test data sets independent of size and location---given the data and limitations of the model. To illustrate this and to make this encouraging result immediately obvious, we explicitly show the circular velocity curves and surface density profiles of all analyses in Figures \ref{fig:vcirc_surfdens_suite_medium}-\ref{fig:vcirc_surfdens_suite_big}. 
 
@@ -517,8 +507,6 @@ Only in the two volumes with $r_\text{max}=[0.5,1]~\text{kpc}$ at position \text
 
 In an application to real data in the MW we would also have the possibility to impose some informative prior information on the potential shape (e.g., on the rotation curve), to avoid very unrealistic results (see also discussion in Section \ref{sec:discussion_sun_location}).
 
-\HW{[TO DO: HW wants me to add: "If we model actual Milky Way data, and have independent information on the location and strength of spiral arms, we could use the present approach to
-estimate systematic uncertainties."]}
 
 \Jo{[TO DO: Jo writes: "It would be interesting to figure out a little more how we can determine whether we expect the fit to be strongly biased because we are using a volume that it sitting right on top of a massive spiral arm, although that is perhaps best kept for a later paper."]}
 
@@ -557,7 +545,7 @@ Overall we find, that if the volume is large enough to average over several spir
 %====================
 
 
-\subsubsection{Success and biases in recovering the gravitational forces}\label{sec:forces_bias}
+\subsubsection{Recovering the gravitational forces}\label{sec:forces_bias}
 
 In the previous section we found that the potential and qDF parameters recovered from different survey volumes can be quite different. While the differences can be explained qualitatively, it is not clear yet how good the corresponding potential constraints actually are in a quantitative sense. To test this we calculate again $\Delta F_R(*_i)$ and $\Delta F_z(*_i)$ from Equations \eqref{eq:delta_FR}-\eqref{eq:delta_Fz} at the position of each star $*_i$ in each data set (see also Figure \ref{fig:4kpc8Spiral_forces}). From the corresponding histograms we derive the median and the $16th$ and $84th$ percentiles ($1\sigma$ range) and show them in Figure \ref{fig:forces_bias_a}. We chose this diagnostic because the forces at the positions of the stars are the quantities of the potential to which our modeling is sensitive.
 
@@ -594,7 +582,7 @@ spirals in the “R” plot?"]}}
 %====================
 
 
-\subsubsection{The influence of the spiral arm strength on the recovery of the gravitational forces} \label{sec:spiral_arms_and_forces}
+\subsubsection{The influence of the spiral arm strength} \label{sec:spiral_arms_and_forces}
 
 Figure \ref{fig:forces_bias} in Section \ref{sec:forces_bias} gave an overview of how accurately we recover the gravitational forces for our whole suite of data sets (depending on the size of the survey volume). In this figure some subtle clues were also hidden, which suggest that the quality of the force recovery could be correlated with the position of the data set with respect to the spiral arms. In the following we will investigate this further.
 
@@ -664,7 +652,7 @@ It appears that a potential model with a reasonable shape and flexibility (here:
 
 This is in agreement with one of our key results of Paper I, where we managed to successfully fit data from a MW-like (but axisymmetric) galaxy model with a bulgeless potential of a restrictive St\"ackel form. This was illustrated in Figure 16 of Paper I. Considering that we used there the same number of stars, $N_*=20,000$, the potential uncertainties were much greater than in the analogous figure of this work, Figure \ref{fig:4kpc8Spiral_density}. We believe that this how \RM{} accounts for an inconvenient potential parametrization---by increasing the uncertainty of the model estimate---which is exactly as it should be.
 
-\subsection{Gaia measurement errors and choosing the survey volume size}
+\subsection{Gaia measurement errors and choosing the survey volume size} \label{sec:discussion_choosing_SV}
 
 Considering measurement uncertainties of distances and proper motions, we found in Paper I that for a survey volume with $r_\text{max} = 3~\text{kpc}$, distance uncertainties of $<10\%$ and proper motion uncertainties of less than $3~\text{mas yr}^{-1}$ \RM{} still gives unbiased parameter results. Even if the proper motion errors are not perfectly known. 
 
@@ -686,7 +674,7 @@ The Sun is located in one of the smaller spiral arms of the MW, the local Orion 
 
 How reliable the \RM{} results from the Gaia DR1 will be depends on the strength of the local Orion arm, which will dominate the survey volume. \RM{} had, for example, some difficulties recovering the circular velocity curve for small volumes (see Figure \ref{fig:vcirc_surfdens_suite_small}).
 
-However, recent measurements of the MW's rotation curve \citep{2012ApJ...759..131B,2014ApJ...783..130R} confirm again that it is flat. We could impose this condition as a prior constraint in \RM{} (or fix the rotation curve slope as \citet{2013ApJ...779..115B} did in their \RM{} analysis). 
+However, recent measurements of the MW's rotation curve \citep{2012ApJ...759..131B,2014ApJ...783..130R} confirm again that it is flat. We could impose this condition as a prior constraint in \RM{} (or fix the rotation curve slope as \citet{2013ApJ...779..115B} did in their \RM{} analysis). Based on independent information on the location and strength of the MW spiral arms, we could also use the present approach to estimate systematic uncertainties.
 
 For later Gaia data releases, where the tracers extend further into the Galaxy ($\sim2~\text{kpc}$ from the Sun), the Sagittarius and Perseus arms could also play a role. In general, \RM{} should do much better with larger volumes, and if several spiral arms and inter-arm regions within the survey volume average each other out.
 
