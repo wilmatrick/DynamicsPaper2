@@ -31,7 +31,7 @@
 
 \usepackage[usenames,dvipsnames]{xcolor}
 \newcommand{\Wilma}[1]{\textcolor{Magenta}{#1}}
-\newcommand{\HW}[1]{\textcolor{Green}{#1}}
+\newcommand{\NEW}[1]{\textcolor{Green}{#1}}
 \newcommand{\Jo}[1]{\textcolor{Cyan}{#1}}
 \newcommand{\Elena}[1]{\textcolor{Orange}{#1}}
 \newcommand{\hiddenComment}[1]{}
@@ -184,7 +184,7 @@ For a galaxy with pronounced spiral arms, an axisymmetric model matter distribut
 
 We derive this model by fitting axisymmetric analytical functions to the density distribution of each of the galaxy component's particles. The bulge and halo follow Hernquist profiles by construction (see Section \ref{sec:simulation_description}).
 
-The disk in this simulation snapshot deviates from its initial conditions in Equation \eqref{eq:sech_disk}: after $250~\text{Myr}$ pronounced spiral arms have formed, also causing some in-plane heating. Except of an overdensity around $R\sim6~\text{kpc}$ (see Figure \ref{fig:4kpc8Spiral_vcirc_surfdens_b} in Section \ref{sec:4kpc8Spiral_potential}), the overall radial surface density profile (i.e., when averaging over the $\phi$ coordinate) did not change by much, and appears smooth and exponential. We therefore chose a double exponential disk model to fit the particle distribution in the disk. The fit assumes the total disk mass to be known and be equal to the total mass of all disk particles. The best fit double exponential disk profile is found by maximizing the likelihood for all disk particles to be drawn from this axisymmetric density profile. In this way the fit does not depend on binning choices and is driven by the number and location of the stars---analogous to our \RM{} procedure. \Elena{[Elena asked if the DEHH-Pot ist the best fit potential if I account for spiral structure. My Answer: Because the model is axisymmetric I only use the $(R,z)$ coordinates of the stars to fit the profile, i.e., I'm basically averaging the galaxy over $\phi$ before the fit. I'm not particularly accounting for spiral arms in the fit, e.g. by using an outlier model. But I think I don't have to, because spiral arms and inter-arm regions average out anyway when not including the $\phi$-coordinate in the fit, and we have a smooth and almost perfectly exponential radial profile. I'm not 100\% sure if this answers the question...]}
+The disk in this simulation snapshot deviates from its initial conditions in Equation \eqref{eq:sech_disk}: after $250~\text{Myr}$ pronounced spiral arms have formed, also causing some in-plane heating. Except of an overdensity around $R\sim6~\text{kpc}$ (see Figure \ref{fig:4kpc8Spiral_vcirc_surfdens_b} in Section \ref{sec:4kpc8Spiral_potential}), the overall radial surface density profile (i.e., when averaging over the $\phi$ coordinate) did not change by much, and appears smooth and exponential. We therefore chose a double exponential disk model to fit the particle distribution in the disk. The fit assumes the total disk mass to be known and be equal to the total mass of all disk particles. The best fit double exponential disk profile is found by maximizing the likelihood for all disk particles to be drawn from this axisymmetric density profile. In this way the fit does not depend on binning choices and is driven by the number and location of the stars---analogous to our \RM{} procedure.
 
 The best fit parameters for this reference potential, to which we will refer as the \texttt{DEHH-Pot} (Double-Exponential disk + Hernquist halo + Hernquist bulge) in the remainder of this work, are given in Table \ref{tbl:DEHH-Pot}. As can be seen in Figures \ref{fig:4kpc8Spiral_density} and \ref{fig:4kpc8Spiral_vcirc_surfdens} in Section \ref{sec:4kpc8Spiral_potential} below, the \texttt{DEHH-Pot} fits the overall true density distribution very well. Its density profile might be a little steeper around $z\sim 0$ than the actual particle distribution, but this should not affect the overall discussion, as the radial density, surface density and disk-to-halo ratio profiles are so well reproduced.
 
@@ -206,6 +206,15 @@ bulge scale length & $a_\text{bulge}$ & $0.25~\text{kpc}$
 %\tablenotetext{(a)}{...}
 \tablecomments{The \texttt{DEHH-Pot} is introduced in Section \ref{sec:DEHH-Pot}, and we use it as the global best fit symmetrized potential model for the simulated galaxy. The halo fraction, $f_\text{halo}$, and circular velocity at the Sun, $v_\text{circ}(R_\odot)$, which scales the total mass of the model, are defined in Equations \eqref{eq:fhalo} and \eqref{eq:circvel}.}
 \end{deluxetable}
+%====================
+
+%====================
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\columnwidth]{fig/plot_vcirc_decomposed.pdf}
+\caption{\NEW{Circular velocity curve and fractional contribution to the radial force (rotational support) of the disk, halo and bulge components of the \texttt{DEHH-Pot}, the symmetrized best fit to the $N$-body simulation. This demonstrates that the simulation is a disk-dominated spiral galaxy.}}
+\label{fig:DEHH_vcirc_decomposed}
+\end{figure}
 %====================
 
 \subsection{Quantifying the strength of spiral arms} \label{sec:spiral_arm_DeltaS}
@@ -241,6 +250,26 @@ Figure \ref{fig:spiral_arm_DeltaS} shows $\Delta_\text{Spiral}$ as function of $
 \label{fig:spiral_arm_DeltaS}
 \end{figure*}
 %====================
+
+\subsection{\NEW{Comparison of the $N$-body simulation to the MW}}
+
+\NEW{The $N$-body simulation in this work is not a perfect match to the MW. But to be suitable for this study it is most important that it satisfies our main requirements:  It is a disk-dominated spiral galaxy with a very high number of star particles and strong spiral arms. In the following we discuss the differences between the simulation at hand and what we know about the MW.}
+
+\NEW{The Galactic bar can introduce non-axisymmetries around the co-rotation and Lindblad resonances \Wilma{[TO DO: Dehnen, reference]}. The simulation at hand does not have a bar. Bar effects are therefore not part of this study and remain a possible source of uncertainty  in \RM{}. We suspect however that its influence is small outside of the bar region.}
+
+\Wilma{[TO DO: Write about the bar.]}
+
+\NEW{The MW's dark halo is estimated to have a mass $M_{200}\sim10^{12}M_\odot$ \Wilma{[TO DO: B-H and G 2016]}; the simulation's halo is slightly less massive with $M_{200}\sim8\cdot10^{10}$ \Wilma{[TO DO: Check]}.}
+
+\NEW{The strength of the perturbations in the disk depends on the disk fraction \Wilma{[TO DO: reference]}. The total disk mass in the simulation might be only 4\% of the halo mass, but within $2.2R_\text{s}$ it is already 50\% of the total mass.}
+
+\NEW{It is still under debate if the MW disk is maximal (i.e., rotational support of the baryonic mass at $2.2R_\text{s}$ is $\gtrsim70\%$ \Wilma{[TO DO]}) and depends on the disk scale length. \Wilma{[BR13]} found that the rotational support of the disk $\left( v_\text{circ,disk}/v_\text{circ,total}\right)^2=(69\pm6)\%$ at $2.2R_\text{s}$ with $R_d=2.15\pm0.14~\text{kpc}$. The \texttt{DEHH-Pot} (and therefore our $N$-body model) has  $\left( v_\text{circ,disk}/v_\text{circ,total}\right)^2~47\%$ at $2.2R_\text{s}$.}
+
+\Wilma{[TO DO: Write about the number of arms.]}
+
+\Wilma{[TO DO: Write about the spiral arm strength.]}
+
+\Wilma{[TO DO: Mention streaming motions.]}
 
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -360,7 +389,7 @@ To estimate the stellar actions $\vect{J}=(J_R,L_z,J_z)$ in the axisymmetric \te
 \end{figure*}
 %====================
 
-\hiddenComment{[TO DO: Elena writes: "Do you mean that the DEHH-Pot is the best fit if you account for spiral structure in the snapshot?"]} The \texttt{DEHH-Pot} introduced in Section \ref{sec:DEHH-Pot} is better than the Miyamoto-Nagai disk in reproducing the overall radial density slope, as we will see in Figures \ref{fig:4kpc8Spiral_density} and \ref{fig:4kpc8Spiral_vcirc_surfdens} in the next section. However, the closed form expression of the potential in Equation \eqref{eq:MN-disk} has the crucial advantage of allowing much faster force and therefore action calculations. In addition, by using a potential model where we already know that it is not be the optimal model for the galaxy's disk, we challenge \RM{} even further.
+The \texttt{DEHH-Pot} introduced in Section \ref{sec:DEHH-Pot} is better than the Miyamoto-Nagai disk in reproducing the overall radial density slope, as we will see in Figures \ref{fig:4kpc8Spiral_density} and \ref{fig:4kpc8Spiral_vcirc_surfdens} in the next section. However, the closed form expression of the potential in Equation \eqref{eq:MN-disk} has the crucial advantage of allowing much faster force and therefore action calculations. In addition, by using a potential model where we already know that it is not be the optimal model for the galaxy's disk, we challenge \RM{} even further.
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %RESULTS
@@ -453,7 +482,7 @@ for each star. The recovery is as expected: The true vertical force is stronger 
     {\includegraphics[width=0.6\textwidth]{fig/MNdHHdiffSph2_vcirc_surfdens_2kpcSuite.pdf}} % 
     \subfigure[$r_\text{max}=3~\text{kpc}$. \label{fig:3kpcSuite}]
     {\includegraphics[width=0.6\textwidth]{fig/MNdHHdiffSph2_vcirc_surfdens_3kpcSuite.pdf}}
-\caption{Comparison of the true local circular velocity curve and surface density within $|z| \leq 2 \times h_z = 0.34~\text{kpc}$ with the recovered \RM{} models from survey volumes of size $r_\text{max}=2~\text{kpc}$ and $r_\text{max}=3~\text{kpc}$. The blue lines show the \RM{} potential models recovered from these data sets (each line is one of 100 potentials drawn from the full $pdf$ sampled with the MCMC). The grey curves show the true profiles as derived from the galaxy simulation snapshot, averaged over the angular wedge $\phi_0\pm\arcsin(r_\text{max}/R_0)$ that encloses the corresponding survey volume (see Table \ref{tbl:volume_positions} for all $R_0$ and $\phi_0$ values). In other words, we show the true profiles only for the region of the spiral galaxy that was actually probed by the data. The orange and green colored regions mark the radial extent of the survey volume. We sorted the stars of each data set into radial bins of size $\Delta R = 200~\text{kpc}$. The radial bins with a higher than average number of stars are marked with a lighter shade of the corresponding color, and the bins with a lower than average number with a darker shade. It turns out that the constraints of highest accuracy and precision are always where most of the stars are located---within the survey volume and in particular at the peak of the distribution. \Jo{[Jo asked: "Figure 8, 9, and 10: Why are these out of order of max?" Answer: Because I consider $r_\text{max}=2$ and $3~\text{kpc}$ the most interesting ones in the long term for Gaia, and the very small and very large volumes just special cases investigated in this paper.]}}
+\caption{Comparison of the true local circular velocity curve and surface density within $|z| \leq 2 \times h_z = 0.34~\text{kpc}$ with the recovered \RM{} models from survey volumes of size $r_\text{max}=2~\text{kpc}$ and $r_\text{max}=3~\text{kpc}$. The blue lines show the \RM{} potential models recovered from these data sets (each line is one of 100 potentials drawn from the full $pdf$ sampled with the MCMC). The grey curves show the true profiles as derived from the galaxy simulation snapshot, averaged over the angular wedge $\phi_0\pm\arcsin(r_\text{max}/R_0)$ that encloses the corresponding survey volume (see Table \ref{tbl:volume_positions} for all $R_0$ and $\phi_0$ values). In other words, we show the true profiles only for the region of the spiral galaxy that was actually probed by the data. The orange and green colored regions mark the radial extent of the survey volume. We sorted the stars of each data set into radial bins of size $\Delta R = 200~\text{kpc}$. The radial bins with a higher than average number of stars are marked with a lighter shade of the corresponding color, and the bins with a lower than average number with a darker shade. It turns out that the constraints of highest accuracy and precision are always where most of the stars are located---within the survey volume and in particular at the peak of the distribution.}
     \label{fig:vcirc_surfdens_suite_medium}
 \end{figure*}
 %====================
@@ -680,7 +709,7 @@ However, recent measurements of the MW's rotation curve \citep{2012ApJ...759..13
 
 For later Gaia data releases, where the tracers extend further into the Galaxy ($\sim2~\text{kpc}$ from the Sun), the Sagittarius and Perseus arms could also play a role. In general, \RM{} should do much better with larger volumes, and if several spiral arms and inter-arm regions within the survey volume average each other out.
 
-Overall, we expect that the MW spiral arms within a few kiloparsecs around the Sun are weaker than the arms in this galaxy simulation. \citet{2014ApJ...783..130R} measured, for example, that typical peculiar non-circular motions \Elena{[Answer to Elena: "Typical peculiar motions" - This is how Reid et al.  call it.]} in the MW spiral arms were around $10-20~\text{km s}^{-1}$ for $R \gtrsim 4~\text{kpc}$, while Figure \ref{fig:DF_velres} suggests an excess of stars with radial velocities up to $50~\text{km s}^{-1}$ in our simulated galaxy.
+Overall, we expect that the MW spiral arms within a few kiloparsecs around the Sun are weaker than the arms in this galaxy simulation. \citet{2014ApJ...783..130R} measured, for example, that typical peculiar non-circular motions in the MW spiral arms were around $10-20~\text{km s}^{-1}$ for $R \gtrsim 4~\text{kpc}$, while Figure \ref{fig:DF_velres} suggests an excess of stars with radial velocities up to $50~\text{km s}^{-1}$ in our simulated galaxy.
 
 \subsection{Interpreting \RM{} results}
 
