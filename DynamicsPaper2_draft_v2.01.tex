@@ -255,15 +255,17 @@ Figure \ref{fig:spiral_arm_DeltaS} shows $\Delta_\text{Spiral}$ as function of $
 
 \NEW{The $N$-body simulation in this work is not a perfect match to the MW. But to be suitable for this study it is most important that it satisfies our main requirements:  It is a disk-dominated spiral galaxy with a very high number of star particles and strong spiral arms. In the following we discuss the differences between the simulation at hand and what we know about the MW.}
 
-\NEW{The Galactic bar can introduce non-axisymmetries around the co-rotation and Lindblad resonances \Wilma{[TO DO: Dehnen, reference]}. The simulation at hand does not have a bar. Bar effects are therefore not part of this study and remain a possible source of uncertainty  in \RM{}. We suspect however that its influence is small outside of the bar region.}
+\NEW{The Galactic bar can introduce non-axisymmetries around the co-rotation and Lindblad resonances \citep{2000AJ....119..800D} \Wilma{[TO DO:  more reference]}. The simulation at hand does not have a bar. Bar effects are therefore not part of this study and remain a possible source of uncertainty  in \RM{}. We suspect however that its influence is small outside of the bar region.}
 
 \Wilma{[TO DO: Write about the bar.]}
 
-\NEW{The MW's dark halo is estimated to have a mass $M_{200}\sim10^{12}M_\odot$ \Wilma{[TO DO: B-H and G 2016]}; the simulation's halo is slightly less massive with $M_{200}\sim8\cdot10^{10}$ \Wilma{[TO DO: Check]}.}
+\NEW{\citet{2016ARA&A..54..529B} concluded that the best estimate for the MW's thin disk scale length derived from the 15 main studies on this topic  is $h_r = 2.6 \pm 0.5~\text{kpc}$. The disk of this $N$-body simulation has a similar scale length, $h_r = 2.5~\text{kpc}$. The stellar disk is however thinner than in the MW: scale height $h_z=220-450~\text{pc}$ in the MW \citep{2016ARA&A..54..529B} versus $h_z=170~\text{pc}$ in this simulation. Also, the MW has additional disk components, a gas disk and a stellar thick disk, which are not present in the simulation. This discrepancy does, however, not affect the objective of this study. The thick disk has a much higher velocity dispersion and is less prone to spiral perturbations. When we will apply \RM{} to real MW data, the gas disk can be included as an additional component in the mass model, analogous to \citet{2013ApJ...779..115B}, and if needed also the thick disk. By slicing data according to MAPs, the thick disk will be accounted for implicitly in the tracer selection.}
+
+\NEW{The MW's dark halo is estimated to have a mass $M_{200}\sim10^{12}M_\odot$ \citep{2016ARA&A..54..529B}; the simulation's halo is slightly less massive with $M_{200}\sim8\cdot10^{10}$ \Wilma{[TO DO: Check]}.}
 
 \NEW{The strength of the perturbations in the disk depends on the disk fraction \Wilma{[TO DO: reference]}. The total disk mass in the simulation might be only 4\% of the halo mass, but within $2.2R_\text{s}$ it is already 50\% of the total mass.}
 
-\NEW{It is still under debate if the MW disk is maximal (i.e., rotational support of the baryonic mass at $2.2R_\text{s}$ is $\gtrsim70\%$ \Wilma{[TO DO]}) and depends on the disk scale length. \Wilma{[BR13]} found that the rotational support of the disk $\left( v_\text{circ,disk}/v_\text{circ,total}\right)^2=(69\pm6)\%$ at $2.2R_\text{s}$ with $R_d=2.15\pm0.14~\text{kpc}$. The \texttt{DEHH-Pot} (and therefore our $N$-body model) has  $\left( v_\text{circ,disk}/v_\text{circ,total}\right)^2~47\%$ at $2.2R_\text{s}$.}
+\NEW{It is still under debate if the MW disk is maximal (i.e., rotational support of the baryonic mass at $2.2R_\text{s}$ is $\gtrsim70\%$ \Wilma{[TO DO]}) and depends on the disk scale length. \citet{2013ApJ...779..115B} found that the rotational support of the disk $\left( v_\text{circ,disk}/v_\text{circ,total}\right)^2=(69\pm6)\%$ at $2.2R_\text{s}$ with $R_d=2.15\pm0.14~\text{kpc}$. The \texttt{DEHH-Pot} (and therefore our $N$-body model) has  $\left( v_\text{circ,disk}/v_\text{circ,total}\right)^2~47\%$ at $2.2R_\text{s}$.}
 
 \Wilma{[TO DO: Write about the number of arms.]}
 
