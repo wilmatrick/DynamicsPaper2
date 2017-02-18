@@ -261,9 +261,9 @@ where $\Sigma_{\text{1.5kpc,disk},\alpha}$ is the true surface density of the di
 \end{equation}
 $(x_k,y_k)$ are the coordinates of regular grid points with spacing $\delta=0.25~\text{kpc}$.\footnote{We average the particle surface density of the true simulation potential over area element sizes of $\delta \times \delta$ around $(x_k,y_k)$, when calculating $\Sigma_{\text{1.5kpc,disk},T}(x_k,y_k)$.} $(x_c=R_{0,c} \cdot \cos \phi_{0,c},y_c=R_{0,c} \cdot \sin \phi_{0,c},z_c=0)$ is the position of the survey volume's center within the simulation, with $c\in\left\{ \texttt{S8},\texttt{I8},\texttt{S5},\texttt{I5}\right\}$ and $(R_{0,c},\phi_{0,c})$ given in Table \ref{tbl:volume_positions}. We consider all $n \simeq \pi r_\text{max}^2/\OLD{4}\delta^2$ values of $\Delta_\text{Spiral} (x_k,y_k)$ inside a given survey volume of radius $r_\text{max}$ around position $c$ and calculate the mean and standard deviation,
 \begin{eqnarray}
-\langle \Delta_\text{Spiral} \rangle \OLD{&\equiv& \langle \Delta_\text{Spiral} (r \leq r_\text{max} \mid c) \rangle \nonumber\\}
+\langle \Delta_\text{Spiral} \rangle \OLD{\equiv \langle \Delta_\text{Spiral} (r \leq r_\text{max} \mid c) \rangle \nonumber}
 &\equiv & \frac 1n \sum_{k=1}^n \Delta_\text{Spiral}(x_k,y_k)\label{eq:mean_DeltaS}\\
-\sigma_{\Delta\text{Spiral}} \OLD{&\equiv& \sigma[\Delta_\text{Spiral}(r \leq r_\text{max} \mid c)]  \nonumber\\}
+\sigma_{\Delta\text{Spiral}} \OLD{\equiv \sigma[\Delta_\text{Spiral}(r \leq r_\text{max} \mid c)]  \nonumber}
 &\equiv &  \sqrt{\frac 1n \sum_{k=1}^{n} \left[ \Delta_\text{Spiral}(x_k,y_k) -  \langle \Delta_\text{Spiral} \rangle \right]^2}\label{eq:std_DeltaS}\\
  \text{with } && (x_k-x_c)^2 + (y_k-y_c)^2 \leq r_\text{max}^2.
 \end{eqnarray}

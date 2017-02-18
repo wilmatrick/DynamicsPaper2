@@ -16,7 +16,7 @@
 \usepackage{soul}
 
 \begin{document}
-\section*{Reviewer's Comments on "Action-based Dynamical Modeling for the Milky Way Disk: The Influence of Spiral Arms" (14. November 2016)"}
+\section*{Reviewer's Comments on "Action-based Dynamical Modeling for the Milky Way Disk: The Influence of Spiral Arms" (14. November 2016) \& Answers (18. February 2016)}
 
 \paragraph{Summary of the paper:} The article is a follow up of Paper I, which presented a method (RoadMapping) to constrain the MW potential from data. In Paper I, mock data were obtained, assuming
 the potential is axisymmetric, which was a simplistic approximation. In this second
@@ -46,6 +46,8 @@ more the orbits.
 \Answer{(b) Figure 2a in the paper demonstrates that the surface density variations with $\phi$ due to the spiral arms in the disk only are very strong, especially around $R=5~\text{kpc}$. (Figure 2 is a new plot we included in the paper to make this very clear.) Spiral arms around this radius affect almost all of our survey volumes, also those that are centered at $R=8~\text{kpc}$ for $r_\text{max}\gtrsim2~\text{kpc}$.}
 
 \Answer{(c) Figure 10 in the paper shows the total (incl. dark matter) circular velocity curve and radial surface density profile within a small $\Delta \phi$ wedge. The spiral arms are therefore strong perturbations also in the total potential.}
+
+\Answer{(d) Figure 7 in the paper shows that the total gravitational force perturbations due to the spiral arms with respect to an axisymmetric model are $\sim30\%$.}
 
 \paragraph{Aspect 3: dark matter fraction:} Indeed, the model considered here is dominated by dark matter (stellar disk mass fraction of 4\%, also stabilized by a spherical bulge of mass 25\% of the stellar disk mass). The amplitude of the spiral arms obtained certainly brings a negligible
 perturbation on the total gravitational potential of the galaxy model. In the
@@ -138,7 +140,9 @@ formation are participating to harmonics and branching, but the basic stellar
 structure is 2-armed. This will modify the conclusion, since the importance of
 spiral arms in the stellar structure will be higher.
 
-\Answer{... This high disk fraction leads to the formation of four strong arms, which we also demonstrate in the Fourier decomposition in Figure 2b, which we included in the paper. ...}
+\Answer{This is a good point, thank you. We have included a paragraph on the suspected number of spiral arms in the MW in Section 2.5 of the paper. In the conclusion, in Section 5.4, we have also mentioned that a lower number of spiral arms would require larger survey volumes to be able to successfully average over several spiral arms.}
+
+\Answer{As can be seen in Figure 2b in the paper, the simulation is a four-armed spiral between $R=4-7~\text{kpc}$, a two-armed spiral inside of this and more flocculent in the outer regions. Especially the survey volumes centered at $R=5~\text{kpc}$ deal therefore with spiral arm situations that could be similar to the MW. But also for small survey volumes centered at this radius we got some good average results.}
 
 \paragraph{Task 1: Callibrating the method using smooth data.} There is also some issue which is striking in the paper, is that the departures from
 the model are very high, when looking at Fig 3, 6 or even 11. And the reader wonders
@@ -149,11 +153,22 @@ the  influence of the basic model. This might not be a long task, only providing
 test, or a Figure, but certainly will help to understand the high discrepancy
 between derived results and the model.
 
+\Answer{This was a very good idea and we have performed this callibration test and included a section on it in the paper (Section 4.1.4).}
+
+\Answer{The problem with this test was, however, that the initial snapshot uses a velocity setup of the disk, that uses simply triaxial Gaussians for the velocity dispersion. This is not completely physical (especially not for the $v_T$ velocities) and also not self-consistent and we expect the modelling to be biased by this. The simulation develops immediately spiral arms, so there was no other useful snapshot we could perform the callibration on.}
+
+\Answer{Given that, the fit was still quite successful. In Figures 2 and 3 below we compare the true and best fit distribution of stars in this initial snapshot. Except of $v_T$, the fit is quite good and will convince the referee that the qDF is indeed a good model for the axisymmetric set-up of the disk. The deviations in Figure 5 in the paper (previously Figure 3) are therefore fully due to the spiral arms.}
+
+\Answer{Figure 7 in the paper (previously Figure 6) shows strong deviations in the gravitational forces in and around the spiral arms between the model and the data, because the axisymmetric model cannot reproduce the spiral arms. The model is however able to find a good average model, even though the perturbations due to the spiral arms are up to $\sim30\%$.}
+
+\Answer{Figure 12 in the paper (previously Figure 11) shows that we only recover the true potential parameters for large survey volumes. One of the key results of the paper is, however, that we always recover the gravitational forces at the average position of the data. For a small volume dominated by a spiral arm we do not expect the overall potential to be recovered, but to get a local estimate of the potential. This leads to deviations in the recovered parameters for small volumes as compared to the overall true parameters. This does not mean, that the fit is bad, quite on the contrary, as we explain in detail in Sections 4.2.2-4.2.4.}
+
 %====================
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.7\columnwidth]{fig/MNdHHinit_4kpc8Spiral_a_test1_data_bestfit_residuals_3b.pdf}
-\caption{\Answer{???}}
+\caption{\Answer{Comparison of the 1D spatial distribution of particles drawn from the initial axisymmetric simulation snapshot (data $D$, solid line) with the best fit RoadMapping model (model $M$, dotted line). The data was drawn from within a survey volume with $r_\text{max}=4~\text{kpc}$ around the position \texttt{S8}, $(R_0,\phi_0,z_0)=(8~\text{kpc},5~\text{deg},0~\text{kpc})$. The agreement between data and model is very good.}}
+\label{fig:MNinit_spatial}
 \end{figure}
 %====================
 
@@ -161,7 +176,7 @@ between derived results and the model.
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.7\columnwidth]{fig/MNdHHinit_4kpc8Spiral_a_test1_data_bestfit_residuals_3c.pdf}
-\caption{\Answer{???}}
+\caption{\Answer{Same as Figure \ref{fig:MNinit_spatial}, but for the velocity distribution. Except of $v_T$ the fit is also good. The model predicts more asymmetric drift in $v_T$ as compared to the data. The reason is that the initial velocity distribution in the simulation is set up following a triaxial Gaussian velocity dispersion.}}
 \end{figure}
 %====================
 
@@ -175,12 +190,13 @@ used with the new {\textbackslash}software command, e.g.
 {\textbackslash}software{GADGET-3 (Springel et al. 2005), galpy (Bovy 2008), emcee (Foreman-Mackey
 et al. 2013)}
 
-\section{List of TO DOs for Wilma}
+\hl{Forgot to do that---will deal with it next week.}
 
-
-\begin{enumerate}
-\item and no gas component in the simulation, and the disk is thinner than in the MW. The gas is not a problem, as it can easily be included in the modelling of the MW. It's potential perturbation due to gas is not expected to be much stronger than the potential perturbations investigated in this work. That the disk is thinner in this simulation means, that its vertical velocity dispersion is lower and it is more easily affected by perturbations. In the MW RoadMapping will implicitly deal with tracers of different disk components and it is also easy to include, if necessary, a thick disk in the potential model.
-\end{enumerate}
-
+\paragraph{\Answer{Additional changes in the paper to make it more readable and easier to understand:}}
+\begin{itemize}
+\item \Answer{We removed several panels in plots that were nice to have, but which appeared to draw attention away from the key plots and messages. We have indicated in the paper where this happened.}
+\item \Answer{We have completely re-structured Sections 4.2.4-4.2.6, to have one section per diagnostic and result, and not mix them and the plots concerning them. It should now be much easier to understand.}
+\item \Answer{We have slightly rephrased some sentences to make them clearer. Legends and labels in plots were made larger.}
+\end{itemize}
 
 \end{document}
