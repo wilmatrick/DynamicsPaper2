@@ -7,13 +7,12 @@
 
 
 \usepackage[usenames,dvipsnames]{xcolor}
-\newcommand{\Wilma}[1]{\textcolor{Magenta}{#1}}
-\newcommand{\Answer}[1]{\textcolor{Green}{#1}}
-
-\usepackage{soul}
+\newcommand{\Answer}[1]{\textcolor{Green}{\sf{#1}}}
 
 \begin{document}
-\section*{Reviewer's Comments on "Action-based Dynamical Modeling for the Milky Way Disk: The Influence of Spiral Arms" (14. November 2016) \& Answers (18. February 2016)}
+\section*{Answers to the reviewer's comments on Trick et al.: "Action-based Dynamical Modeling for the Milky Way Disk: The Influence of Spiral Arms"}
+
+\Answer{The reviewer's comments are written in black and our answers in green.}
 
 \paragraph{Summary of the paper:} The article is a follow up of Paper I, which presented a method (RoadMapping) to constrain the MW potential from data. In Paper I, mock data were obtained, assuming
 the potential is axisymmetric, which was a simplistic approximation. In this second
@@ -21,6 +20,8 @@ paper, the mock data are obtained from N-body simulations, showing spiral arms.
 
 \paragraph{Main concerns, Aspect 1 \& 2:} (1) However, there is no bar in the simulations, which again is a very simplistic approximation.  (2) Also the spiral structure is faint, and uncontrasted with respect to
 the total potential.
+
+\Answer{ANSWER:}
 
 \Answer{On (1): That our simulation does not have a bar is indeed a limitation of the methodology used in this paper. We made that clear in the paper, and now mention it in the abstract, in the introduction, in a new section 2.5, which compares the simulation and the MW, and we also moved the paragraph on the bar in the discussion to a more prominent position in Section 5.5. Ultimately we are not trying to analyze the most realistic non-axisymmetric MW simulation, but rather one with very strong spiral arms.}
 
@@ -35,6 +36,8 @@ will apply to the MW, since the N-body models considered here are so axisymmetri
 and the spiral structure amplitude so negligible. In the real MW world, the contrast
 of spiral arms and bars will be much higher in the potential, and will perturb much
 more the orbits.  
+
+\Answer{ANSWER:}
 
 \Answer{We do not think that it is the case that the spiral arms in this simulation are much weaker than in the MW.}
 
@@ -54,6 +57,8 @@ et al 2016 A\&A 593, A108 and references therein.). The dominance of baryons and
 much higher gas fraction make the disk much more self-gravitating and unstable, and
 the bar amplitude is non-negligible, as well as the strong spiral arms associated.
 
+\Answer{ANSWER:}
+
 \Answer{The stellar disk fraction of 4\% is only the fraction of the \emph{total} disk mass with respect to the \emph{total} mass of the dark matter halo. Locally the disk dominates over dark halo and bulge, especially between $R=3-7~\text{kpc}$. The disk mass enclosed in $2.2R_\text{s}$ is 50\% of the total mass (see Section 2.1 and D'Onghia et al. 2013). The rotational support of the disk at $2.2R_s$ is $\sim47\%$ as shown in Figure \ref{fig:rot_support} below for the reference potential \texttt{DEHH-Pot}. The upper panel of Figure \ref{fig:rot_support}, which shows the decomposition of the rotation curve of the \texttt{DEHH-Pot}, was also included in the paper as Figure 3 to also make this clear to the reader.}
 
 \Answer{In the new Section 2.5 in the paper we discuss how the mass budgets of the simulation and of the MW compare with each other. Given the uncertainty in our knowledge about the MW, the simulation's mass components (including bulge and halo) are similar to those in the MW.}
@@ -67,7 +72,7 @@ the bar amplitude is non-negligible, as well as the strong spiral arms associate
 %====================
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\columnwidth]{fig/plot_vcirc_decomposed.pdf}
+\includegraphics[width=0.7\columnwidth]{fig/refereereport/plot_vcirc_decomposed.pdf}
 \caption{\Answer{Circular velocity curve and fractional contribution to the radial force (rotational support) of the disk, halo and bulge components of the \texttt{DEHH-Pot}, the symmetrized best fit to the $N$-body simulation. This demonstrates that the simulation is a disk-dominated spiral galaxy.}}
 \label{fig:rot_support}
 \end{figure}
@@ -75,11 +80,15 @@ the bar amplitude is non-negligible, as well as the strong spiral arms associate
 
 \paragraph{Aspect 2: Amplitude of spiral arms (continued):} The model considered here, almost axisymmetric (the contrast of the spiral structure is in its large majority less than or equal to 10\% in stellar surface density, as shown in Figure 2),  is therefore very far from the reality of the MW, and can be highly deceiving for the MW results to come.
 
+\Answer{ANSWER:}
+
 \Answer{The referee is right that the Figure 4 in the paper (previously Figure 2) shows that outside of $R\sim9-10~\text{kpc}$ the majority of the area has a spiral contrast of less than 10\%. However, even further out there are still some perturbations of up to 50\%. Inside of $R\sim8~\text{kpc}$ we have extremely strong perturbations of 100\% or more, as can be seen both in Figure 2a and 4 in the paper. As there is always an excess of stars in the data sets which come from within spiral overdensities and---due to the exponential density profile---from smaller radii where the perturbations are stronger, it does not give the modelling an unfair advantage, that there are larger areas outside of $R\sim9-10~\text{kpc}$ which have less strong perturbations and in general less stars.}
 
 \Answer{Considering the strength of the spiral arms in the MW, we have also added a comment in Section 2.5 in the paper.}
 
 \paragraph{Aspect 4: Conservation of actions} The fact that the DF is still expressed in terms of integrals of motion, which should not be any more conserved, is a questionable issue.
+
+\Answer{ANSWER:}
 
 \Answer{Actions in an axisymmetric potential are integrals of motions and according to the Jeans Theorem any steady-state distribution function solution to the Boltzmann equation becomes $DF(\vec{x},\vec{v},t) \longrightarrow DF(\vec{J})$. In an axisymmetric potential superimposed with non-axisymmetric perturbations, actions are indeed not fully conserved anymore. It is however still possible to estimate the local current actions (using an axisymmetric approximation to the potential) and treat $(\vec{J},\vec{\theta})$ simply as phase-space coordinates analogous to $(\vec{x},\vec{v})$. It is interesting to test, if using the $qDF(\vec{J})$ locally as model for the true $DF(\vec{x},\vec{v},t)\approx DF(\vec{J},\vec{\theta},t)$ could still tell us something about the true potential. This is one of the aspects of action-based modelling we wanted to test in this study---and which we found to be indeed the case. To make this motivation more clear in the paper, we have included a paragraph in the introduction and another one in Section 3.2 about the distribution function model.}
 
@@ -87,6 +96,8 @@ the bar amplitude is non-negligible, as well as the strong spiral arms associate
 more so that there velocity dispersion is small. So for a given stellar population,
 with a given metal abundance (and alpha/FE ratio), we expect that a dispersion will
 occur in orbits, and the MAP concept will no longer be valid. 
+
+\Answer{ANSWER:}
 
 \Answer{The simulation at hand does not have any chemical abundances. We treat the whole disk as one single MAP (be it mono-abundance or mono-age population and motivate in Section 3.2 why we think, given the setup of the disk, that the qDF might be a good model for the overall average particle distribution. If this assumption is still valid after some time, when radial migration has re-distributed the stars, was one of the aspects to investigate in this work. Surprisingly the fits still gave plausible results.}
 
@@ -97,12 +108,16 @@ occur in orbits, and the MAP concept will no longer be valid.
 \paragraph{Question 1: Corotation of spiral arms} About this problem, it will be also useful to mention where is the corotation of the
 spiral in the N-body model, is it near the Sun radius?
 
-\Answer{This would be indeed good to know. Unfortunately this is not easy to determine for this N-body simulation. The spiral arms in this simulation are transient. And we do not have enough simulation snapshots to determine the pattern speed of these transient spiral arms. We hope however, that this is not a huge issue, given that we successfully analyse data drawn from anywhere between $R=1~\text{kpc}$ and $R=13~\text{kpc}$ and survey volumes of different sizes and at different positions. If the co-rotation would affect the modelling strongly, we would have noticed.} \hl{Elena, is there anything else, we can say about that? (Jo thinks this would be good to know.)}
+\Answer{ANSWER:}
+
+\Answer{This would be indeed good to know. Unfortunately this is not easy to determine for this N-body simulation. The spiral arms in this simulation are transient. And we do not have enough simulation snapshots to determine the pattern speed of these transient spiral arms. We hope however, that this is not a huge issue, given that we successfully analyse data drawn from anywhere between $R=1~\text{kpc}$ and $R=13~\text{kpc}$ and survey volumes of different sizes and at different positions. If the co-rotation would affect the modelling strongly, we would have noticed.}
 
 \paragraph{Question 2: Thick disk:} Another simplification of the N-body model is that there is no thick disk, while in
 the MW, there is one which is about comparable mass to the thin disk. How will the
 presence of this other components change the study of the orbits, and derivation of
 the potential?
+
+\Answer{ANSWER:}
 
 \Answer{Incorporating the thick disk in an application to MW data will be absolutely no problem for RoadMapping. There are two aspects in the modelling: The distribution function and the potential model. (a) In the potential model we can simply include the thick disk as an additional component, for example, having two exponential or Miyamoto-Nagai disk components of different thickness and scale length. (If we want, we could add a third disk for the gas mass). The only problem would be the number of free model parameters, but this is a purely computational issue. (b) In the distribution of stars the thick disk is automatically taken care of. By separating the data first into MAPs in [Fe/H] and [$\alpha$/Fe] the thick disk stars will fall into the high-$\alpha$ MAPs and will be independently modelled. In that way the different spatial distribution and higher velocity dispersion is directly taken care of.}
 
@@ -117,6 +132,8 @@ radius, and is axisymmetric in the outer parts. Not surprisingly, there are big
 departures from the true DF inside the solar radii, and less outside, as shown in
 Figure 3. This will not be the case for a realistic MW model. 
 
+\Answer{ANSWER:}
+
 \Answer{The referee is right that the spiral arms in the simulation outside of the solar radius are relatively weak. If this is the case in the MW as well, or not, is not fully known.}
 
 \Answer{Still, even the perturbations in this simulation outside of $R=8~\text{kpc}$ are not completely negligible. As can be seen in Figure 4a in the paper, there are still spiral perturbations of up to $\sim30-50\%$ out to $R=9-10~\text{kpc}$ in stellar surface density. In Figure 5a (previously Figure 3a) in the paper the departures from the true DF outside of $R=8~\text{kpc}$ still have a residual significance of 2-3 sigma. In the 1D spatial histograms the impression that there were no spiral arms outside of the solar radius is strengthened by averaging over the other two spatial coordinates.}
@@ -128,6 +145,8 @@ Figure 3. This will not be the case for a realistic MW model.
 \paragraph{Aspect 2 \& 3 (continued):} p.19 in the conclusion: the authors conclude that their model has "has stronger spiral arms than we expect in the MW", which is not true, given the dominance of
 the dark matter
 
+\Answer{ANSWER:}
+
 \Answer{Typical fluctuations due to spiral arms in the MW are somewhere of the order of $10-20~\text{km s}^{-1}$ (e.g., Reid et al. 2014, Siebert et al. 2012). We measure similar or stronger velocity perturbations in our simulation (see Figure 5c in the paper). (We mention this in Section 2.5.) Also, the dark matter halo is not as dominant (see above). We therefore still think that the spiral arm strength is at least comparable to that in the MW.}
 
 \paragraph{Aspect 7: Number of spiral arms} It should also be recalled that in the MW when the true stellar component is mapped
@@ -136,6 +155,8 @@ arms when Halpha and young stars are considered. This means that gas and star
 formation are participating to harmonics and branching, but the basic stellar
 structure is 2-armed. This will modify the conclusion, since the importance of
 spiral arms in the stellar structure will be higher.
+
+\Answer{ANSWER:}
 
 \Answer{This is a good point, thank you. We have included a paragraph on the suspected number of spiral arms in the MW in Section 2.5 of the paper. In the conclusion, in Section 5.4, we have also mentioned that a lower number of spiral arms would require larger survey volumes to be able to successfully average over several spiral arms.}
 
@@ -150,6 +171,8 @@ the  influence of the basic model. This might not be a long task, only providing
 test, or a Figure, but certainly will help to understand the high discrepancy
 between derived results and the model.
 
+\Answer{ANSWER:}
+
 \Answer{This was a very good idea and we have performed this callibration test and included a section on it in the paper (Section 4.1.4).}
 
 \Answer{The problem with this test was, however, that the initial snapshot uses a velocity setup of the disk, that uses simply triaxial Gaussians for the velocity dispersion. This is not completely physical (especially not for the $v_T$ velocities) and also not self-consistent and we expect the modelling to be biased by this. The simulation develops immediately spiral arms, so there was no other useful snapshot we could perform the callibration on.}
@@ -163,7 +186,7 @@ between derived results and the model.
 %====================
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\columnwidth]{fig/MNdHHinit_4kpc8Spiral_a_test1_data_bestfit_residuals_3b.pdf}
+\includegraphics[width=0.7\columnwidth]{fig/refereereport/MNdHHinit_4kpc8Spiral_a_test1_data_bestfit_residuals_3b.pdf}
 \caption{\Answer{Comparison of the 1D spatial distribution of particles drawn from the initial axisymmetric simulation snapshot (data $D$, solid line) with the best fit RoadMapping model (model $M$, dotted line). The data was drawn from within a survey volume with $r_\text{max}=4~\text{kpc}$ around the position \texttt{S8}, $(R_0,\phi_0,z_0)=(8~\text{kpc},5~\text{deg},0~\text{kpc})$. The agreement between data and model is very good.}}
 \label{fig:MNinit_spatial}
 \end{figure}
@@ -172,7 +195,7 @@ between derived results and the model.
 %====================
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\columnwidth]{fig/MNdHHinit_4kpc8Spiral_a_test1_data_bestfit_residuals_3c.pdf}
+\includegraphics[width=0.7\columnwidth]{fig/refereereport/MNdHHinit_4kpc8Spiral_a_test1_data_bestfit_residuals_3c.pdf}
 \caption{\Answer{Same as Figure \ref{fig:MNinit_spatial}, but for the velocity distribution. Except of $v_T$ the fit is also good. The model predicts more asymmetric drift in $v_T$ as compared to the data. The reason is that the initial velocity distribution in the simulation is set up following a triaxial Gaussian velocity dispersion.}}
 \end{figure}
 %====================
@@ -186,6 +209,8 @@ used with the new {\textbackslash}software command, e.g.
 
 {\textbackslash}software\{GADGET-3 (Springel et al. 2005), galpy (Bovy 2008), emcee (Foreman-Mackey
 et al. 2013)\}
+
+\Answer{ANSWER:}
 
 \Answer{Thanks, we have taken care of this in the paper.}
 
